@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "locale": "en_CA.UTF-8",
+  "metadata": {
+    "appmode": "python-shiny",
+    "entrypoint": "app"
+  },
+  "python": {
+    "version": "3.10.8",
+    "package_manager": {
+      "name": "pip",
+      "version": "22.2.2",
+      "package_file": "requirements.txt"
+    }
+  },
+  "files": {
+    "requirements.txt": {
+      "checksum": "ae424acf602d0dc78be71c672760b3a0"
+    },
+    ".DS_Store": {
+      "checksum": "4fd3b0447b0926e66eb4472f62d8cbb3"
+    },
+    ".gitignore": {
+      "checksum": "a611d760efaceaadf76feaa1b2009f72"
+    },
+    ".vscode/extensions.json": {
+      "checksum": "3a542a0e563631d736f764113b4284cc"
+    },
+    ".vscode/settings.json": {
+      "checksum": "b2b7e7f8d03570f6a10df604ccf68195"
+    },
+    "README.md": {
+      "checksum": "49148ea25a3a8183d91e67282588970a"
+    },
+    "app.py": {
+      "checksum": "4a77af0a4cd41243c40aa998928a8dd7"
+    },
+    "shiny_semantic/.DS_Store": {
+      "checksum": "509500d2b99b2ef26e2003a7212af9eb"
+    },
+    "shiny_semantic/__init__.py": {
+      "checksum": "b8eaa0e9997d4e5efcd5329e5e3d9d9c"
+    },
+    "shiny_semantic/__pycache__/__init__.cpython-310.pyc": {
+      "checksum": "9065b196578ab758d5e13524d1544f14"
+    },
+    "shiny_semantic/__pycache__/button.cpython-310.pyc": {
+      "checksum": "f241fe027c0b8f9774ad86074ff409e0"
+    },
+    "shiny_semantic/__pycache__/page.cpython-310.pyc": {
+      "checksum": "a70da2816f244e28bf2e871db18f1fb1"
+    },
+    "shiny_semantic/elements/__init__.py": {
+      "checksum": "513f521281a18412be46639bfb796145"
+    },
+    "shiny_semantic/elements/__pycache__/__init__.cpython-310.pyc": {
+      "checksum": "83d8fa51e59a3c179ea4e4df771fe982"
+    },
+    "shiny_semantic/elements/__pycache__/button.cpython-310.pyc": {
+      "checksum": "8012bddc76c14431b826448359511761"
+    },
+    "shiny_semantic/elements/__pycache__/button2.cpython-310.pyc": {
+      "checksum": "88db8f57ab33b92807e00031aa2ea021"
+    },
+    "shiny_semantic/elements/button.py": {
+      "checksum": "439e7f7df02383a90cd297e89c964c1f"
+    },
+    "shiny_semantic/elements/button2.py": {
+      "checksum": "5699242a2be5ab7652ad8de5bd1bf411"
+    },
+    "shiny_semantic/page.py": {
+      "checksum": "a8c36ed9492a343147ab04e2b4e9ae47"
+    },
+    "shiny_semantic/typings/__init__.py": {
+      "checksum": "422744ce1294923c9d698d27c4967a33"
+    },
+    "shiny_semantic/typings/__pycache__/__init__.cpython-310.pyc": {
+      "checksum": "ea4d309104b16fa9d7fe17887c78ca32"
+    },
+    "shiny_semantic/www/.DS_Store": {
+      "checksum": "308d413fbc00f2362df3d1ea3fcafecf"
+    },
+    "shiny_semantic/www/shared/.DS_Store": {
+      "checksum": "11296f9d37617eee4ebf12c222efd111"
+    },
+    "shiny_semantic/www/shared/fomantic/.DS_Store": {
+      "checksum": "4a160b14a954731bf444025047d58879"
+    },
+    "shiny_semantic/www/shared/fomantic/fomantic.min.css": {
+      "checksum": "fd8dc4162de9da54f90dae1b354627d3"
+    },
+    "shiny_semantic/www/shared/fomantic/fomantic.min.js": {
+      "checksum": "d2e5d96148b907a10a14541f7e0e99c7"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/.DS_Store": {
+      "checksum": "016a9e9eb9105e86d89e944b65fdc7cf"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/.DS_Store": {
+      "checksum": "741a6bd749cf68c3a6bcec79d2c0df19"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/.DS_Store": {
+      "checksum": "b6d47d3526fe9788a47b20f891fcfb74"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/.DS_Store": {
+      "checksum": "194577a7e20bdcc7afbb718f502c134c"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-Bold.woff": {
+      "checksum": "d878b6c29b10beca227e9eef4246111b"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-Bold.woff2": {
+      "checksum": "cccb897485813c7c256901dbca54ecf2"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-BoldItalic.woff": {
+      "checksum": "9c7e4e9eb485b4a121c760e61bc3707c"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-BoldItalic.woff2": {
+      "checksum": "0b6bb6725576b072c5d0b02ecdd1900d"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-Italic.woff": {
+      "checksum": "f28f2d6482446544ef1ea1ccc6dd5892"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-Italic.woff2": {
+      "checksum": "4eb103b4d12be57cb1d040ed5e162e9d"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-Regular.woff": {
+      "checksum": "27bd77b9162d388cb8d4c4217c7c5e2a"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/Lato-Regular.woff2": {
+      "checksum": "bd03a2cc277bbbc338d464e679fe9942"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-Bold.woff": {
+      "checksum": "f323edeea9058ded98148eefffb1794a"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-Bold.woff2": {
+      "checksum": "3ff66ada9b57d10c17e415222486ec21"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-BoldItalic.woff": {
+      "checksum": "2538f760e9fb5f5ec46f70facba55ac5"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-BoldItalic.woff2": {
+      "checksum": "e3efadc700b8e6364a98fda1b2e2b784"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-Italic.woff": {
+      "checksum": "6b654922e092ce676796215a3bb19620"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-Italic.woff2": {
+      "checksum": "5e75c678391d787696bb192db689fcaf"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-Regular.woff": {
+      "checksum": "586ec8dc57c264cffafa044f8603e7bb"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/LatoLatin-Regular.woff2": {
+      "checksum": "3cd36578026d6c12eddf9a5c671a251d"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/brand-icons.woff": {
+      "checksum": "1a575a4138e5f366474f0e7c5bd614a5"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/brand-icons.woff2": {
+      "checksum": "ed311c7a0ade9a75bb3ebf5a7670f31d"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/icons.woff": {
+      "checksum": "d745348d289b149026921f197929a893"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/icons.woff2": {
+      "checksum": "d824df7eb2e268626a2dd9a6a741ac4e"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/outline-icons.woff": {
+      "checksum": "d1d7e3b4c219fde0f7376c6facfd7149"
+    },
+    "shiny_semantic/www/shared/fomantic/themes/default/assets/fonts/outline-icons.woff2": {
+      "checksum": "b91d376b8d7646d671cd820950d5f7f1"
+    },
+    "shiny_semantic/www/shiny-semantic-bindings.js": {
+      "checksum": "ea1f93ffdcce0aec34993482d91d4d1f"
+    }
+  }
+}
