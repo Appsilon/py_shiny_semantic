@@ -1,10 +1,7 @@
 from typing import Optional
 
-import shiny
 from shiny.session import Session, require_active_session
 from shiny.ui import tags
-
-shiny.ui.update_action_button
 
 
 def button(
@@ -17,17 +14,13 @@ def button(
     icon = icon_name and tags.i(class_=f"{icon_name} icon")
     class_ = f"ui {class_name or ''} button"
 
-    return tags.div(
+    return tags.button(
         icon,
         label,
         *args,
         id=input_id,
         class_=class_,
     )
-
-
-def _drop_none(x) -> dict[str, object]:
-    return {k: v for k, v in x.items() if v is not None}
 
 
 def update_button(
@@ -43,3 +36,7 @@ def update_button(
         "icon": icon_name,
     }
     session.send_input_message(input_id, _drop_none(msg))
+
+
+def _drop_none(x) -> dict[str, object]:
+    return {k: v for k, v in x.items() if v is not None}
