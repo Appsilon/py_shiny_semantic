@@ -19,8 +19,6 @@ def button(
     if icon_name != "":
         icon = tags.i(class_=f"{icon_name} icon")
         button_icon_class = "icon"
-        if label != "":
-            button_icon_class += " labeled"
 
     classname = (
         f"{size.value} ui {color.value} "
