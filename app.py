@@ -22,6 +22,17 @@ def click_reporter(btn_class, output_id):
 
 app_ui = page_semantic(
     ui.tags.div(
+        ui.tags.div(
+            ui.tags.h1(
+                "Shiny Semantic Demo App",
+                class_="ui inverted header",
+                style="margin-block: 3em;",
+            ),
+            class_="ui text container",
+        ),
+        class_="ui inverted vertical masthead center aligned segment",
+    ),
+    ui.tags.div(
         ui.tags.h2("Semantic Buttons", class_="ui header"),
         ui.tags.div(
             button("btn_default", "Default"),
