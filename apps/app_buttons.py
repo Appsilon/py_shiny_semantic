@@ -26,6 +26,7 @@ app_ui = page_semantic(
         click_reporter("Secondary", "btn_secondary_output"),
         click_reporter("Basic", "btn_basic_output"),
     ),
+    title="Example: Buttons",
 )
 
 

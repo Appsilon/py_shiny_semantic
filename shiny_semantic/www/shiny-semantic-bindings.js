@@ -1,3 +1,6 @@
+/**
+ * Shiny <-> Semantic binding for a button
+ */
 const semanticButtonBinding = new Shiny.InputBinding();
 $.extend(semanticButtonBinding, {
   find: function (scope) {
