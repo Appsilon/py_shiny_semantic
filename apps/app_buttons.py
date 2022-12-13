@@ -23,31 +23,33 @@ def click_reporter(btn_class, output_id):
 app_ui = page_semantic(
     ui.tags.div(
         button("btn_default", "Default"),
-        button("btn_primary", "Primary", ButtonType.primary),
-        button("btn_secondary", "Secondary", ButtonType.secondary),
-        button("btn_positive", "Positive", ButtonType.positive),
-        button("btn_negative", "Negative", ButtonType.negative),
+        button("btn_primary", "Primary", type=ButtonType.primary),
+        button("btn_secondary", "Secondary", type=ButtonType.secondary),
+        button("btn_positive", "Positive", type=ButtonType.positive),
+        button("btn_negative", "Negative", type=ButtonType.negative),
         button(
             "btn_outline_negative",
             "Outline Negative",
-            ButtonType.negative,
-            ButtonFill.outline,
+            type=ButtonType.negative,
+            fill=ButtonFill.outline,
         ),
         button(
             "btn_underline_orange",
             "Underline Orange",
-            ButtonType.default,
-            ButtonFill.underline,
-            ButtonColor.orange,
+            type=ButtonType.default,
+            fill=ButtonFill.underline,
+            color=ButtonColor.orange,
         ),
         button(
             "btn_default_teal",
             "Default Teal",
-            ButtonType.default,
-            ButtonFill.solid,
-            ButtonColor.teal,
+            type=ButtonType.default,
+            fill=ButtonFill.solid,
+            color=ButtonColor.teal,
         ),
         button("btn_massive", "Massive", size=ButtonSize.massive),
+        button("btn_icon", "With Icon", icon_name="pause"),
+        button("btn_icon_only", icon_name="plane"),
     ),
     ui.tags.div(
         click_reporter("Default", "btn_default_output"),
@@ -59,6 +61,8 @@ app_ui = page_semantic(
         click_reporter("Underline Orange", "btn_underline_orange_output"),
         click_reporter("Defatul Teal", "btn_default_teal_output"),
         click_reporter("Massive", "btn_massive_output"),
+        click_reporter("With Icon", "btn_icon_output"),
+        click_reporter("Icon Only", "btn_icon_only_output"),
     ),
     title="Example: Buttons",
 )
@@ -109,6 +113,16 @@ def server(input, output, session):
     @render.text
     def _():
         return input.btn_massive()
+
+    @output(id="btn_icon_output")
+    @render.text
+    def _():
+        return input.btn_icon()
+
+    @output(id="btn_icon_only_output")
+    @render.text
+    def _():
+        return input.btn_icon_only()
 
 
 app = App(app_ui, server)
