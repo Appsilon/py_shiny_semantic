@@ -30,3 +30,15 @@ class ButtonColor(Enum):
     brown = "brown"
     grey = "grey"
     black = "black"
+
+
+class ButtonSize(Enum):
+    default = ""
+    mini = "mini"
+    tiny = "tiny"
+    small = "small"
+    medium = "medium"
+    large = "large"
+    big = "big"
+    huge = "huge"
+    massive = "massive"
