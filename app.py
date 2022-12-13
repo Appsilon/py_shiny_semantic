@@ -3,7 +3,7 @@ from random import randint
 from shiny import App, reactive, render, ui
 
 from shiny_semantic import page_semantic
-from shiny_semantic.elements import button2, update_button2
+from shiny_semantic.elements import button, update_button
 
 app_ui = page_semantic(
     ui.tags.div(
@@ -20,13 +20,13 @@ app_ui = page_semantic(
     ui.tags.div(
         ui.tags.h2("Button", class_="ui header"),
         ui.tags.h3("Shiny Bound Inputs", class_="ui header"),
-        button2("button", "Click me"),
+        button("button", "Click me"),
         ui.tags.span(
             "Clicks:",
             ui.output_text("n_clicks", True),
             class_="item",
         ),
-        button2(
+        button(
             "update",
             "Update other btn's label",
             class_name="right floated",
@@ -47,7 +47,7 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.update)
     def _():
-        update_button2("button", label=str(randint(0, 10)))
+        update_button("button", label=str(randint(0, 10)))
 
 
 app = App(app_ui, server)

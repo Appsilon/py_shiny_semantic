@@ -1,45 +1,36 @@
-from typing import Optional
-
-import shiny
-from shiny.session import Session, require_active_session
 from shiny.ui import tags
 
-shiny.ui.update_action_button
+from ..typings import ButtonColor, ButtonFill, ButtonSize, ButtonType
 
 
-def button2(
+def button(
     input_id: str,
-    label: str,
-    *args,
-    icon_name: Optional[str] = None,
-    class_name: Optional[str] = None,
+    label: str = "",
+    icon_name: str = "",
+    type: ButtonType = ButtonType.default,
+    fill: ButtonFill = ButtonFill.solid,
+    color: ButtonColor = ButtonColor.default,
+    size: ButtonSize = ButtonSize.default,
 ):
-    icon = icon_name and tags.i(class_=f"{icon_name} icon")
-    class_ = f"ui {class_name or ''} button"
 
-    return tags.div(
-        icon,
-        label,
-        *args,
-        id=input_id,
-        class_=class_,
+    icon = None
+    button_icon_class = ""
+
+    if icon_name != "":
+        icon = tags.i(class_=f"{icon_name} icon")
+        button_icon_class = "icon"
+
+    classname = (
+        f"{size.value} ui {color.value} "
+        f"{fill.value} {button_icon_class} "
+        f"{type.value} button "
     )
 
-
-def _drop_none(x) -> dict[str, object]:
-    return {k: v for k, v in x.items() if v is not None}
-
-
-def update_button2(
-    input_id: str,
-    *,
-    label: Optional[str] = None,
-    icon_name: Optional[str] = None,
-    session: Optional[Session] = None,
-):
-    session = require_active_session(session)
-    msg = {
-        "label": label,
-        "icon": icon_name,
-    }
-    session.send_input_message(input_id, _drop_none(msg))
+    return tags.button(
+        {
+            "id": input_id,
+            "class": classname,
+        },
+        icon,
+        label,
+    )
