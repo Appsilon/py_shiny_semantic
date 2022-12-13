@@ -7,8 +7,10 @@ def button(
     input_id: str,
     label: str,
     type: ButtonType = ButtonType.default,
+    is_basic: bool = False,
 ):
-    classname = f"ui {type.value} button "
+    basic = "basic" if is_basic else ""
+    classname = f"ui {type.value} {basic} button "
 
     return tags.button(
         {

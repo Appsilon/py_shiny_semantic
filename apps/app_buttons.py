@@ -22,6 +22,9 @@ app_ui = page_semantic(
         button("btn_secondary", "Secondary", ButtonType.secondary),
         button("btn_positive", "Positive", ButtonType.positive),
         button("btn_negative", "Negative", ButtonType.negative),
+        button(
+            "btn_basic_negative", "Basic Negative", ButtonType.negative, True
+        ),
     ),
     ui.tags.div(
         click_reporter("Default", "btn_default_output"),
@@ -29,6 +32,7 @@ app_ui = page_semantic(
         click_reporter("Secondary", "btn_secondary_output"),
         click_reporter("Positive", "btn_positive_output"),
         click_reporter("Negative", "btn_negative_output"),
+        click_reporter("Basic Negative", "btn_basic_negative_output"),
     ),
     title="Example: Buttons",
 )
@@ -59,6 +63,11 @@ def server(input, output, session):
     @render.text
     def _():
         return input.btn_negative()
+
+    @output(id="btn_basic_negative_output")
+    @render.text
+    def _():
+        return input.btn_basic_negative()
 
 
 app = App(app_ui, server)
