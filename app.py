@@ -1,5 +1,6 @@
-from shiny import App, ui, render
-from shiny_semantic import page_semantic, input_action_button
+from shiny import App, render, ui
+
+from shiny_semantic import input_action_button, page_semantic
 
 
 def click_reporter(btn_class, output_id):
