@@ -9,7 +9,7 @@ shiny.ui.update_action_button
 
 def button(
     input_id: str,
-    label: str,
+    label: Optional[str] = None,
     *args,
     icon_name: Optional[str] = None,
     class_name: Optional[str] = None,
