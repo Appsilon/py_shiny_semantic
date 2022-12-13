@@ -1,16 +1,16 @@
 from shiny.ui import tags
 
-from ..typings import ButtonType
+from ..typings import ButtonColor, ButtonFill, ButtonType
 
 
 def button(
     input_id: str,
     label: str,
     type: ButtonType = ButtonType.default,
-    is_basic: bool = False,
+    fill: ButtonFill = ButtonFill.solid,
+    color: ButtonColor = ButtonColor.default,
 ):
-    basic = "basic" if is_basic else ""
-    classname = f"ui {type.value} {basic} button "
+    classname = f"ui {color.value} {fill.value} {type.value} button "
 
     return tags.button(
         {
