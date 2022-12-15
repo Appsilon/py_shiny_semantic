@@ -5,6 +5,8 @@ __all__ = (
     "divider",
     "emoji",
     "flag",
+    "header",
+    "subheader",
     "segment",
     "update_button",
 )
@@ -14,4 +16,5 @@ from .container import container
 from .divider import divider
 from .emoji import emoji
 from .flag import flag
+from .header import header, subheader
 from .segment import segment
