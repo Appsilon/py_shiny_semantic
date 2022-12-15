@@ -3,7 +3,7 @@ from random import randint
 from shiny import App, reactive, render, ui
 
 from shiny_semantic import page_semantic
-from shiny_semantic.elements import button, update_button
+from shiny_semantic.elements import button, emoji, update_button
 
 app_ui = page_semantic(
     ui.tags.div(
@@ -99,6 +99,33 @@ app_ui = page_semantic(
             ),
             class_="ui container",
         ),
+        class_="ui raised padded container segment",
+    ),
+    ui.tags.div(
+        ui.tags.h2("Emoji", class_="ui centered header"),
+        ui.tags.h3("Different sets", class_="ui header"),
+        emoji(emoji_name="smile"),
+        emoji(emoji_name="angry"),
+        emoji(emoji_name="bee"),
+        emoji(emoji_name="blowfish"),
+        emoji(emoji_name="apple"),
+        emoji(emoji_name="avocado"),
+        emoji(emoji_name="badminton"),
+        emoji(emoji_name="dart"),
+        emoji(emoji_name="airplane"),
+        ui.tags.h3("Skin tones", class_="ui header"),
+        emoji("adult"),
+        emoji("adult_tone1"),
+        emoji("adult_tone2"),
+        emoji("adult_tone3"),
+        emoji("adult_tone4"),
+        emoji("adult_tone5"),
+        ui.tags.h3("Sizes", class_="ui header"),
+        emoji("flag_pl", size="tiny"),
+        emoji("flag_pl", size="small"),
+        emoji("flag_pl", size="medium"),
+        emoji("flag_pl", size="large"),
+        emoji("flag_pl", size="big"),
         class_="ui raised padded container segment",
     ),
     title="Example: Buttons",
