@@ -1,6 +1,6 @@
 from random import randint
 
-from shiny import App, reactive, render, ui
+from shiny import reactive, render, ui
 
 from shiny_semantic import page_semantic
 from shiny_semantic.elements import button, emoji, update_button
@@ -132,7 +132,7 @@ app_ui = page_semantic(
 )
 
 
-def server(input, output, session):
+def app_server(input, output, session):
     @output(id="n_clicks")
     @render.text
     def _():
@@ -142,6 +142,3 @@ def server(input, output, session):
     @reactive.event(input.update)
     def _():
         update_button("button", label=str(randint(0, 10)))
-
-
-app = App(app_ui, server)
