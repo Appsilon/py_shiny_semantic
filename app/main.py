@@ -5,18 +5,10 @@ from shiny import reactive, render, ui
 from shiny_semantic import page_semantic
 from shiny_semantic.elements import button, emoji, update_button
 
+from .helpers import hero
+
 app_ui = page_semantic(
-    ui.tags.div(
-        ui.tags.div(
-            ui.tags.h1(
-                "Shiny Semantic: Components Demo",
-                class_="ui inverted header",
-                style="margin-block: 5em;",
-            ),
-            class_="ui text container",
-        ),
-        class_="ui inverted vertical masthead center aligned segment",
-    ),
+    hero(),
     ui.tags.div(
         ui.tags.h2("Button", class_="ui centered header"),
         ui.tags.h3("Shiny Bound Inputs", class_="ui header"),
