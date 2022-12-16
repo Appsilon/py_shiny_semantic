@@ -11,10 +11,20 @@ def ui():
     return feature_section(
         "Input",
         feature_subsection(
-            "Text input",
-            text_input("text", "Text..."),
+            "Shiny Bound Text Input",
+            text_input("text", "Placeholder"),
             tags.span("Text:"),
             output_text("text_output", inline=True),
+        ),
+        feature_subsection(
+            "States and Variations",
+            text_input("disabled", "Disabled", class_name="disabled"),
+            text_input("error", "Error", class_name="error"),
+            text_input("date", "Date", input_type="date"),
+            text_input("email", "Email", input_type="email"),
+            text_input("password", "Password", input_type="password"),
+            text_input("icon", "With Icon", icon_name="users"),
+            text_input("label", "appsilon.com", label="https://"),
         ),
     )
 
