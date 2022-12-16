@@ -26,6 +26,18 @@ def ui():
             text_input("icon", "With Icon", icon_name="users"),
             text_input("label", "appsilon.com", label="https://"),
         ),
+        feature_subsection(
+            "Sizes",
+            text_input("mini", "Mini", class_name="mini"),
+            text_input("tiny", "Tiny", class_name="tiny"),
+            text_input("small", "Small", class_name="small"),
+            text_input("medium", "Medium", class_name="medium"),
+            text_input("large", "Large", class_name="large"),
+            text_input("big", "Big", class_name="big"),
+            text_input("huge", "Huge", class_name="huge"),
+            text_input("massive", "Massive", class_name="massive"),
+            text_input("fluid", "Fluid", class_name="fluid"),
+        ),
     )
 
 
