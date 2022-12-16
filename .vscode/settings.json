@@ -15,5 +15,8 @@
   "prettier.singleQuote": false,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
-  "prettier.tabWidth": 2
+  "prettier.tabWidth": 2,
+  "python.testing.unittestArgs": ["--verbose", "--start-directory", "./tests", "--pattern", "test_*.py"],
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestEnabled": true
 }
