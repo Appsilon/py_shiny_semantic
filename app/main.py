@@ -7,6 +7,7 @@ from .modules import (
     flag_module,
     header_module,
     icon_module,
+    input_module,
 )
 
 app_ui = page_semantic(
@@ -16,6 +17,7 @@ app_ui = page_semantic(
     flag_module.ui("flag_section"),
     header_module.ui("header_section"),
     icon_module.ui("icon_section"),
+    input_module.ui("input_section"),
     title="Example: Buttons",
 )
 
@@ -26,3 +28,4 @@ def app_server(input, output, session):
     flag_module.server("flag_section")
     header_module.server("header_section")
     icon_module.server("icon_section")
+    input_module.server("input_section")
