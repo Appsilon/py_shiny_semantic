@@ -1,7 +1,7 @@
 from shiny import module
 from shiny.ui import tags
 
-from shiny_semantic.elements import header, subheader
+from shiny_semantic.elements import header, icon, subheader
 
 from ..helpers import feature_section, feature_subsection
 
@@ -21,17 +21,17 @@ def ui():
         feature_subsection(
             "Icon Header",
             header(
-                tags.i(class_="settings icon"),
+                icon("settings"),
                 "Account settings",
                 class_name="big icon",
             ),
             header(
-                tags.i(class_="circular users icon"),
+                icon("users", "circular"),
                 "Friends",
                 class_name="medium icon",
             ),
             header(
-                tags.i(class_="plug icon"),
+                icon("plug"),
                 "Uptime Guarantee",
                 class_name="tiny",
             ),
@@ -44,7 +44,7 @@ def ui():
                 class_name="medium",
             ),
             header(
-                tags.i(class_="settings icon"),
+                icon("settings"),
                 tags.div(
                     "Account Settings",
                     subheader("Manage your preferences"),
