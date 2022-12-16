@@ -1,6 +1,6 @@
 # Shiny Semantic for Python
 
-This packages makes Fomantic UI available to Shiny developers in Puthon. Fomanti UI is a well-maintained community fork of the famous Semantic UI, hence the name of this package.
+This packages makes Fomantic UI available to Shiny developers in Python. Fomantic UI is a well-maintained community fork of the famous Semantic UI, hence the name of this package.
 
 ## Development
 
