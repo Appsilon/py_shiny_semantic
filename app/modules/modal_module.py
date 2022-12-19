@@ -41,6 +41,7 @@ def server(input, output, session):
                 content=tags.div("Lorem Ipsum"),
             ),
             shiny_input="default_modal_result",
+            session=session,
         )
 
     @reactive.Effect
@@ -54,6 +55,7 @@ def server(input, output, session):
                 class_name="basic",
             ),
             shiny_input="basic_modal_result",
+            session=session,
         )
 
     @reactive.Effect
@@ -77,6 +79,7 @@ def server(input, output, session):
                     "hideDuration": 600,
                 },
             },
+            session=session,
         )
 
     @output(id="default_out")
