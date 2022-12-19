@@ -1,11 +1,14 @@
-from shiny.ui import h2
+from shiny.ui import TagList, h2, tags
 
 from shiny_semantic.elements import segment
 
 
 def feature_section(title: str, *args):
-    return segment(
-        h2(title, class_="ui centered header"),
-        *args,
-        class_name="raised padded container",
+    return TagList(
+        tags.div(id=title, style="opacity: 0; margin-bottom: 5rem;"),
+        segment(
+            h2(title, class_="ui centered header"),
+            *args,
+            class_name="raised padded container",
+        ),
     )

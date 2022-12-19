@@ -5,8 +5,21 @@ def sidebar():
     return (
         tags.div(
             {"class": "ui left vertical menu sidebar"},
-            tags.a("Item 1", class_="item"),
-            tags.a("Item 2", class_="item"),
-            tags.a("Item 3", class_="item"),
+            _link("Button"),
+            _link("Emoji"),
+            _link("Flag"),
+            _link("Icon"),
+            _link("Header"),
+            _link("Input"),
+            _link("Modal"),
         ),
+    )
+
+
+def _link(item):
+    return tags.a(
+        item,
+        href=f"#{item}",
+        class_="item",
+        onclick="$('.ui.sidebar').sidebar('toggle');",
     )

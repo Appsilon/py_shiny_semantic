@@ -26,6 +26,7 @@ app_ui = page_semantic(
         icon_module.ui("icon_section"),
         input_module.ui("input_section"),
         modal_module.ui("modal_section"),
+        tags.div(style="opacity: 0; height: 5rem;"),
     ),
     title="Shiny Semantic",
 )
