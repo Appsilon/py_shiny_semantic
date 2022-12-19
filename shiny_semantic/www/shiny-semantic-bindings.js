@@ -67,26 +67,23 @@ $.extend(semanticButtonBinding, {
 });
 Shiny.inputBindings.register(semanticButtonBinding, "shiny.semanticButton");
 
-$.fn.modal.settings.onShow = function () {
-  Shiny.bindAll();
-};
+/**
+ * Semantic Modal Dialog
+ */
+Shiny.addCustomMessageHandler("showSemanticModal", (payload) => {
+  const modalId = $(payload.ui).attr("id");
+  const modalProps = payload.props ?? {};
 
-Shiny.addCustomMessageHandler("showSemanticModal", function (message) {
-  $("#" + message.id).modal(message.action);
-});
+  // Gotta remove all modals with this id - otherwise they accumulate in the DOM
+  $(`[id=${modalId}]`).remove();
 
-Shiny.initSemanticModal = function (id) {
-  $('[id="' + id + '"]:not(:first)').remove();
-};
+  console.log(payload.shiny_input);
 
-Shiny.addCustomMessageHandler("createSemanticModal", function (message) {
-  let id = $(message.ui_modal).modal().attr("id");
-
-  Shiny.initSemanticModal(id);
-
-  $("#" + id).modal(message.action);
-});
-
-Shiny.addCustomMessageHandler("hideAllSemanticModals", function (message) {
-  $(".ui .modal").modal("hide");
+  $(payload.ui)
+    .modal({
+      ...modalProps,
+      onDeny: () => Shiny.setInputValue(payload.shiny_input, false),
+      onApprove: () => Shiny.setInputValue(payload.shiny_input, true),
+    })
+    .modal("show");
 });
