@@ -12,9 +12,22 @@ def ui():
         "Input",
         feature_subsection(
             "Shiny Bound Text Input",
-            semantic_input("text", "Placeholder"),
+            semantic_input("text", "Text input"),
             tags.span("Text:"),
             output_text("text_output", inline=True),
+            tags.br(),
+            tags.br(),
+            semantic_input(
+                "numeric",
+                "Numeric input with Props",
+                input_type="number",
+                value=0,
+                min=-10,
+                max=10,
+                step=10,
+            ),
+            tags.span("Numeric input with Props, Value:"),
+            output_text("numeric_output", inline=True),
         ),
         feature_subsection(
             "States and Variations",
@@ -26,6 +39,7 @@ def ui():
             semantic_input("icon", "With Icon", icon_name="users"),
             semantic_input("label", "appsilon.com", label="https://"),
             semantic_input("value", "Pre-populated", value="Some text"),
+            semantic_input("numeric", "Numeric", input_type="number"),
         ),
         feature_subsection(
             "Sizes",
@@ -48,3 +62,8 @@ def server(input, output, session):
     @render.text
     def _():
         return input.text()
+
+    @output(id="numeric_output")
+    @render.text
+    def _():
+        return input.numeric()

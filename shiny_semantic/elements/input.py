@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 
 from htmltools import TagAttrArg
 from shiny._namespaces import resolve_id
@@ -12,13 +12,17 @@ from .._utils import strip_whitespace
 def semantic_input(
     input_id: str,
     placeholder: Optional[str] = "",
-    value: str = "",
+    value: Union[str, float] = "",
     label: Optional[str] = None,
     icon_name: Optional[str] = None,
     input_type: str = "text",
     class_name: Optional[str] = None,
     **kwargs: TagAttrArg,
 ):
+    """Keword arguments (**kwargs) include all html attributes
+    relevant to the input tag, including, for example, `min`, `max` and `step`
+    in case of input type="number".
+    """
     # Enclosing div's class
     if class_name is None:
         class_name = ""
