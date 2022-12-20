@@ -4,7 +4,6 @@ from shiny.ui import tags
 def sidebar():
     return (
         tags.div(
-            {"class": "ui left vertical menu sidebar"},
             _link("Button"),
             _link("Emoji"),
             _link("Flag"),
@@ -12,6 +11,8 @@ def sidebar():
             _link("Header"),
             _link("Input"),
             _link("Modal"),
+            class_="ui left vertical menu inverted sidebar",
+            style="padding-top: 4rem;",
         ),
     )
 

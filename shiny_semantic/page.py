@@ -14,6 +14,7 @@ def page_semantic(*args, title=None, lang="en"):
         tags.head(head),
         tags.body(body),
         lang=lang,
+        style="scroll-behavior: smooth;",
     )
 
 

@@ -14,8 +14,8 @@ from .modules import (
 )
 
 app_ui = page_semantic(
-    sidebar(),
     header(),
+    sidebar(),
     tags.div(
         {"class": "pusher"},
         hero(),
