@@ -1,5 +1,6 @@
 from typing import Dict, Optional
 
+from htmltools import Tag
 from shiny._namespaces import resolve_id
 from shiny.session import Session, require_active_session
 from shiny.ui import TagChildArg, tags
@@ -38,7 +39,7 @@ def modal(
 
 
 async def modal_show(
-    modal_ui,
+    modal_ui: Tag,
     modal_props: Optional[Dict] = None,
     shiny_input: str = "modal",
     session: Optional[Session] = None,
@@ -46,8 +47,8 @@ async def modal_show(
     session = require_active_session(session)
 
     await session.send_custom_message(
-        "showSemanticModal",
-        {
+        type="showSemanticModal",
+        message={
             "ui": str(modal_ui),
             "props": modal_props,
             "shiny_input": session.ns(shiny_input),
