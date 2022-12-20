@@ -93,7 +93,8 @@ var semanticDropdownBinding = new Shiny.InputBinding();
 $.extend(semanticDropdownBinding, {
   // This initialize input element. It extracts data-value attribute and use that as value.
   initialize: function (el) {
-    $(el).dropdown();
+    const settings = JSON.parse(el.dataset.settings);
+    $(el).dropdown({ ...settings });
   },
 
   // This returns a jQuery object with the DOM element.
