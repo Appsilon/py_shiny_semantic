@@ -8,23 +8,12 @@ from shiny_semantic.elements import text_input
 
 class TestInput(unittest.TestCase):
     def test_basic_input(self):
-        expected_html_1 = '<div class="ui  input">'
-        expected_html_2 = '<input type="text" placeholder="" id="users"/>'
-
-        app = App(
-            page_semantic(
-                text_input("users"),
-                text_input(
-                    input_id="complex",
-                    placeholder="Complex",
-                    input_type="password",
-                    class_name="error",
-                    icon_name="react",
-                    label="Password",
-                ),
-            ),
-            None,
+        expected_html_1 = '<div class="ui input">'
+        expected_html_2 = (
+            '<input id="users" type="text" value="" placeholder=""/>'
         )
+
+        app = App(page_semantic(text_input("users")), None)
 
         html = app.ui.get("html")
 
@@ -35,13 +24,13 @@ class TestInput(unittest.TestCase):
         expected_html_3 = '<div class="ui error icon labeled input">'
         expected_html_4 = '<div class="ui label">Password</div>'
         expected_html_5 = (
-            '<input type="password" placeholder="Complex" id="complex"/>'
+            '<input id="complex" type="password"'
+            ' value="" placeholder="Complex"/>'
         )
         expected_html_6 = '<i class=" react icon">'
 
         app = App(
             page_semantic(
-                text_input("users"),
                 text_input(
                     input_id="complex",
                     placeholder="Complex",
