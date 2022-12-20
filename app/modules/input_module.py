@@ -25,6 +25,7 @@ def ui():
             text_input("password", "Password", input_type="password"),
             text_input("icon", "With Icon", icon_name="users"),
             text_input("label", "appsilon.com", label="https://"),
+            text_input("value", "Pre-populated", value="Some text"),
         ),
         feature_subsection(
             "Sizes",
