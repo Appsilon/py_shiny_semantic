@@ -77,8 +77,6 @@ Shiny.addCustomMessageHandler("showSemanticModal", (payload) => {
   // Gotta remove all modals with this id - otherwise they accumulate in the DOM
   $(`[id=${modalId}]`).remove();
 
-  console.log(payload.shiny_input);
-
   $(payload.ui)
     .modal({
       ...modalProps,
