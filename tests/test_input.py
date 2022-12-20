@@ -3,7 +3,7 @@ import unittest
 from shiny import App
 
 from shiny_semantic import page_semantic
-from shiny_semantic.elements import text_input
+from shiny_semantic.elements import semantic_input
 
 
 class TestInput(unittest.TestCase):
@@ -13,7 +13,7 @@ class TestInput(unittest.TestCase):
             '<input id="users" type="text" value="" placeholder=""/>'
         )
 
-        app = App(page_semantic(text_input("users")), None)
+        app = App(page_semantic(semantic_input("users")), None)
 
         html = app.ui.get("html")
 
@@ -31,7 +31,7 @@ class TestInput(unittest.TestCase):
 
         app = App(
             page_semantic(
-                text_input(
+                semantic_input(
                     input_id="complex",
                     placeholder="Complex",
                     input_type="password",

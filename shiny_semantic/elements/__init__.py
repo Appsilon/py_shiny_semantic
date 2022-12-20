@@ -10,7 +10,7 @@ __all__ = (
     "segment",
     "subheader",
     "update_button",
-    "text_input",
+    "semantic_input",
 )
 
 from .button import button, update_button
@@ -20,5 +20,5 @@ from .emoji import emoji
 from .flag import flag
 from .header import header, subheader
 from .icon import icon
-from .input import text_input
+from .input import semantic_input
 from .segment import segment

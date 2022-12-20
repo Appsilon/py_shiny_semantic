@@ -9,7 +9,7 @@ from shiny_semantic.elements import icon
 from .._utils import strip_whitespace
 
 
-def text_input(
+def semantic_input(
     input_id: str,
     placeholder: Optional[str] = "",
     value: str = "",
