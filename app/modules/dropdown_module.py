@@ -15,6 +15,10 @@ def ui():
             selection(
                 input_id="selection",
                 options=["One", "Two", "Three"],
+                class_name="search",
+                settings={
+                    "clearable": True,
+                },
             ),
             output_text_verbatim("selection_out"),
         ),
