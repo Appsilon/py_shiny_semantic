@@ -23,7 +23,7 @@ app_ui = page_semantic(
         button("button", "Click me"),
         ui.tags.span(
             "Clicks:",
-            ui.output_text("n_clicks", True),
+            ui.output_text("n_clicks", inline=True),
             class_="item",
         ),
         button(
