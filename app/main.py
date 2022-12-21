@@ -17,7 +17,6 @@ app_ui = page_semantic(
     header(),
     sidebar(),
     tags.div(
-        {"class": "pusher"},
         hero(),
         button_module.ui("button_section"),
         emoji_module.ui("emoji_section"),
