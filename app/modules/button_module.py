@@ -5,7 +5,7 @@ from shiny.ui import output_text, tags
 
 from shiny_semantic.elements import button, update_button
 
-from ..ui_helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui

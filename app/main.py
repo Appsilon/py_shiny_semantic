@@ -3,7 +3,7 @@ from shiny.ui import tags
 from shiny_semantic import page_semantic
 
 from . import modules
-from .ui_helpers import header, hero, sidebar
+from ._app_layout import header, hero, sidebar
 
 app_ui = page_semantic(
     header(),

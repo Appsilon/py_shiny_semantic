@@ -2,7 +2,7 @@ from shiny import module
 
 from shiny_semantic.elements import icon
 
-from ..ui_helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui
