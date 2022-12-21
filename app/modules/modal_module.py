@@ -24,7 +24,7 @@ def ui():
         feature_subsection(
             "With custom props",
             button("props_modal", "Open Modal", class_name="teal"),
-            tags.div("Modal result:", output_text("props_out", inline=True)),
+            tags.div("Clicks:", output_text("props_out", inline=True)),
         ),
     )
 
@@ -64,8 +64,31 @@ def server(input, output, session):
         await modal_show(
             modal_ui=modal(
                 id="props_modal_ui",
-                header=tags.div("Hello World"),
-                content=tags.div("Lorem Ipsum"),
+                header=tags.h3("Placeholder content"),
+                content=tags.div(
+                    tags.div(class_="square image"),
+                    tags.div(class_="line"),
+                    tags.div(class_="line"),
+                    tags.div(class_="line"),
+                    class_="ui placeholder",
+                ),
+                # TODO(docs): if the actions section is supplied by developer
+                # ensure that action buttons have relevant classes:
+                # - 'approve' or 'positive' to trigger onApprove() callback
+                # - 'deny' or 'negative' to trigger onDeny() callback
+                actions=tags.div(
+                    button(
+                        session.ns("modal_test"),
+                        "Click",
+                        class_name="left floated",
+                    ),
+                    button(
+                        session.ns("modal_dismiss"),
+                        "Dismiss",
+                        class_name="approve secondary",
+                    ),
+                ),
+                class_name="mini",
             ),
             shiny_input="props_modal_result",
             modal_props={
@@ -95,4 +118,8 @@ def server(input, output, session):
     @output(id="props_out")
     @render.text
     def _():
-        return input.props_modal_result()
+        return input.modal_test()
+
+    @reactive.Effect
+    def _():
+        print(input.modal_test())
