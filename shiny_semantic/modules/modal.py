@@ -61,13 +61,9 @@ async def modal_show(
 
 def _assert_modal_actions(actions_ui: Tag):
     match_approve = re.search("<button.*class=.*(approve).*>", str(actions_ui))
-    match_positive = re.search(
-        "<button.*class=.*(positive).*>", str(actions_ui)
-    )
+    match_positive = re.search("<button.*class=.*(positive).*>", str(actions_ui))
     match_deny = re.search("<button.*class=.*(deny).*>", str(actions_ui))
-    match_negative = re.search(
-        "<button.*class=.*(negative).*>", str(actions_ui)
-    )
+    match_negative = re.search("<button.*class=.*(negative).*>", str(actions_ui))
 
     if any([match_approve, match_positive, match_deny, match_negative]):
         return
