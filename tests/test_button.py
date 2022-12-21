@@ -13,12 +13,12 @@ class TestButton(unittest.TestCase):
         test_case_3 = '<i class="plane icon">'
 
         app = App(
-            page_semantic(
+            ui=page_semantic(
                 button("test1", "Test1"),
                 button("test2", "Test2", class_name="red basic"),
                 button("test3", "Test3", icon_name="plane"),
             ),
-            None,
+            server=None,
         )
 
         html = app.ui.get("html")
