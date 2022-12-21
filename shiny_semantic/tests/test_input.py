@@ -1,8 +1,5 @@
 import unittest
 
-from shiny import App
-
-from shiny_semantic import page_semantic
 from shiny_semantic.elements import semantic_input
 
 
@@ -11,9 +8,9 @@ class TestInput(unittest.TestCase):
         expected_html_1 = '<div class="ui input">'
         expected_html_2 = '<input id="users" type="text" value="" placeholder=""/>'
 
-        app = App(page_semantic(semantic_input("users")), None)
+        element = semantic_input("users")
 
-        html = app.ui.get("html")
+        html = element.get_html_string()
 
         self.assertTrue(expected_html_1 in html)
         self.assertTrue(expected_html_2 in html)
@@ -26,21 +23,16 @@ class TestInput(unittest.TestCase):
         )
         expected_html_6 = '<i class=" react icon">'
 
-        app = App(
-            page_semantic(
-                semantic_input(
-                    input_id="complex",
-                    placeholder="Complex",
-                    input_type="password",
-                    class_name="error",
-                    icon_name="react",
-                    label="Password",
-                ),
-            ),
-            None,
+        element = semantic_input(
+            input_id="complex",
+            placeholder="Complex",
+            input_type="password",
+            class_name="error",
+            icon_name="react",
+            label="Password",
         )
 
-        html = app.ui.get("html")
+        html = element.get_html_string()
 
         self.assertTrue(expected_html_3 in html)
         self.assertTrue(expected_html_4 in html)

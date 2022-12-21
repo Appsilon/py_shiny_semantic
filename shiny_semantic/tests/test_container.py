@@ -1,8 +1,5 @@
 import unittest
 
-from shiny import App
-
-from shiny_semantic import page_semantic
 from shiny_semantic.elements import container
 
 
@@ -10,12 +7,9 @@ class TestContainer(unittest.TestCase):
     def test_container(self):
         expected_html = '<div class="ui  container">'
 
-        app = App(
-            page_semantic(container("Hello")),
-            None,
-        )
+        element = container("Hello")
 
-        html = app.ui.get("html")
+        html = element.get_html_string()
 
         self.assertTrue(expected_html in html)
 

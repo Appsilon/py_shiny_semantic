@@ -1,8 +1,7 @@
 import unittest
 
-from shiny import App
+from htmltools import TagList
 
-from shiny_semantic import page_semantic
 from shiny_semantic.elements import header, subheader
 
 
@@ -12,16 +11,13 @@ class TestHeader(unittest.TestCase):
         expected_html_2 = '<div class="ui huge header">'
         expected_html_3 = '<div class="ui huge icon header">'
 
-        app = App(
-            page_semantic(
-                header("header"),
-                header("header", class_name="huge"),
-                header("header", class_name="huge icon"),
-            ),
-            None,
+        elements = TagList(
+            header("header"),
+            header("header", class_name="huge"),
+            header("header", class_name="huge icon"),
         )
 
-        html = app.ui.get("html")
+        html = elements.get_html_string()
 
         self.assertTrue(expected_html_1 in html)
         self.assertTrue(expected_html_2 in html)
@@ -30,14 +26,9 @@ class TestHeader(unittest.TestCase):
     def test_subheader(self):
         expected_html_1 = '<div class="sub header">subheader</div>'
 
-        app = App(
-            page_semantic(
-                header("header", subheader("subheader"), class_name="huge"),
-            ),
-            None,
-        )
+        element = header("header", subheader("subheader"), class_name="huge")
 
-        html = app.ui.get("html")
+        html = element.get_html_string()
 
         self.assertTrue(expected_html_1 in html)
 

@@ -2,7 +2,6 @@ import unittest
 
 from shiny import App
 
-from shiny_semantic import page_semantic
 from shiny_semantic.elements import divider
 
 
@@ -10,12 +9,9 @@ class TestDivider(unittest.TestCase):
     def test_divider(self):
         expected_html = '<div class="ui  divider">'
 
-        app = App(
-            page_semantic(divider("Hello")),
-            None,
-        )
+        element = divider("Hello")
 
-        html = app.ui.get("html")
+        html = element.get_html_string()
 
         self.assertTrue(expected_html in html)
 

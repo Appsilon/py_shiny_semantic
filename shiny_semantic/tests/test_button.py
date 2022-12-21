@@ -1,8 +1,7 @@
 import unittest
 
-from shiny import App
+from htmltools import TagList
 
-from shiny_semantic import page_semantic
 from shiny_semantic.elements import button
 
 
@@ -12,16 +11,13 @@ class TestButton(unittest.TestCase):
         test_case_2 = '<button id="test2" class="ui red basic button">'
         test_case_3 = '<i class="plane icon">'
 
-        app = App(
-            ui=page_semantic(
-                button("test1", "Test1"),
-                button("test2", "Test2", class_name="red basic"),
-                button("test3", "Test3", icon_name="plane"),
-            ),
-            server=None,
+        elements = TagList(
+            button("test1", "Test1"),
+            button("test2", "Test2", class_name="red basic"),
+            button("test3", "Test3", icon_name="plane"),
         )
 
-        html = app.ui.get("html")
+        html = elements.get_html_string()
 
         self.assertTrue(test_case_1 in html)
         self.assertTrue(test_case_2 in html)
