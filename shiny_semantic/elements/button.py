@@ -1,5 +1,7 @@
 from typing import Optional
 
+from shiny._namespaces import resolve_id
+from shiny._utils import drop_none
 from shiny.session import Session, require_active_session
 from shiny.ui import tags
 
@@ -18,7 +20,7 @@ def button(
         icon,
         label,
         *args,
-        id=input_id,
+        id=resolve_id(input_id),
         class_=class_,
     )
 
@@ -35,9 +37,4 @@ def update_button(
         "label": label,
         "icon": icon_name,
     }
-    session.send_input_message(input_id, _drop_none(msg))
-
-
-# Credits: shiny package by Posit
-def _drop_none(x) -> dict[str, object]:
-    return {k: v for k, v in x.items() if v is not None}
+    session.send_input_message(input_id, drop_none(msg))
