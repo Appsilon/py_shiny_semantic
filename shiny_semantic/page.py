@@ -22,7 +22,7 @@ def _semantic_dependency():
     return HTMLDependency(
         name="fomantic-ui",
         version="2.9.0",
-        source={"package": "shiny_semantic", "subdir": "www/shared/semantic"},
+        source={"package": "shiny_semantic", "subdir": "www/semantic"},
         script=[{"src": "fomantic.min.js"}],
         stylesheet=[{"href": "fomantic.min.css"}],
     )
