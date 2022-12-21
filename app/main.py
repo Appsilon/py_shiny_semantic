@@ -8,6 +8,7 @@ from .modules import (
     header_module,
     icon_module,
     input_module,
+    modal_module,
 )
 
 app_ui = page_semantic(
@@ -18,6 +19,7 @@ app_ui = page_semantic(
     header_module.ui("header_section"),
     icon_module.ui("icon_section"),
     input_module.ui("input_section"),
+    modal_module.ui("modal_section"),
     title="Example: Buttons",
 )
 
@@ -29,3 +31,4 @@ def app_server(input, output, session):
     header_module.server("header_section")
     icon_module.server("icon_section")
     input_module.server("input_section")
+    modal_module.server("modal_section")
