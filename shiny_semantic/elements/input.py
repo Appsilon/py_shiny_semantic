@@ -4,9 +4,8 @@ from htmltools import TagAttrArg
 from shiny._namespaces import resolve_id
 from shiny.ui import tags
 
+from shiny_semantic._utils import squash_whitespace
 from shiny_semantic.elements import icon
-
-from .._utils import strip_whitespace
 
 
 def semantic_input(
@@ -40,7 +39,7 @@ def semantic_input(
         class_name += " labeled"
 
     # Finalize & clean the div's class
-    class_ = strip_whitespace(f"ui {class_name} input")
+    class_ = squash_whitespace(f"ui {class_name} input")
 
     return tags.div(
         label_tag,
