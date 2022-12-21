@@ -2,6 +2,8 @@
 __all__ = (
     "button",
     "update_button",
+    "emoji",
 )
 
 from .button import button, update_button
+from .emoji import emoji
