@@ -37,8 +37,8 @@ def server(input, output, session):
         await modal_show(
             modal_ui=modal(
                 id="default_modal_ui",
-                header=tags.div("Hello World"),
-                content=tags.div("Lorem Ipsum"),
+                header="Hello World",
+                content="Lorem Ipsum",
             ),
             shiny_input="default_modal_result",
             session=session,
@@ -50,8 +50,8 @@ def server(input, output, session):
         await modal_show(
             modal_ui=modal(
                 id="basic_modal_ui",
-                header=tags.div("Hello World"),
-                content=tags.div("Lorem Ipsum"),
+                header="Hello World",
+                content="Lorem Ipsum",
                 class_name="basic",
             ),
             shiny_input="basic_modal_result",
