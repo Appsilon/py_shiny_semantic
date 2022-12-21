@@ -1,3 +1,4 @@
+import re
 from typing import Dict, Optional
 
 from htmltools import Tag
@@ -27,6 +28,8 @@ def modal(
         )
     )
 
+    _assert_modal_actions(modal_actions)
+
     modal = tags.div(
         modal_header,
         modal_content,
@@ -53,4 +56,23 @@ async def modal_show(
             "props": modal_props,
             "shiny_input": session.ns(shiny_input),
         },
+    )
+
+
+def _assert_modal_actions(actions_ui: Tag):
+    match_approve = re.search("<button.*class=.*(approve).*>", str(actions_ui))
+    match_positive = re.search(
+        "<button.*class=.*(positive).*>", str(actions_ui)
+    )
+    match_deny = re.search("<button.*class=.*(deny).*>", str(actions_ui))
+    match_negative = re.search(
+        "<button.*class=.*(negative).*>", str(actions_ui)
+    )
+
+    if any([match_approve, match_positive, match_deny, match_negative]):
+        return
+
+    raise Exception(
+        """Modal actions has to have at least one button with one
+        of the following classes: positive, negative, approve, deny."""
     )

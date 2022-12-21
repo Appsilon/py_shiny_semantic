@@ -72,10 +72,6 @@ def server(input, output, session):
                     tags.div(class_="line"),
                     class_="ui placeholder",
                 ),
-                # TODO(docs): if the actions section is supplied by developer
-                # ensure that action buttons have relevant classes:
-                # - 'approve' or 'positive' to trigger onApprove() callback
-                # - 'deny' or 'negative' to trigger onDeny() callback
                 actions=tags.div(
                     button(
                         session.ns("modal_test"),
@@ -119,7 +115,3 @@ def server(input, output, session):
     @render.text
     def _():
         return input.modal_test()
-
-    @reactive.Effect
-    def _():
-        print(input.modal_test())
