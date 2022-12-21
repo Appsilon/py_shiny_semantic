@@ -1,6 +1,8 @@
+from shiny.ui import tags
+
 from shiny_semantic import page_semantic
 
-from .helpers import hero
+from .helpers import header, hero, sidebar
 from .modules import (
     button_module,
     emoji_module,
@@ -12,15 +14,20 @@ from .modules import (
 )
 
 app_ui = page_semantic(
-    hero(),
-    button_module.ui("button_section"),
-    emoji_module.ui("emoji_section"),
-    flag_module.ui("flag_section"),
-    header_module.ui("header_section"),
-    icon_module.ui("icon_section"),
-    input_module.ui("input_section"),
-    modal_module.ui("modal_section"),
-    title="Example: Buttons",
+    header(),
+    sidebar(),
+    tags.div(
+        hero(),
+        button_module.ui("button_section"),
+        emoji_module.ui("emoji_section"),
+        flag_module.ui("flag_section"),
+        header_module.ui("header_section"),
+        icon_module.ui("icon_section"),
+        input_module.ui("input_section"),
+        modal_module.ui("modal_section"),
+        tags.div(style="opacity: 0; height: 5rem;"),
+    ),
+    title="Shiny Semantic",
 )
 
 

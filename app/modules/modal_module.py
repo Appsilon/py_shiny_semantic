@@ -10,7 +10,7 @@ from ..helpers import feature_section, feature_subsection
 @module.ui
 def ui():
     return feature_section(
-        "Modal Dialog",
+        "Modal",
         feature_subsection(
             "Default modal",
             button("default_modal", "Open Default Modal"),
