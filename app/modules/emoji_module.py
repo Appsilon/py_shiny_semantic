@@ -32,11 +32,11 @@ def ui():
         ),
         feature_subsection(
             "Sizes",
-            emoji("flag_pl", class_name="tiny"),
-            emoji("flag_pl", class_name="small"),
-            emoji("flag_pl", class_name="medium"),
-            emoji("flag_pl", class_name="large"),
-            emoji("flag_pl", class_name="big"),
+            emoji("leo", class_name="tiny"),
+            emoji("leo", class_name="small"),
+            emoji("leo", class_name="medium"),
+            emoji("leo", class_name="large"),
+            emoji("leo", class_name="big"),
         ),
     )
 

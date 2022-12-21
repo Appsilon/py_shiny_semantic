@@ -8,7 +8,7 @@ from shiny_semantic.elements import emoji
 
 class TestEmoji(unittest.TestCase):
     def test_emoji(self):
-        test_case_1 = '<em data-emoji=":adult:" class="medium">'
+        test_case_1 = '<em data-emoji=":adult:">'
         test_case_2 = '<em data-emoji=":adult:" class="big">'
 
         app = App(
