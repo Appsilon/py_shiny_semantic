@@ -2,7 +2,6 @@ from shiny.ui import tags
 
 from shiny_semantic import page_semantic
 
-from .helpers import header, hero, sidebar
 from .modules import (
     button_module,
     emoji_module,
@@ -12,6 +11,7 @@ from .modules import (
     input_module,
     modal_module,
 )
+from .ui_helpers import header, hero, sidebar
 
 app_ui = page_semantic(
     header(),
