@@ -22,8 +22,8 @@ def modal(
         tags.div(actions, class_="actions")
         if actions
         else tags.div(
-            button("cancel", "Cancel", class_name="negative"),
-            button("ok", "OK", class_name="positive"),
+            button("cancel", "Cancel", class_="negative"),
+            button("ok", "OK", class_="positive"),
             class_="actions",
         )
     )

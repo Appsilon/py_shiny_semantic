@@ -18,12 +18,12 @@ def ui():
         ),
         feature_subsection(
             "Basic modal",
-            button("basic_modal", "Open Basic Modal", class_name="secondary"),
+            button("basic_modal", "Open Basic Modal", class_="secondary"),
             tags.div("Modal result:", output_text("basic_out", inline=True)),
         ),
         feature_subsection(
             "With custom props",
-            button("props_modal", "Open Modal", class_name="teal"),
+            button("props_modal", "Open Modal", class_="teal"),
             tags.div("Clicks:", output_text("props_out", inline=True)),
         ),
     )
@@ -76,12 +76,12 @@ def server(input, output, session):
                     button(
                         session.ns("modal_test"),
                         "Click",
-                        class_name="left floated",
+                        class_="left floated",
                     ),
                     button(
                         session.ns("modal_dismiss"),
                         "Dismiss",
-                        class_name="approve secondary",
+                        class_="approve secondary",
                     ),
                 ),
                 class_name="mini",
