@@ -7,14 +7,14 @@ from shiny_semantic.elements import header, subheader
 
 class TestHeader(unittest.TestCase):
     def test_header(self):
-        expected_html_1 = '<div class="ui  header">'
+        expected_html_1 = '<div class="ui header">'
         expected_html_2 = '<div class="ui huge header">'
         expected_html_3 = '<div class="ui huge icon header">'
 
         elements = TagList(
             header("header"),
-            header("header", class_name="huge"),
-            header("header", class_name="huge icon"),
+            header("header", class_="huge"),
+            header("header", class_="huge icon"),
         )
 
         html = elements.get_html_string()
@@ -26,7 +26,7 @@ class TestHeader(unittest.TestCase):
     def test_subheader(self):
         expected_html_1 = '<div class="sub header">subheader</div>'
 
-        element = header("header", subheader("subheader"), class_name="huge")
+        element = header("header", subheader("subheader"), class_="huge")
 
         html = element.get_html_string()
 
