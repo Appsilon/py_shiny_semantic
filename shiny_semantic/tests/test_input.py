@@ -21,7 +21,7 @@ class TestInput(unittest.TestCase):
         expected_html_5 = (
             '<input id="complex" type="password"' ' value="" placeholder="Complex"/>'
         )
-        expected_html_6 = '<i class=" react icon">'
+        expected_html_6 = '<i class="react icon">'
 
         element = semantic_input(
             input_id="complex",

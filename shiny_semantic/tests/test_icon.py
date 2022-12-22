@@ -7,16 +7,16 @@ from shiny_semantic.elements import icon
 
 class TestIcon(unittest.TestCase):
     def test_icon(self):
-        expected_html_1 = '<i class=" users icon">'
+        expected_html_1 = '<i class="users icon">'
         expected_html_2 = '<i class="loading asterisk icon">'
         expected_html_3 = '<i class="large home icon">'
         expected_html_4 = '<i class="bordered teal home icon">'
 
         elements = TagList(
             icon("users"),
-            icon("asterisk", "loading"),
-            icon("home", "large"),
-            icon("home", "bordered teal"),
+            icon("asterisk", class_="loading"),
+            icon("home", class_="large"),
+            icon("home", class_="bordered teal"),
         )
 
         html = elements.get_html_string()

@@ -26,7 +26,7 @@ def ui():
                 class_="big icon",
             ),
             header(
-                icon("users", "circular"),
+                icon("users", class_="circular"),
                 "Friends",
                 class_="medium icon",
             ),

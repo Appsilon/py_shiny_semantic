@@ -13,7 +13,7 @@ def semantic_input(
     placeholder: Optional[str] = "",
     value: Union[str, float] = "",
     label: Optional[str] = None,
-    icon_name: Optional[str] = None,
+    icon_name: Optional[str] = None,  # TODO: pass icon object instead of icon_name
     input_type: str = "text",
     class_name: Optional[str] = None,
     **kwargs: TagAttrArg,
