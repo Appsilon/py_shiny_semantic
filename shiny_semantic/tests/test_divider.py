@@ -1,13 +1,11 @@
 import unittest
 
-from shiny import App
-
 from shiny_semantic.elements import divider
 
 
 class TestDivider(unittest.TestCase):
     def test_divider(self):
-        expected_html = '<div class="ui  divider">'
+        expected_html = '<div class="ui divider">'
 
         element = divider("Hello")
 
