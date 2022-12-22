@@ -7,14 +7,14 @@ from shiny_semantic.elements import flag
 
 class TestFlag(unittest.TestCase):
     def test_flag(self):
-        expected_html_1 = '<i class=" france flag">'
-        expected_html_2 = '<i class=" fr flag">'
+        expected_html_1 = '<i class="france flag">'
+        expected_html_2 = '<i class="fr flag">'
         expected_html_3 = '<i class="big fr flag">'
 
         elements = TagList(
             flag("france"),
             flag("fr"),
-            flag("fr", class_name="big"),
+            flag("fr", class_="big"),
         )
 
         html = elements.get_html_string()

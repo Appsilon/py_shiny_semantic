@@ -1,10 +1,9 @@
 from typing import Optional
 
-from shiny.ui import tags
+from htmltools import TagAttrArg, tags
+
+from shiny_semantic._utils import squash_whitespace
 
 
-def flag(
-    country: str,
-    class_name: Optional[str] = "",
-):
-    return tags.i(class_=f"{class_name} {country} flag")
+def flag(country: str, *, class_: Optional[str] = None, **kwargs: TagAttrArg):
+    return tags.i(class_=squash_whitespace(f"{class_ or ''} {country} flag"))

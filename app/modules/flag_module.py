@@ -21,12 +21,12 @@ def ui():
         ),
         feature_subsection(
             "Flag sizes",
-            flag("un", "small"),
-            flag("un", "medium"),
-            flag("un", "large"),
-            flag("un", "big"),
-            flag("un", "huge"),
-            flag("un", "massive"),
+            flag("un", class_="small"),
+            flag("un", class_="medium"),
+            flag("un", class_="large"),
+            flag("un", class_="big"),
+            flag("un", class_="huge"),
+            flag("un", class_="massive"),
         ),
     )
 
