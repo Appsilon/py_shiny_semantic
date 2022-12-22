@@ -5,7 +5,7 @@ from shiny_semantic.elements import container
 
 class TestContainer(unittest.TestCase):
     def test_container(self):
-        expected_html = '<div class="ui  container">'
+        expected_html = '<div class="ui container">'
 
         element = container("Hello")
 

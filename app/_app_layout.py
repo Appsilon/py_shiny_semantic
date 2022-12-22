@@ -43,7 +43,7 @@ def hero():
     )
 
     hero = segment(
-        container(title, class_name="text"),
+        container(title, class_="text"),
         class_name="inverted vertical masthead center aligned",
     )
     return hero
