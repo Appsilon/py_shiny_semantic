@@ -12,7 +12,7 @@ class TestEmoji(unittest.TestCase):
 
         elements = TagList(
             emoji("adult"),
-            emoji("adult", class_name="big"),
+            emoji("adult", class_="big"),
         )
 
         html = elements.get_html_string()
