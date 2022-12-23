@@ -5,7 +5,6 @@ from shiny._namespaces import resolve_id
 from shiny.ui import tags
 
 from shiny_semantic._utils import squash_whitespace
-from shiny_semantic.elements import icon
 
 
 def semantic_input(
