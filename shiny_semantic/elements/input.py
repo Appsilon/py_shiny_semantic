@@ -10,6 +10,11 @@ from shiny_semantic.elements import icon
 
 def semantic_input(
     id: str,
+    # FIXME: adding label param to match Shiny API.
+    # Should be revised -- is probably resolved, when
+    # a shiny-like `shiny_semantic.elements.input_text()`
+    # is created.
+    label=None,
     value: Union[str, float] = "",
     *,
     placeholder: Optional[str] = "",
