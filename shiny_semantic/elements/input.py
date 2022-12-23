@@ -1,6 +1,6 @@
 from typing import Optional, Union
 
-from htmltools import TagAttrArg
+from htmltools import TagAttrArg, TagChildArg
 from shiny._namespaces import resolve_id
 from shiny.ui import tags
 
@@ -9,47 +9,48 @@ from shiny_semantic.elements import icon
 
 
 def semantic_input(
-    input_id: str,
-    placeholder: Optional[str] = "",
+    id: str,
     value: Union[str, float] = "",
-    label: Optional[str] = None,
-    icon_name: Optional[str] = None,  # TODO: pass icon object instead of icon_name
-    input_type: str = "text",
-    class_name: Optional[str] = None,
+    *,
+    placeholder: Optional[str] = "",
+    icon: TagChildArg = None,
+    type: str = "text",
+    semantic_class: Optional[str] = None,
+    semantic_label: Optional[str] = None,
     **kwargs: TagAttrArg,
 ):
     """Keword arguments (**kwargs) include all html attributes
     relevant to the input tag, including, for example, `min`, `max` and `step`
-    in case of input type="number".
+    in case of input type="number", as well as `class_` that is passed directly
+    to the input tag, as opposed to the `semantic_class` that is passed to the
+    enclosing div element.
     """
     # Enclosing div's class
-    if class_name is None:
-        class_name = ""
+    if semantic_class is None:
+        semantic_class = ""
 
-    # Define icon inside the input
-    icon_tag = None
-    if icon_name is not None:
-        icon_tag = icon(icon_name)
-        class_name += " icon"
+    # Modify the enclosing div's class if icon is passed
+    if icon is not None:
+        semantic_class += " icon"
 
     # Define the label
     label_tag = None
-    if label is not None:
-        label_tag = tags.div(label, class_="ui label")
-        class_name += " labeled"
+    if semantic_label is not None:
+        label_tag = tags.div(semantic_label, class_="ui label")
+        semantic_class += " labeled"
 
     # Finalize & clean the div's class
-    class_ = squash_whitespace(f"ui {class_name} input")
+    semantic_class = squash_whitespace(f"ui {semantic_class} input")
 
     return tags.div(
         label_tag,
         tags.input(
-            id=resolve_id(input_id),
-            type=input_type,
+            id=resolve_id(id),
+            type=type,
             value=value,
             placeholder=placeholder,
             **kwargs,
         ),
-        icon_tag,
-        class_=class_,
+        icon,
+        class_=semantic_class,
     )
