@@ -52,7 +52,7 @@ def server(input, output, session):
                 id="basic_modal_ui",
                 header="Hello World",
                 content="Lorem Ipsum",
-                class_name="basic",
+                class_="basic",
             ),
             shiny_input="basic_modal_result",
             session=session,
@@ -84,7 +84,7 @@ def server(input, output, session):
                         class_="approve secondary",
                     ),
                 ),
-                class_name="mini",
+                class_="mini",
             ),
             shiny_input="props_modal_result",
             modal_props={

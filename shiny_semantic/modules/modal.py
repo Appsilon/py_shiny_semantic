@@ -1,20 +1,23 @@
 import re
 from typing import Dict, Optional
 
-from htmltools import Tag
+from htmltools import Tag, TagAttrArg
 from shiny._namespaces import resolve_id
 from shiny.session import Session, require_active_session
 from shiny.ui import TagChildArg, tags
 
+from shiny_semantic._utils import squash_whitespace
 from shiny_semantic.elements import button
 
 
 def modal(
     id: str,
+    *,
     header: TagChildArg,
     content: TagChildArg,
     actions: Optional[TagChildArg] = None,
-    class_name: Optional[str] = None,
+    class_: Optional[str] = None,
+    **kwargs: TagAttrArg,
 ):
     modal_header = tags.div(header, class_="header")
     modal_content = tags.div(content, class_="content")
@@ -35,7 +38,8 @@ def modal(
         modal_content,
         modal_actions,
         id=resolve_id(id),
-        class_=f"ui {class_name} modal" if class_name else "ui modal",
+        class_=squash_whitespace(f"ui {class_ or ''} modal"),
+        **kwargs,
     )
 
     return modal
