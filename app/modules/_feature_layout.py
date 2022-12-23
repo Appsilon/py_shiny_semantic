@@ -9,7 +9,7 @@ def feature_section(title: str, *args):
         segment(
             h2(title, class_="ui centered header"),
             *args,
-            class_name="raised padded container",
+            class_="raised padded container",
         ),
     )
 
