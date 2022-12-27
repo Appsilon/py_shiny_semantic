@@ -35,12 +35,12 @@ def ui():
             selection(
                 id="selection_custom",
                 label=None,
-                placeholder="Clearable + Searchable + Multiple",
+                placeholder="Fluid + Clearable + Searchable + Multiple",
                 choices=["hello", "world"],
                 settings={
                     "clearable": True,
                 },
-                class_="multiple search",
+                class_="fluid multiple search",
             ),
             output_text_verbatim("selection_custom_out"),
         ),
