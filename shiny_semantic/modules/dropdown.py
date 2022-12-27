@@ -1,29 +1,31 @@
 import json
 from typing import Optional
 
+from htmltools import TagChildArg, TagList, tags
 from shiny._namespaces import resolve_id
-from shiny.ui import TagList, tags
+
+from shiny_semantic._utils import squash_whitespace
 
 
 def selection(
-    input_id: str,
+    id: str,
+    label: TagChildArg,
     options: list[str],
-    class_name: Optional[str] = None,
+    *,
+    class_: Optional[str] = None,
     settings: Optional[dict] = None,
 ):
     option_tags = TagList()
     for option in options:
         option_tags.append(tags.option(option))
 
-    class_ = (
-        "ui selection dropdown semantic-select-input"
-        if class_name is None
-        else f"ui {class_name} selection dropdown semantic-select-input"
+    class_name = squash_whitespace(
+        f"ui {class_ or ''} selection dropdown semantic-select-input"
     )
 
     return tags.select(
         option_tags,
-        id=resolve_id(input_id),
-        class_=class_,
+        id=resolve_id(id),
+        class_=class_name,
         data_settings=json.dumps(settings),
     )

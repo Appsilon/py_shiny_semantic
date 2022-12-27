@@ -13,7 +13,8 @@ def ui():
         feature_subsection(
             "Selection",
             selection(
-                input_id="selection",
+                id="selection",
+                label="Choose your option",
                 options=["One", "Two", "Three"],
             ),
             output_text_verbatim("selection_out"),
