@@ -94,6 +94,10 @@ Shiny.addCustomMessageHandler("showSemanticModal", (payload) => {
   $modal.modal("show");
 });
 
+/**
+ * Semantic dropdown selection
+ */
+
 var semanticDropdownBinding = new Shiny.InputBinding();
 
 $.extend(semanticDropdownBinding, {
