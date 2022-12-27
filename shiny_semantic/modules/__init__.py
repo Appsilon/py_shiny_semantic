@@ -2,9 +2,9 @@
 __all__ = (
     "modal",
     "modal_show",
-    "selection",
-    "update_selection",
+    "input_select",
+    "update_select",
 )
 
-from .dropdown import selection, update_selection
+from .dropdown import input_select, update_select
 from .modal import modal, modal_show

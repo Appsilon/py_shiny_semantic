@@ -9,10 +9,12 @@ from shiny.session import Session, require_active_session
 from shiny_semantic._utils import squash_whitespace
 from shiny_semantic.elements import icon
 
+# NOTE: attempt to follow Shiny API conventions
 
-def selection(
+
+def input_select(
     id: str,
-    label: TagChildArg,
+    label: Optional[str],
     choices: list[str],
     *,
     placeholder: Optional[str] = None,
@@ -27,18 +29,27 @@ def selection(
         f"ui {class_ or ''} selection dropdown semantic-select-input"
     )
 
+    id = resolve_id(id)
+
     return tags.div(
-        tags.input(type_="hidden", name=resolve_id(id)),
-        icon("dropdown"),
-        tags.div(placeholder, class_="default text"),
-        tags.div(choice_tags, class_="menu"),
-        id=resolve_id(id),
-        class_=class_name,
-        data_settings=json.dumps(settings),
+        tags.div(
+            tags.label(label, id=f"{id}-label", for_=id),
+            tags.div(
+                tags.input(type_="hidden", name=id),
+                icon("dropdown"),
+                tags.div(placeholder, class_="default text"),
+                tags.div(choice_tags, class_="menu"),
+                id=id,
+                class_=class_name,
+                data_settings=json.dumps(settings),
+            ),
+            class_="field",
+        ),
+        class_="ui form",
     )
 
 
-def update_selection(
+def update_select(
     id: str,
     *,
     label: Optional[str] = None,
@@ -48,15 +59,17 @@ def update_selection(
 ):
     session = require_active_session(session)
 
-    msg_values = None
+    msg_choices = None
     if choices is not None:
-        msg_values = [
-            {"value": choice, "text": choice, "name": choice} for choice in choices
-        ]
+        msg_choices = {
+            "values": [
+                {"value": choice, "text": choice, "name": choice} for choice in choices
+            ]
+        }
 
     msg = {
         "label": label,
-        "choices": {"values": msg_values},
+        "choices": msg_choices,
         "value": value,
     }
 
