@@ -9,8 +9,6 @@ from shiny.session import Session, require_active_session
 from shiny_semantic._utils import squash_whitespace
 from shiny_semantic.elements import icon
 
-# NOTE: attempt to follow Shiny API conventions
-
 
 def dropdown(
     id: str,
