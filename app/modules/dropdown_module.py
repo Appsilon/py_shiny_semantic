@@ -1,3 +1,6 @@
+import random
+import string
+
 from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
@@ -39,4 +42,5 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.update)
     def _():
-        update_selection("selection", choices=["hello", "world"])
+        choices = random.choices(population=string.ascii_uppercase, k=5)
+        update_selection("selection", choices=choices)
