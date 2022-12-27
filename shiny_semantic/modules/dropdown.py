@@ -44,6 +44,7 @@ def input_select(
     id: str,
     label: Optional[str],
     choices: list[str],
+    *,
     placeholder: Optional[str] = None,
     settings: Optional[dict] = None,
     class_: Optional[str] = None,
