@@ -59,6 +59,4 @@ def update_selection(
         "value": value,
     }
 
-    print(msg)
-
     session.send_input_message(id, drop_none(msg))
