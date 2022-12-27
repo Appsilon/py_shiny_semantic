@@ -3,7 +3,7 @@ from shiny.ui import output_text_verbatim
 
 from shiny_semantic.modules import selection
 
-from ..helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui
@@ -15,10 +15,6 @@ def ui():
             selection(
                 input_id="selection",
                 options=["One", "Two", "Three"],
-                class_name="search",
-                settings={
-                    "clearable": True,
-                },
             ),
             output_text_verbatim("selection_out"),
         ),
