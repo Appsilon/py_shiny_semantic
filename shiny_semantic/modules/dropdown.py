@@ -15,8 +15,9 @@ def selection(
     label: TagChildArg,
     choices: list[str],
     *,
-    class_: Optional[str] = None,
+    placeholder: Optional[str] = None,
     settings: Optional[dict] = None,
+    class_: Optional[str] = None,
 ):
     choice_tags = TagList()
     for choice in choices:
@@ -29,7 +30,7 @@ def selection(
     return tags.div(
         tags.input(type_="hidden", name=resolve_id(id)),
         icon("dropdown"),
-        tags.div("Placeholder", class_="default text"),  # TODO: replace placeholder
+        tags.div(placeholder, class_="default text"),
         tags.div(choice_tags, class_="menu"),
         id=resolve_id(id),
         class_=class_name,

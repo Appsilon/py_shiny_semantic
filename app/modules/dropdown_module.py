@@ -18,7 +18,8 @@ def ui():
             "Selection",
             selection(
                 id="selection",
-                label="Choose your option",
+                label=None,
+                placeholder="Select",
                 choices=["One", "Two", "Three"],
             ),
             button(
@@ -29,6 +30,20 @@ def ui():
             ),
             output_text_verbatim("selection_out"),
         ),
+        feature_subsection(
+            "Customizable Selection",
+            selection(
+                id="selection_custom",
+                label=None,
+                placeholder="Clearable + Searchable + Multiple",
+                choices=["hello", "world"],
+                settings={
+                    "clearable": True,
+                },
+                class_="multiple search",
+            ),
+            output_text_verbatim("selection_custom_out"),
+        ),
     )
 
 
@@ -38,6 +53,11 @@ def server(input, output, session):
     @render.text
     def _():
         return input.selection()
+
+    @output(id="selection_custom_out")
+    @render.text
+    def _():
+        return input.selection_custom()
 
     @reactive.Effect
     @reactive.event(input.update)
