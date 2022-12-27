@@ -5,7 +5,7 @@ from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
 from shiny_semantic.elements import button, icon
-from shiny_semantic.modules import selection, update_selection
+from shiny_semantic.modules import input_select, update_select
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -16,23 +16,23 @@ def ui():
         "Dropdown",
         feature_subsection(
             "Selection",
-            selection(
+            input_select(
                 id="selection",
-                label=None,
+                label="Dropdown Label",
                 placeholder="Select",
                 choices=["One", "Two", "Three"],
             ),
             button(
                 "update",
-                "Update dropdown",
-                icon=icon("left arrow"),
+                "Update label & choices",
+                icon=icon("up arrow"),
                 class_="right floated",
             ),
             output_text_verbatim("selection_out"),
         ),
         feature_subsection(
             "Customizable Selection",
-            selection(
+            input_select(
                 id="selection_custom",
                 label=None,
                 placeholder="Fluid + Clearable + Searchable + Multiple",
@@ -63,4 +63,9 @@ def server(input, output, session):
     @reactive.event(input.update)
     def _():
         choices = random.choices(population=string.ascii_uppercase, k=5)
-        update_selection("selection", choices=choices)
+        label = "".join(choices)
+        update_select(
+            "selection",
+            choices=choices,
+            label=label,
+        )
