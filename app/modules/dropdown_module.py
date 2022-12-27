@@ -1,7 +1,8 @@
-from shiny import module, render
+from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
-from shiny_semantic.modules import selection
+from shiny_semantic.elements import button, icon
+from shiny_semantic.modules import selection, update_selection
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -15,7 +16,13 @@ def ui():
             selection(
                 id="selection",
                 label="Choose your option",
-                options=["One", "Two", "Three"],
+                choices=["One", "Two", "Three"],
+            ),
+            button(
+                "update",
+                "Update dropdown",
+                icon=icon("left arrow"),
+                class_="right floated",
             ),
             output_text_verbatim("selection_out"),
         ),
@@ -28,3 +35,8 @@ def server(input, output, session):
     @render.text
     def _():
         return input.selection()
+
+    @reactive.Effect
+    @reactive.event(input.update)
+    def _():
+        update_selection("selection", choices=["hello", "world"])
