@@ -3,7 +3,7 @@ name: Shiny Semantic Unit Tests
 on: [push]
 
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,10 +19,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Lint with flake8
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude ./venv
+      - name: Lint shiny_semantic
+        run: black --check shiny_semantic
+      - name: Lint demo app
+        run: black --check app
       - name: Test with unittest
-        run: |
-          python -m unittest discover shiny_semantic/tests
+        run: python -m unittest discover shiny_semantic/tests

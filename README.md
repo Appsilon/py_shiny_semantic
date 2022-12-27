@@ -12,7 +12,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Run the app with hot reload (app reloads when changes are detected)
-shiny run --reload app.py
+shiny run --reload app
 ```
 
 ## Deployment

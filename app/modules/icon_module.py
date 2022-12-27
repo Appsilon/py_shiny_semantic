@@ -2,7 +2,7 @@ from shiny import module
 
 from shiny_semantic.elements import icon
 
-from ..helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui
@@ -18,31 +18,31 @@ def ui():
         ),
         feature_subsection(
             "Loading state",
-            icon("spinner", "loading"),
-            icon("notched circle", "loading"),
-            icon("asterisk", "loading"),
+            icon("spinner", class_="loading"),
+            icon("notched circle", class_="loading"),
+            icon("asterisk", class_="loading"),
         ),
         feature_subsection(
             "Size",
-            icon("home", "mini"),
-            icon("home", "tiny"),
-            icon("home", "small"),
+            icon("home", class_="mini"),
+            icon("home", class_="tiny"),
+            icon("home", class_="small"),
             icon("home"),
-            icon("home", "large"),
-            icon("home", "big"),
-            icon("home", "huge"),
-            icon("home", "massive"),
+            icon("home", class_="large"),
+            icon("home", class_="big"),
+            icon("home", class_="huge"),
+            icon("home", class_="massive"),
         ),
         feature_subsection(
             "Shape and color",
-            icon("home", "circular"),
-            icon("home", "circular teal"),
-            icon("home", "circular inverted teal"),
-            icon("home", "circular colored teal"),
-            icon("home", "bordered"),
-            icon("home", "bordered teal"),
-            icon("home", "bordered inverted teal"),
-            icon("home", "bordered colored teal"),
+            icon("home", class_="circular"),
+            icon("home", class_="circular teal"),
+            icon("home", class_="circular inverted teal"),
+            icon("home", class_="circular colored teal"),
+            icon("home", class_="bordered"),
+            icon("home", class_="bordered teal"),
+            icon("home", class_="bordered inverted teal"),
+            icon("home", class_="bordered colored teal"),
         ),
     )
 

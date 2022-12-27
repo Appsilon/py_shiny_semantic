@@ -1,10 +1,7 @@
 from typing import Optional
 
-from shiny.ui import tags
+from htmltools import TagAttrArg, tags
 
 
-def emoji(
-    emoji_name: str,
-    class_name: Optional[str] = None,
-):
-    return tags.em({"data-emoji": f":{emoji_name}:", "class": class_name})
+def emoji(emoji_name: str, *, class_: Optional[str] = None, **kwargs: TagAttrArg):
+    return tags.em(data_emoji=f":{emoji_name}:", class_=class_, **kwargs)

@@ -3,7 +3,7 @@ from shiny.ui import tags
 
 from shiny_semantic.elements import header, icon, subheader
 
-from ..helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui
@@ -12,28 +12,28 @@ def ui():
         "Header",
         feature_subsection(
             "Header Sizes",
-            header("Huge Header", class_name="huge"),
-            header("Large Header", class_name="large"),
-            header("Medium Header", class_name="medium"),
-            header("Small Header", class_name="small"),
-            header("Tiny Header", class_name="tiny"),
+            header("Huge Header", class_="huge"),
+            header("Large Header", class_="large"),
+            header("Medium Header", class_="medium"),
+            header("Small Header", class_="small"),
+            header("Tiny Header", class_="tiny"),
         ),
         feature_subsection(
             "Icon Header",
             header(
                 icon("settings"),
                 "Account settings",
-                class_name="big icon",
+                class_="big icon",
             ),
             header(
-                icon("users", "circular"),
+                icon("users", class_="circular"),
                 "Friends",
-                class_name="medium icon",
+                class_="medium icon",
             ),
             header(
                 icon("plug"),
                 "Uptime Guarantee",
-                class_name="tiny",
+                class_="tiny",
             ),
         ),
         feature_subsection(
@@ -41,7 +41,7 @@ def ui():
             header(
                 "Account Settings",
                 subheader("Manage your account settings"),
-                class_name="medium",
+                class_="medium",
             ),
             header(
                 icon("settings"),
@@ -50,7 +50,7 @@ def ui():
                     subheader("Manage your preferences"),
                     class_="content",
                 ),
-                class_name="medium",
+                class_="medium",
             ),
         ),
     )

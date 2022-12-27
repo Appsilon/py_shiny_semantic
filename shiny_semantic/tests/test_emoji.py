@@ -1,8 +1,7 @@
 import unittest
 
-from shiny import App
+from htmltools import TagList
 
-from shiny_semantic import page_semantic
 from shiny_semantic.elements import emoji
 
 
@@ -11,15 +10,12 @@ class TestEmoji(unittest.TestCase):
         test_case_1 = '<em data-emoji=":adult:">'
         test_case_2 = '<em data-emoji=":adult:" class="big">'
 
-        app = App(
-            page_semantic(
-                emoji("adult"),
-                emoji("adult", class_name="big"),
-            ),
-            None,
+        elements = TagList(
+            emoji("adult"),
+            emoji("adult", class_="big"),
         )
 
-        html = app.ui.get("html")
+        html = elements.get_html_string()
 
         self.assertTrue(test_case_1 in html)
         self.assertTrue(test_case_2 in html)

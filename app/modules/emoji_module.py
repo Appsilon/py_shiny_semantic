@@ -2,7 +2,7 @@ from shiny import module
 
 from shiny_semantic.elements import emoji
 
-from ..helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui
@@ -32,11 +32,11 @@ def ui():
         ),
         feature_subsection(
             "Sizes",
-            emoji("leo", class_name="tiny"),
-            emoji("leo", class_name="small"),
-            emoji("leo", class_name="medium"),
-            emoji("leo", class_name="large"),
-            emoji("leo", class_name="big"),
+            emoji("leo", class_="tiny"),
+            emoji("leo", class_="small"),
+            emoji("leo", class_="medium"),
+            emoji("leo", class_="large"),
+            emoji("leo", class_="big"),
         ),
     )
 
