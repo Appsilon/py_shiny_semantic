@@ -5,7 +5,7 @@ from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
 from shiny_semantic.elements import button, icon
-from shiny_semantic.modules import input_select, update_select
+from shiny_semantic.modules import dropdown, input_select, update_select
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -32,7 +32,7 @@ def ui():
         ),
         feature_subsection(
             "Customizable Selection",
-            input_select(
+            dropdown(
                 id="selection_custom",
                 label=None,
                 placeholder="Fluid + Clearable + Searchable + Multiple",
@@ -40,7 +40,7 @@ def ui():
                 settings={
                     "clearable": True,
                 },
-                class_="fluid multiple search",
+                class_="multiple search",
             ),
             output_text_verbatim("selection_custom_out"),
         ),

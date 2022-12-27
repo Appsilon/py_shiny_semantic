@@ -12,7 +12,7 @@ from shiny_semantic.elements import icon
 # NOTE: attempt to follow Shiny API conventions
 
 
-def input_select(
+def dropdown(
     id: str,
     label: Optional[str],
     choices: list[str],
@@ -32,16 +32,35 @@ def input_select(
     id = resolve_id(id)
 
     return tags.div(
+        tags.input(type_="hidden", name=id),
+        icon("dropdown"),
+        tags.div(placeholder, class_="default text"),
+        tags.div(choice_tags, class_="menu"),
+        id=id,
+        class_=class_name,
+        data_settings=json.dumps(settings),
+    )
+
+
+def input_select(
+    id: str,
+    label: Optional[str],
+    choices: list[str],
+    placeholder: Optional[str] = None,
+    settings: Optional[dict] = None,
+    class_: Optional[str] = None,
+):
+    id = resolve_id(id)
+    return tags.div(
         tags.div(
             tags.label(label, id=f"{id}-label", for_=id),
-            tags.div(
-                tags.input(type_="hidden", name=id),
-                icon("dropdown"),
-                tags.div(placeholder, class_="default text"),
-                tags.div(choice_tags, class_="menu"),
-                id=id,
-                class_=class_name,
-                data_settings=json.dumps(settings),
+            dropdown(
+                id,
+                label,
+                choices,
+                placeholder=placeholder,
+                settings=settings,
+                class_=class_,
             ),
             class_="field",
         ),
