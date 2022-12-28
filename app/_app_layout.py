@@ -67,6 +67,7 @@ def sidebar():
             _link("Header"),
             _link("Input"),
             _link("Modal"),
+            _link("Slider"),
             class_="ui left vertical menu inverted sidebar",
             style="padding-top: 4rem;",
         ),
