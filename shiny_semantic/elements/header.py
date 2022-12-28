@@ -1,6 +1,8 @@
 from typing import Optional
 
-from shiny.ui import tags
+from htmltools import TagAttrArg, TagChildArg, tags
+
+from shiny_semantic._utils import squash_whitespace
 
 # TODO: there are two header options implemented in Semantic UI:
 # as a heading (h1, h2, etc) and as a div. The former scales in rems
@@ -9,9 +11,25 @@ from shiny.ui import tags
 # whether it makes sense to leave only this option.
 
 
-def header(*args, class_name: Optional[str] = ""):
-    return tags.div(*args, class_=f"ui {class_name} header")
+def header(
+    *children: TagChildArg,
+    class_: Optional[str] = None,
+    **kwargs: TagAttrArg,
+):
+    return tags.div(
+        *children,
+        class_=squash_whitespace(f"ui {class_ or ''} header"),
+        **kwargs,
+    )
 
 
-def subheader(*args):
-    return tags.div(*args, class_="sub header")
+def subheader(
+    *children: TagChildArg,
+    class_: Optional[str] = None,
+    **kwargs: TagAttrArg,
+):
+    return tags.div(
+        *children,
+        class_=squash_whitespace(f"{class_ or ''} sub header"),
+        **kwargs,
+    )

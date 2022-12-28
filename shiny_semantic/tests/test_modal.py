@@ -16,21 +16,21 @@ class TestModal(unittest.TestCase):
         expected_html_5 = '<button id="cancel"'
         expected_html_6 = '<button id="ok"'
 
-        modal_ui = str(
-            modal(
-                id="modal",
-                header="Header",
-                content="Content",
-                actions=None,
-            )
+        element = modal(
+            id="modal",
+            header="Header",
+            content="Content",
+            actions=None,
         )
 
-        self.assertTrue(expected_html_1 in modal_ui)
-        self.assertTrue(expected_html_2 in modal_ui)
-        self.assertTrue(expected_html_3 in modal_ui)
-        self.assertTrue(expected_html_4 in modal_ui)
-        self.assertTrue(expected_html_5 in modal_ui)
-        self.assertTrue(expected_html_6 in modal_ui)
+        html = element.get_html_string()
+
+        self.assertTrue(expected_html_1 in html)
+        self.assertTrue(expected_html_2 in html)
+        self.assertTrue(expected_html_3 in html)
+        self.assertTrue(expected_html_4 in html)
+        self.assertTrue(expected_html_5 in html)
+        self.assertTrue(expected_html_6 in html)
 
 
 if __name__ == "__main__":

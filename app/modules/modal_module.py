@@ -4,7 +4,7 @@ from shiny.ui import output_text, tags
 from shiny_semantic.elements import button
 from shiny_semantic.modules import modal, modal_show
 
-from ..helpers import feature_section, feature_subsection
+from ._feature_layout import feature_section, feature_subsection
 
 
 @module.ui
@@ -18,12 +18,12 @@ def ui():
         ),
         feature_subsection(
             "Basic modal",
-            button("basic_modal", "Open Basic Modal", class_name="secondary"),
+            button("basic_modal", "Open Basic Modal", class_="secondary"),
             tags.div("Modal result:", output_text("basic_out", inline=True)),
         ),
         feature_subsection(
             "With custom props",
-            button("props_modal", "Open Modal", class_name="teal"),
+            button("props_modal", "Open Modal", class_="teal"),
             tags.div("Clicks:", output_text("props_out", inline=True)),
         ),
     )
@@ -52,7 +52,7 @@ def server(input, output, session):
                 id="basic_modal_ui",
                 header="Hello World",
                 content="Lorem Ipsum",
-                class_name="basic",
+                class_="basic",
             ),
             shiny_input="basic_modal_result",
             session=session,
@@ -76,15 +76,15 @@ def server(input, output, session):
                     button(
                         session.ns("modal_test"),
                         "Click",
-                        class_name="left floated",
+                        class_="left floated",
                     ),
                     button(
                         session.ns("modal_dismiss"),
                         "Dismiss",
-                        class_name="approve secondary",
+                        class_="approve secondary",
                     ),
                 ),
-                class_name="mini",
+                class_="mini",
             ),
             shiny_input="props_modal_result",
             modal_props={

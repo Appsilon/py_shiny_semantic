@@ -1,27 +1,29 @@
 from typing import Optional
 
+from htmltools import TagAttrArg, TagChildArg, tags
 from shiny._namespaces import resolve_id
 from shiny._utils import drop_none
 from shiny.session import Session, require_active_session
-from shiny.ui import tags
+
+from shiny_semantic._utils import squash_whitespace
 
 
 def button(
-    input_id: str,
+    id: str,
     label: Optional[str] = None,
-    *args,
-    icon_name: Optional[str] = None,
-    class_name: Optional[str] = None,
+    *,
+    icon: TagChildArg = None,
+    class_: Optional[str] = None,
+    **kwargs: TagAttrArg,
 ):
-    icon = icon_name and tags.i(class_=f"{icon_name} icon")
-    class_ = f"ui {class_name or ''} button"
+    class_name = f"ui {class_ or ''} button"
 
     return tags.button(
         icon,
         label,
-        *args,
-        id=resolve_id(input_id),
-        class_=class_,
+        id=resolve_id(id),
+        class_=squash_whitespace(class_name),
+        **kwargs,
     )
 
 
