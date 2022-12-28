@@ -37,6 +37,8 @@ def dropdown(
 
     id = resolve_id(id)
 
+    # NOTE: This HTML structure represents the Fomantic-recomended way of creating this component
+    # See: https://fomantic-ui.com/modules/dropdown.html#/usage
     return tags.div(
         tags.input(type_="hidden", name=id),
         icon("dropdown"),
