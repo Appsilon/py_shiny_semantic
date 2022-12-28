@@ -19,10 +19,6 @@ def dropdown(
     settings: Optional[dict] = None,
     class_: Optional[str] = None,
 ):
-    choice_tags = TagList()
-    for choice in choices:
-        choice_tags.append(tags.div(choice, class_="item", data_value=choice))
-
     choice_tags = [
         tags.div(
             choice,
