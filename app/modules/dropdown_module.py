@@ -34,7 +34,6 @@ def ui():
             "Customizable Selection",
             dropdown(
                 id="selection_custom",
-                label=None,
                 placeholder="Fluid + Clearable + Searchable + Multiple",
                 choices=["hello", "world"],
                 settings={

@@ -12,7 +12,6 @@ from shiny_semantic.elements import icon
 
 def dropdown(
     id: str,
-    label: Optional[str],
     choices: list[str],
     *,
     placeholder: Optional[str] = None,
@@ -55,7 +54,6 @@ def input_select(
             tags.label(label, id=f"{id}-label", for_=id),
             dropdown(
                 id,
-                label,
                 choices,
                 placeholder=placeholder,
                 settings=settings,
