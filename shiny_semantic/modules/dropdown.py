@@ -28,9 +28,7 @@ def dropdown(
         for choice in choices
     ]
 
-    class_name = squash_whitespace(
-        f"ui {class_ or ''} selection dropdown semantic-select-input"
-    )
+    class_name = squash_whitespace(f"ui {class_ or ''} selection dropdown semantic-select-input")
 
     id = resolve_id(id)
 
@@ -93,9 +91,7 @@ def update_select(
     msg_choices = None
     if choices is not None:
         msg_choices = {
-            "values": [
-                {"value": choice, "text": choice, "name": choice} for choice in choices
-            ]
+            "values": [{"value": choice, "text": choice, "name": choice} for choice in choices]
         }
 
     msg = {
