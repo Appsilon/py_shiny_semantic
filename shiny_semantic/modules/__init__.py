@@ -3,7 +3,8 @@ __all__ = (
     "modal",
     "modal_show",
     "slider",
+    "update_slider",
 )
 
 from .modal import modal, modal_show
-from .slider import slider
+from .slider import slider, update_slider

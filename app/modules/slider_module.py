@@ -1,7 +1,10 @@
-from shiny import module, render
+import random
+
+from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
-from shiny_semantic.modules import slider
+from shiny_semantic.elements import button, icon
+from shiny_semantic.modules import slider, update_slider
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -20,6 +23,7 @@ def ui():
                 start_value=5,
             ),
             output_text_verbatim("slider_out"),
+            button("update_value", "Update value", icon=icon("arrow up")),
         ),
         feature_subsection(
             "Range",
@@ -32,6 +36,7 @@ def ui():
                 end_value=4,
             ),
             output_text_verbatim("slider_range_out"),
+            button("update_range", "Update Range", icon=icon("arrow up")),
         ),
         feature_subsection(
             "Custom",
@@ -68,3 +73,14 @@ def server(input, output, session):
     @render.text
     def _():
         return input.slider_custom()
+
+    @reactive.Effect
+    @reactive.event(input.update_value)
+    def _():
+        update_slider("slider", value=random.randint(0, 10))
+
+    @reactive.Effect
+    @reactive.event(input.update_range)
+    def _():
+        value = [random.randint(-10, 0), random.randint(0, 10)]
+        update_slider("slider_range", value=value)

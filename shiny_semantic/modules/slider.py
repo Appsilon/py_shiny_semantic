@@ -1,9 +1,10 @@
 import json
-from typing import Optional
+from typing import Optional, Union
 
 from htmltools import TagAttrArg, tags
 from shiny._namespaces import resolve_id
-from shiny.ui import input_slider
+from shiny._utils import drop_none
+from shiny.session import Session, require_active_session
 
 from shiny_semantic._utils import squash_whitespace
 
@@ -11,12 +12,12 @@ from shiny_semantic._utils import squash_whitespace
 def slider(
     id: str,
     label: str,
-    min_value: float,
-    max_value: float,
-    start_value: float,
+    min_value: Union[float, int],
+    max_value: Union[float, int],
+    start_value: Union[float, int],
     *,
-    end_value: Optional[float] = None,
-    step: Optional[float] = None,
+    end_value: Optional[Union[float, int]] = None,
+    step: Optional[Union[float, int]] = None,
     show_labels: bool = True,
     show_ticks: bool = False,
     custom_labels: Optional[list[str]] = None,
@@ -46,3 +47,18 @@ def slider(
         data_labels=json.dumps(custom_labels),
         **kwargs,
     )
+
+
+def update_slider(
+    id: str,
+    *,
+    value: Union[int, float, list[float], list[int]],
+    session: Optional[Session] = None,
+):
+    if isinstance(value, (int, float)):
+        value = [value]
+
+    session = require_active_session(session)
+    msg = {"value": value}
+    print(msg)
+    session.send_input_message(id, drop_none(msg))
