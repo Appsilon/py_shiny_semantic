@@ -62,6 +62,8 @@ def input_select(
     id = resolve_id(id)
     return tags.div(
         tags.div(
+            # NOTE: label tag is inspired by the way it is implemented in Shiny.
+            # See: `from shiny.ui._utils import shiny_input_label`
             tags.label(label, id=f"{id}-label", for_=id),
             dropdown(
                 id,
