@@ -36,6 +36,7 @@ def ui():
                 id="selection_custom",
                 placeholder="Fluid + Clearable + Searchable + Multiple",
                 choices=["hello", "world"],
+                value=["hello", "world"],
                 settings={
                     "clearable": True,
                 },
