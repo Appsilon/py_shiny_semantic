@@ -15,7 +15,7 @@ app_ui = page_semantic(
         modules.flag.ui("flag_section"),
         modules.header.ui("header_section"),
         modules.icon.ui("icon_section"),
-        modules.input_module.ui("input_section"),
+        modules.inputs.ui("input_section"),
         modules.modal.ui("modal_section"),
         tags.div(style="opacity: 0; height: 5rem;"),
     ),
@@ -29,5 +29,5 @@ def app_server(input, output, session):
     modules.flag.server("flag_section")
     modules.header.server("header_section")
     modules.icon.server("icon_section")
-    modules.input_module.server("input_section")
+    modules.inputs.server("input_section")
     modules.modal.server("modal_section")

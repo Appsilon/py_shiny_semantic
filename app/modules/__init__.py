@@ -4,7 +4,7 @@ __all__ = (
     "flag",
     "header",
     "icon",
-    "input_module",
+    "inputs",
     "modal",
 )
 
@@ -13,5 +13,5 @@ from . import emoji_module as emoji
 from . import flag_module as flag
 from . import header_module as header
 from . import icon_module as icon
-from . import input_module
+from . import input_module as inputs
 from . import modal_module as modal
