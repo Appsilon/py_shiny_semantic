@@ -17,6 +17,7 @@ app_ui = page_semantic(
         modules.icon.ui("icon_section"),
         modules.inputs.ui("input_section"),
         modules.modal.ui("modal_section"),
+        modules.dropdown.ui("dropdown_section"),
         tags.div(style="opacity: 0; height: 5rem;"),
     ),
     title="Shiny Semantic",
@@ -31,3 +32,4 @@ def app_server(input, output, session):
     modules.icon.server("icon_section")
     modules.inputs.server("input_section")
     modules.modal.server("modal_section")
+    modules.dropdown.server("dropdown_section")

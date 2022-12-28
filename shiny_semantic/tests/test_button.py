@@ -19,8 +19,6 @@ class TestButton(unittest.TestCase):
 
         html = elements.get_html_string()
 
-        print(html)
-
         self.assertTrue(test_case_1 in html)
         self.assertTrue(test_case_2 in html)
         self.assertTrue(test_case_3 in html)
