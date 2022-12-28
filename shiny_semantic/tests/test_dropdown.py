@@ -10,7 +10,7 @@ class TestDropdown(unittest.TestCase):
         expected_html_3 = '<div class="default text"></div>'
         expected_html_4 = '<div class="item" data-value="0">0</div>'
 
-        element = dropdown("dropdown", "Dropdown", [str(x) for x in range(5)])
+        element = dropdown("dropdown", [str(x) for x in range(5)])
 
         html = element.get_html_string()
 
