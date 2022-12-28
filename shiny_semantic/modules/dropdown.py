@@ -22,6 +22,15 @@ def dropdown(
     for choice in choices:
         choice_tags.append(tags.div(choice, class_="item", data_value=choice))
 
+    choice_tags = [
+        tags.div(
+            choice,
+            class_="item",
+            data_value=choice,
+        )
+        for choice in choices
+    ]
+
     class_name = squash_whitespace(
         f"ui {class_ or ''} selection dropdown semantic-select-input"
     )
@@ -32,7 +41,7 @@ def dropdown(
         tags.input(type_="hidden", name=id),
         icon("dropdown"),
         tags.div(placeholder, class_="default text"),
-        tags.div(choice_tags, class_="menu"),
+        tags.div(*choice_tags, class_="menu"),
         id=id,
         class_=class_name,
         data_settings=json.dumps(settings),
