@@ -6,6 +6,7 @@ __all__ = (
     "icon",
     "inputs",
     "modal",
+    "slider",
 )
 
 from . import button_module as button
@@ -15,3 +16,4 @@ from . import header_module as header
 from . import icon_module as icon
 from . import input_module as inputs
 from . import modal_module as modal
+from . import slider_module as slider
