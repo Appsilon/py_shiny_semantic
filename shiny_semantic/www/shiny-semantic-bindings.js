@@ -102,20 +102,15 @@ var semanticSliderBinding = new Shiny.InputBinding();
 $.extend(semanticSliderBinding, {
   // This initialize input element. It extracts data-value attribute and use that as value.
   initialize: function (el) {
-    // TODO(pavel): this initialize does not match the original R/Shiny binding
-    // and it will not work with custom ticks, e.g. letters
-    const {
-      min,
-      max,
-      start,
-      step,
-      end,
-      showlabelticks: showLabelTicks,
-    } = $(el).data();
-
+    const { min, max, start, step, end, labels } = $(el).data();
     const onChange = (_value) => $(el).trigger("change");
 
-    $(el).slider({ min, max, start, step, end, showLabelTicks, onChange });
+    let interpretLabel = undefined;
+    if (!!labels) {
+      interpretLabel = (value) => labels[value];
+    }
+
+    $(el).slider({ min, max, start, step, end, onChange, interpretLabel });
   },
 
   // This returns a jQuery object with the DOM element.

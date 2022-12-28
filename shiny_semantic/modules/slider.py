@@ -1,3 +1,4 @@
+import json
 from typing import Optional
 
 from htmltools import TagAttrArg, tags
@@ -16,13 +17,20 @@ def slider(
     *,
     end_value: Optional[float] = None,
     step: Optional[float] = None,
-    labels: bool = True,
-    ticks: bool = True,
+    show_labels: bool = True,
+    show_ticks: bool = False,
+    custom_labels: Optional[list[str]] = None,
     class_: Optional[str] = None,
     **kwargs: TagAttrArg,
 ):
-    if labels:
-        class_ = f"{class_ or ''} labeled"
+
+    class_ = class_ or ""
+
+    if show_labels:
+        class_ = f"{class_} labeled"
+
+    if show_ticks:
+        class_ = f"{class_} ticked"
 
     if end_value is not None:
         class_ = f"{class_} range"
@@ -35,6 +43,6 @@ def slider(
         data_start=start_value,
         data_end=end_value,
         data_step=step,
-        data_showlabelticks=ticks and "true",
+        data_labels=json.dumps(custom_labels),
         **kwargs,
     )
