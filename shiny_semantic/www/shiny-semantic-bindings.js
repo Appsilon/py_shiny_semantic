@@ -69,6 +69,7 @@ Shiny.inputBindings.register(semanticButtonBinding, "shiny.semanticButton");
 
 /**
  * Semantic Modal Dialog
+ * NOTE: the code for Modal Dialog is mostyle re-implemented.
  */
 $.fn.modal.settings.onShow = () => Shiny.bindAll();
 
@@ -96,12 +97,13 @@ Shiny.addCustomMessageHandler("showSemanticModal", (payload) => {
 
 /**
  * Semantic dropdown selection
+ * NOTE: all code in this section is copy-pasted from shiny.semantic,
+ * except for `initialize` method - it was re-implementd.
  */
 
 var semanticDropdownBinding = new Shiny.InputBinding();
 
 $.extend(semanticDropdownBinding, {
-  // This initialize input element. It extracts data-value attribute and use that as value.
   initialize: function (el) {
     const settings = JSON.parse(el.dataset.settings);
     $(el).dropdown({ ...settings });
