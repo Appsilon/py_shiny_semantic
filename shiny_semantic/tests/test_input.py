@@ -18,9 +18,7 @@ class TestInput(unittest.TestCase):
     def test_complex_input(self):
         expected_html_3 = '<div class="ui error icon labeled input">'
         expected_html_4 = '<div class="ui label">Password</div>'
-        expected_html_5 = (
-            '<input id="complex" type="password" value="" placeholder="Complex"/>'
-        )
+        expected_html_5 = '<input id="complex" type="password" value="" placeholder="Complex"/>'
         expected_html_6 = '<i class="react icon">'
 
         element = semantic_input(

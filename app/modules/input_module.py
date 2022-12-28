@@ -31,9 +31,7 @@ def ui():
         ),
         feature_subsection(
             "States and Variations",
-            semantic_input(
-                "disabled", placeholder="Disabled", semantic_class="disabled"
-            ),
+            semantic_input("disabled", placeholder="Disabled", semantic_class="disabled"),
             semantic_input("error", placeholder="Error", semantic_class="error"),
             semantic_input("date", placeholder="Date", type="date"),
             semantic_input("email", placeholder="Email", type="email"),

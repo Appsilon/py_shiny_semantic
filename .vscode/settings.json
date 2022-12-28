@@ -4,8 +4,8 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "python.formatting.blackArgs": ["--line-length", "88"],
-  "python.linting.flake8Args": ["--line-length", "88"],
+  "python.formatting.blackArgs": ["--line-length=100"],
+  "python.linting.flake8Args": ["--line-length=100"],
   "isort.args": ["--profile", "black"],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"

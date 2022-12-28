@@ -20,8 +20,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Lint shiny_semantic
-        run: black --check shiny_semantic
+        run: black --check --line-length=100 shiny_semantic
       - name: Lint demo app
-        run: black --check app
+        run: black --check --line-length=100 app
       - name: Test with unittest
         run: python -m unittest discover shiny_semantic/tests
