@@ -27,8 +27,9 @@ def ui():
                 id="group",
                 labels=["One", "Two", "Three"],
                 values=[True, False, False],
-                type="checkbox",
+                type="radio",
             ),
+            output_text_verbatim("group_out"),
         ),
     )
 
@@ -55,6 +56,7 @@ def server(input, output, session):
     def _():
         return input.radio()
 
-    @reactive.Effect
+    @output(id="group_out")
+    @render.text
     def _():
-        print(input.radio())
+        return input.group()

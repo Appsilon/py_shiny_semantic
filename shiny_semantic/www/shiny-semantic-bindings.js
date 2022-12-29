@@ -326,3 +326,44 @@ $.extend(semanticCheckboxBinding, {
 });
 
 Shiny.inputBindings.register(semanticCheckboxBinding, "shiny.semanticCheckbox");
+
+const semanticCheckboxGroupBinding = new Shiny.InputBinding();
+
+$.extend(semanticCheckboxGroupBinding, {
+  initialize: (el) => $(el).checkbox({ fireOnInit: true }),
+  find: (scope) => $(scope).find(".ss-checkbox-group"),
+  getId: (el) => el.id,
+  getValue: (el) => {
+    const checkboxes = $(el).find(".ui.checkbox");
+    const checkboxValues = $.map(checkboxes, (element) =>
+      $(element).checkbox("is checked"),
+    );
+    return checkboxValues;
+  },
+  setValue: (el, values) => {
+    const checkboxes = $(el).find(".ui.checkbox");
+    $.each(checkboxes, (item, idx) =>
+      $(item).checkbox(values[idx] ? "check" : "uncheck"),
+    );
+  },
+  setLabels: (el, labels) => {
+    const checkboxes = $(el).find(".ui.checkbox");
+    $.each(checkboxes, (item, idx) =>
+      $(item)
+        .find("label[for='" + item.querySelector("input").id + "'")
+        .html(labels[idx]),
+    );
+  },
+  subscribe: (el, callback) => $(el).checkbox({ onChange: () => callback() }),
+  unsubscribe: (el) => $(el).off(),
+  receiveMessage: function (el, data) {
+    const { values, labels } = data;
+    values && this.setValue(el, values);
+    labels && this.setLabels(el, labels);
+  },
+});
+
+Shiny.inputBindings.register(
+  semanticCheckboxGroupBinding,
+  "shiny.semanticCheckboxGroup",
+);
