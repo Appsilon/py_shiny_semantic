@@ -2,6 +2,8 @@
 __all__ = (
     "modal",
     "modal_show",
+    "slider",
+    "update_slider",
     "input_select",
     "update_select",
     "dropdown",
@@ -9,3 +11,4 @@ __all__ = (
 
 from .dropdown import dropdown, input_select, update_select
 from .modal import modal, modal_show
+from .slider import slider, update_slider
