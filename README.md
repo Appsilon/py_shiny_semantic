@@ -25,8 +25,13 @@ pip install rsconnect-python
 rsconnect add -n connect.appsilon.com -s https://connect.appsilon.com/ -k $RSCONNECT_API
 
 # Manual deployment
-rsconnect deploy shiny .
+rsconnect deploy shiny --entrypoint app .
 
 # Write manifest for git-backed deployment
-rsconnect write-manifest shiny .
+rsconnect write-manifest shiny \
+    --overwrite \
+    --entrypoint app \
+    --exclude "**/*.pyc" \
+    --exclude .DS_Store \
+    . # DIRECTORY
 ```
