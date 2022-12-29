@@ -7,8 +7,8 @@ class TestSlider(unittest.TestCase):
     def test_simple_slider(self):
         expected_html = (
             '<div id="simple" class="ui labeled slider ss-slider" '
-            + 'data-min="0" data-max="5" data-start="0" data-labels="null">'
-            + "</div>"
+            'data-min="0" data-max="5" data-start="0" data-labels="null">'
+            "</div>"
         )
 
         element = slider(
@@ -26,8 +26,8 @@ class TestSlider(unittest.TestCase):
     def test_range_slider(self):
         expected_html = (
             '<div id="range" class="ui labeled range slider ss-slider" '
-            + 'data-min="0" data-max="5" data-start="0" data-end="2" data-labels="null">'
-            + "</div>"
+            'data-min="0" data-max="5" data-start="0" data-end="2" data-labels="null">'
+            "</div>"
         )
 
         element = slider(
@@ -46,9 +46,9 @@ class TestSlider(unittest.TestCase):
     def test_custom_slider(self):
         expected_html = (
             '<div id="slider_custom" class="ui big red labeled slider ss-slider" '
-            + 'data-min="1" data-max="5" data-start="3" data-step="1" '
-            + 'data-labels="[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;]">'
-            + "</div>"
+            'data-min="1" data-max="5" data-start="3" data-step="1" '
+            'data-labels="[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;]">'
+            "</div>"
         )
 
         element = slider(

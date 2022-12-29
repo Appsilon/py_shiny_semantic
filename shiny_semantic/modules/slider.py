@@ -11,7 +11,7 @@ from shiny_semantic._utils import squash_whitespace
 
 def slider(
     id: str,
-    label: str,
+    # TODO: add `label: str` argument
     min_value: Union[float, int],
     max_value: Union[float, int],
     start_value: Union[float, int],
@@ -24,6 +24,10 @@ def slider(
     class_: Optional[str] = None,
     **kwargs: TagAttrArg,
 ):
+    """
+    By default, single-value slider is created.
+    If `end_value` is passed, then the range-value slider is created.
+    """
 
     class_ = class_ or ""
 
@@ -60,5 +64,4 @@ def update_slider(
 
     session = require_active_session(session)
     msg = {"value": value}
-    print(msg)
     session.send_input_message(id, drop_none(msg))
