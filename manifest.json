@@ -17,9 +17,6 @@
     "requirements.txt": {
       "checksum": "158ce38a0e1b5c836f70848b8ae86926"
     },
-    ".DS_Store": {
-      "checksum": "4fd3b0447b0926e66eb4472f62d8cbb3"
-    },
     ".github/workflows/unit-test.yml": {
       "checksum": "ad68e76c46e12b9cfb28599c37bddb05"
     },
@@ -33,7 +30,7 @@
       "checksum": "26f4a8ba372013302dfb61c3730fd37b"
     },
     "README.md": {
-      "checksum": "c17b9c3c6a36a7d301d1ace857acd654"
+      "checksum": "939ff6c34c228258633d6bb557355c23"
     },
     "app/__init__.py": {
       "checksum": "a0ff8d91e770939faa052a8087c7776a"
