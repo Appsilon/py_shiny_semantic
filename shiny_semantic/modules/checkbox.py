@@ -1,8 +1,7 @@
 from typing import Optional
 
-from htmltools import tags
+from htmltools import TagList, tags
 from shiny._namespaces import resolve_id
-from shiny.ui import input_checkbox
 
 from shiny_semantic._utils import squash_whitespace
 
@@ -37,4 +36,44 @@ def checkbox(
         tags.label(label, for_=id),
         class_=squash_whitespace(f"ui {class_} checkbox"),
         **kwargs,
+    )
+
+
+def checkbox_group(
+    id: str,
+    labels: list[str],
+    values: list[bool],
+    *,
+    type: Optional[str] = None,
+    position: Optional[str] = "grouped",
+    class_: Optional[str] = None,
+):
+
+    assert len(labels) == len(values), "Number of supplied labels and values must be equal"
+    if type == "radio":
+        assert sum(values) <= 1, "Radio buttons may have a maximum of 1 active value"
+
+    checkboxes = TagList()
+    for label, value in zip(labels, values):
+        checkbox_tag = tags.div(
+            checkbox(
+                id=label,
+                label=label,
+                value=value,
+                type=type,
+            ),
+            class_="field",
+        )
+        checkboxes.append(checkbox_tag)
+
+    id = resolve_id(id)
+    class_ = squash_whitespace(f"{position} {class_ or ''} fields ss-checkbox-group")
+
+    return tags.div(
+        tags.div(
+            checkboxes,
+            id=id,
+            class_=class_,
+        ),
+        class_="ui form",
     )

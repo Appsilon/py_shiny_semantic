@@ -1,7 +1,7 @@
 from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
-from shiny_semantic.modules import checkbox
+from shiny_semantic.modules import checkbox, checkbox_group
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -12,7 +12,7 @@ def ui():
         "Checkbox",
         feature_subsection(
             "Different types",
-            checkbox("checkbox", "Checkbox"),
+            checkbox("checkbox", "Checkbox", value=True),
             output_text_verbatim("checkbox_out"),
             checkbox("toggle", "Toggle", type="toggle"),
             output_text_verbatim("toggle_out"),
@@ -20,6 +20,15 @@ def ui():
             output_text_verbatim("slider_out"),
             checkbox("radio", "Radio", type="radio"),
             output_text_verbatim("radio_out"),
+        ),
+        feature_subsection(
+            "Checkbox group",
+            checkbox_group(
+                id="group",
+                labels=["One", "Two", "Three"],
+                values=[True, False, False],
+                type="checkbox",
+            ),
         ),
     )
 
