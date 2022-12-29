@@ -1,7 +1,9 @@
 from typing import Optional
 
-from htmltools import TagList, tags
 from shiny._namespaces import resolve_id
+from shiny._utils import drop_none
+from shiny.session import Session, require_active_session
+from shiny.ui import TagList, tags
 
 from shiny_semantic._utils import squash_whitespace
 
@@ -32,8 +34,9 @@ def checkbox(
     id = resolve_id(id)
 
     return tags.div(
-        tags.input(id=id, type_=type_, name=id, checked=checked_),
+        tags.input(type_=type_, name=id, checked=checked_),
         tags.label(label, for_=id),
+        id=id,
         class_=squash_whitespace(f"ui {class_} checkbox"),
         **kwargs,
     )
@@ -85,3 +88,15 @@ def checkbox_group(
         ),
         class_="ui form",
     )
+
+
+def update_checkbox(
+    id: str,
+    *,
+    label: Optional[str] = None,
+    value: Optional[bool] = None,
+    session: Optional[Session] = None,
+):
+    session = require_active_session(session)
+    msg = {"label": label, "value": value}
+    session.send_input_message(id, drop_none(msg))

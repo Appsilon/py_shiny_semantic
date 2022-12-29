@@ -1,7 +1,11 @@
-from shiny import module, reactive, render
-from shiny.ui import output_text_verbatim, tags
+import random
+import string
 
-from shiny_semantic.modules import checkbox, checkbox_group
+from shiny import module, reactive, render
+from shiny.ui import output_text_verbatim
+
+from shiny_semantic.elements import button, icon
+from shiny_semantic.modules import checkbox, checkbox_group, update_checkbox
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -40,6 +44,17 @@ def ui():
             ),
             output_text_verbatim("group_radio_out"),
         ),
+        feature_subsection(
+            "Server-side updates",
+            checkbox("checkbox_to_update", "To be updated", type="toggle"),
+            button(
+                "update_checkbox",
+                "Update label and value",
+                icon=icon("arrow left"),
+                class_="right floated",
+            ),
+            output_text_verbatim("update_single_out"),
+        ),
     )
 
 
@@ -74,3 +89,16 @@ def server(input, output, session):
     @render.text
     def _():
         return input.group_radio()
+
+    @output(id="update_single_out")
+    @render.text
+    def _():
+        return input.checkbox_to_update()
+
+    @reactive.Effect
+    @reactive.event(input.update_checkbox)
+    def _():
+        sample = random.choices(string.ascii_uppercase, k=6)
+        label = "".join(sample)
+        value = not input.checkbox_to_update()
+        update_checkbox("checkbox_to_update", label=label, value=value)

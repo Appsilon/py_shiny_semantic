@@ -313,15 +313,15 @@ const semanticCheckboxBinding = new Shiny.InputBinding();
 $.extend(semanticCheckboxBinding, {
   initialize: (el) => $(el).checkbox({ fireOnInit: true }),
   find: (scope) => $(scope).find(".ui.checkbox"),
-  getId: (el) => el.querySelector("input").id,
+  getId: (el) => el.id,
   getValue: (el) => $(el).checkbox("is checked"),
   setValue: (el, val) => $(el).checkbox(val ? "check" : "uncheck"),
   subscribe: (el, callback) => $(el).checkbox({ onChange: () => callback() }),
   unsubscribe: (el) => $(el).off(),
   receiveMessage: function (el, data) {
     const { value, label } = data;
-    value && this.setValue(el, value);
-    label && $("label[for='" + el.id + "'").html(data.label);
+    value !== undefined && this.setValue(el, value);
+    label !== undefined && $("label[for='" + el.id + "'").html(data.label);
   },
 });
 
