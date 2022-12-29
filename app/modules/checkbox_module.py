@@ -27,7 +27,7 @@ def ui():
                 id="group",
                 labels=["One", "Two", "Three"],
                 values=[True, False, False],
-                type="radio",
+                type="slider",
             ),
             output_text_verbatim("group_out"),
         ),
