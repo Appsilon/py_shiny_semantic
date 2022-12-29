@@ -302,3 +302,27 @@ $.extend(semanticDropdownBinding, {
 });
 
 Shiny.inputBindings.register(semanticDropdownBinding, "shiny.semanticDropdown");
+
+/**
+ * Semantic checkbox binding
+ * NOTE (PD): I took the original binding, split it into two:
+ * checkbox and checkboxGroup to be separate,
+ * and modified the code to some extent.
+ */
+const semanticCheckboxBinding = new Shiny.InputBinding();
+$.extend(semanticCheckboxBinding, {
+  initialize: (el) => $(el).checkbox({ fireOnInit: true }),
+  find: (scope) => $(scope).find(".ui.checkbox"),
+  getId: (el) => el.querySelector("input").id,
+  getValue: (el) => $(el).checkbox("is checked"),
+  setValue: (el, val) => $(el).checkbox(val ? "check" : "uncheck"),
+  subscribe: (el, callback) => $(el).checkbox({ onChange: () => callback() }),
+  unsubscribe: (el) => $(el).off(),
+  receiveMessage: function (el, data) {
+    const { value, label } = data;
+    value && this.setValue(el, value);
+    label && $("label[for='" + el.id + "'").html(data.label);
+  },
+});
+
+Shiny.inputBindings.register(semanticCheckboxBinding, "shiny.semanticCheckbox");
