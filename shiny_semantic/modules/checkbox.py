@@ -46,6 +46,7 @@ def checkbox_group(
     *,
     type: Optional[str] = None,
     position: Optional[str] = "grouped",
+    group_label: Optional[str] = None,
     class_: Optional[str] = None,
 ):
 
@@ -53,7 +54,7 @@ def checkbox_group(
     if type == "radio":
         assert sum(values) <= 1, "Radio buttons may have a maximum of 1 active value"
 
-    checkboxes = TagList()
+    checkbox_tags = TagList()
     for label, value in zip(labels, values):
         checkbox_tag = tags.div(
             checkbox(
@@ -68,14 +69,17 @@ def checkbox_group(
             ),
             class_="field",
         )
-        checkboxes.append(checkbox_tag)
+        checkbox_tags.append(checkbox_tag)
+
+    group_label_tag = group_label and tags.label(group_label)
 
     id = resolve_id(id)
     class_ = squash_whitespace(f"{position} {class_ or ''} fields ss-checkbox-group")
 
     return tags.div(
         tags.div(
-            checkboxes,
+            group_label_tag,
+            checkbox_tags,
             id=id,
             class_=class_,
         ),
