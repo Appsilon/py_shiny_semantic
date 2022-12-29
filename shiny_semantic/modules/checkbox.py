@@ -57,7 +57,11 @@ def checkbox_group(
     for label, value in zip(labels, values):
         checkbox_tag = tags.div(
             checkbox(
-                id=label,
+                # NOTE: id of a particular checkbox inside a group doesn't play any role
+                # in terms of Shiny reactivity.
+                # However, since a chackbox input's "name" field is inferred from the id,
+                # it is essential that they are the same throughout the group.
+                id=f"{id}__group",
                 label=label,
                 value=value,
                 type=type,
