@@ -1,5 +1,6 @@
 __all__ = (
     "button",
+    "checkbox",
     "dropdown",
     "emoji",
     "flag",
@@ -11,6 +12,7 @@ __all__ = (
 )
 
 from . import button_module as button
+from . import checkbox_module as checkbox
 from . import dropdown_module as dropdown
 from . import emoji_module as emoji
 from . import flag_module as flag
