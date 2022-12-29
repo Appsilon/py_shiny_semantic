@@ -1,5 +1,5 @@
 from shiny import module, reactive, render
-from shiny.ui import output_text_verbatim
+from shiny.ui import output_text_verbatim, tags
 
 from shiny_semantic.modules import checkbox, checkbox_group
 
@@ -27,9 +27,18 @@ def ui():
                 id="group",
                 labels=["One", "Two", "Three"],
                 values=[True, False, False],
+                group_label="Slider group",
                 type="slider",
             ),
             output_text_verbatim("group_out"),
+            checkbox_group(
+                id="group_radio",
+                labels=["One", "Two", "Three"],
+                values=[False, False, False],
+                group_label="Radio group",
+                type="radio",
+            ),
+            output_text_verbatim("group_radio_out"),
         ),
     )
 
@@ -60,3 +69,8 @@ def server(input, output, session):
     @render.text
     def _():
         return input.group()
+
+    @output(id="group_radio_out")
+    @render.text
+    def _():
+        return input.group_radio()
