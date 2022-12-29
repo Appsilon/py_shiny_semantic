@@ -4,8 +4,13 @@ import string
 from shiny import module, reactive, render
 from shiny.ui import output_text_verbatim
 
-from shiny_semantic.elements import button, icon
-from shiny_semantic.modules import checkbox, checkbox_group, update_checkbox
+from shiny_semantic.elements import button, header, icon
+from shiny_semantic.modules import (
+    checkbox,
+    checkbox_group,
+    update_checkbox,
+    update_checkbox_group,
+)
 
 from ._feature_layout import feature_section, feature_subsection
 
@@ -54,6 +59,16 @@ def ui():
                 class_="right floated",
             ),
             output_text_verbatim("update_single_out"),
+            checkbox_group(
+                id="group_to_update",
+                labels=["hello", "world"],
+                values=[True, False],
+                group_label="Group to be Updated",
+            ),
+            header("Click each button many times!", class_="small"),
+            button("update_group_labels", "Random labels"),
+            button("update_group_values", "Random values"),
+            button("update_group_group_label", "Random group label"),
         ),
     )
 
@@ -102,3 +117,22 @@ def server(input, output, session):
         label = "".join(sample)
         value = not input.checkbox_to_update()
         update_checkbox("checkbox_to_update", label=label, value=value)
+
+    @reactive.Effect
+    @reactive.event(input.update_group_labels)
+    def _():
+        labels = random.choices(string.ascii_letters, k=2)
+        update_checkbox_group("group_to_update", labels=labels)
+
+    @reactive.Effect
+    @reactive.event(input.update_group_values)
+    def _():
+        values = random.choices([True, False], k=2)
+        update_checkbox_group("group_to_update", values=values)
+
+    @reactive.Effect
+    @reactive.event(input.update_group_group_label)
+    def _():
+        sample = random.choices(string.ascii_letters, k=12)
+        group_label = "".join(sample)
+        update_checkbox_group("group_to_update", group_label=group_label)

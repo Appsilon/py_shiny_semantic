@@ -34,7 +34,7 @@ def checkbox(
     id = resolve_id(id)
 
     return tags.div(
-        tags.input(type_=type_, name=id, checked=checked_),
+        tags.input(id=id, type_=type_, name=id, checked=checked_),
         tags.label(label, for_=id),
         id=id,
         class_=squash_whitespace(f"ui {class_} checkbox"),
@@ -99,4 +99,17 @@ def update_checkbox(
 ):
     session = require_active_session(session)
     msg = {"label": label, "value": value}
+    session.send_input_message(id, drop_none(msg))
+
+
+def update_checkbox_group(
+    id: str,
+    *,
+    labels: Optional[list[str]] = None,
+    values: Optional[list[bool]] = None,
+    group_label: Optional[str] = None,
+    session: Optional[Session] = None,
+):
+    session = require_active_session(session)
+    msg = {"labels": labels, "values": values, "group_label": group_label}
     session.send_input_message(id, drop_none(msg))

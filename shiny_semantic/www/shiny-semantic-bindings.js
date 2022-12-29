@@ -342,24 +342,26 @@ $.extend(semanticCheckboxGroupBinding, {
   },
   setValue: (el, values) => {
     const checkboxes = $(el).find(".ui.checkbox");
-    $.each(checkboxes, (item, idx) =>
+    $.each(checkboxes, (idx, item) =>
       $(item).checkbox(values[idx] ? "check" : "uncheck"),
     );
   },
   setLabels: (el, labels) => {
     const checkboxes = $(el).find(".ui.checkbox");
-    $.each(checkboxes, (item, idx) =>
+    $.each(checkboxes, (idx, item) => {
       $(item)
         .find("label[for='" + item.querySelector("input").id + "'")
-        .html(labels[idx]),
-    );
+        .html(labels[idx]);
+    });
   },
+  setGroupLabel: (el, label) => $(el).find("label").first().html(label),
   subscribe: (el, callback) => $(el).checkbox({ onChange: () => callback() }),
   unsubscribe: (el) => $(el).off(),
   receiveMessage: function (el, data) {
-    const { values, labels } = data;
-    values && this.setValue(el, values);
-    labels && this.setLabels(el, labels);
+    const { values, labels, group_label } = data;
+    values !== undefined && this.setValue(el, values);
+    labels !== undefined && this.setLabels(el, labels);
+    group_label !== undefined && this.setGroupLabel(el, group_label);
   },
 });
 
