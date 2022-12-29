@@ -17,7 +17,6 @@ def ui():
             "Simple",
             slider(
                 id="slider",
-                label="Slider",
                 min_value=0,
                 max_value=10,
                 start_value=5,
@@ -29,7 +28,6 @@ def ui():
             "Range",
             slider(
                 id="slider_range",
-                label="Range Slider",
                 min_value=-10,
                 max_value=10,
                 start_value=1,
@@ -42,7 +40,6 @@ def ui():
             "Custom",
             slider(
                 id="slider_custom",
-                label="Custom Slider",
                 min_value=1,
                 max_value=5,
                 start_value=3,

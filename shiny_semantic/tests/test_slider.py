@@ -13,7 +13,6 @@ class TestSlider(unittest.TestCase):
 
         element = slider(
             id="simple",
-            label="simple",
             min_value=0,
             max_value=5,
             start_value=0,
@@ -32,7 +31,6 @@ class TestSlider(unittest.TestCase):
 
         element = slider(
             id="range",
-            label="range",
             min_value=0,
             max_value=5,
             start_value=0,
@@ -53,7 +51,6 @@ class TestSlider(unittest.TestCase):
 
         element = slider(
             id="slider_custom",
-            label="Custom Slider",
             min_value=1,
             max_value=5,
             start_value=3,
