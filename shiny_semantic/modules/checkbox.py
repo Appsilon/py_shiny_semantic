@@ -52,10 +52,10 @@ def checkbox_group(
     group_label: Optional[str] = None,
     class_: Optional[str] = None,
 ):
-
-    assert len(labels) == len(values), "Number of supplied labels and values must be equal"
-    if type == "radio":
-        assert sum(values) <= 1, "Radio buttons may have a maximum of 1 active value"
+    if len(labels) != len(values):
+        raise Exception("Number of supplied labels and values must be equal")
+    if type == "radio" and sum(values) > 1:
+        raise Exception("Radio buttons may have a maximum of 1 active value")
 
     checkbox_tags = TagList()
     for label, value in zip(labels, values):

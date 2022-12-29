@@ -46,6 +46,42 @@ class TestCheckbox(unittest.TestCase):
         self.assertTrue(expected_html_3 in html)
         self.assertTrue(expected_html_4 in html)
 
+    def test_checkbox_group(self):
+        expected_html_1 = '<div id="group" class="grouped fields ss-checkbox-group">'
+        expected_html_2 = '<div id="group__group" class="ui checked checkbox">'
+        expected_html_3 = (
+            '<input id="group__group" type="checkbox" name="group__group" checked=""/>'
+        )
+
+        element = checkbox_group(id="group", labels=["one", "two"], values=[True, True])
+        html = element.get_html_string()
+
+        self.assertTrue(expected_html_1 in html)
+        self.assertTrue(expected_html_2 in html)
+        self.assertTrue(expected_html_3 in html)
+
+    def test_radio_assertiveness(self):
+
+        with self.assertRaises(Exception) as context:
+            checkbox_group(
+                id="group",
+                labels=["one", "two"],
+                values=[True],
+            )
+            self.assertTrue(
+                "Number of supplied labels and values must be equal" in str(context.exception)
+            )
+        with self.assertRaises(Exception) as context:
+            checkbox_group(
+                id="group",
+                labels=["one", "two"],
+                values=[True, True],
+                type="radio",
+            )
+            self.assertTrue(
+                "Radio buttons may have a maximum of 1 active value" in str(context.exception)
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
