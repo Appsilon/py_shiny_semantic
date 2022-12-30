@@ -302,3 +302,70 @@ $.extend(semanticDropdownBinding, {
 });
 
 Shiny.inputBindings.register(semanticDropdownBinding, "shiny.semanticDropdown");
+
+/**
+ * Semantic checkbox binding
+ * NOTE (PD): I took the original binding, split it into two:
+ * checkbox and checkboxGroup to be separate,
+ * and modified the code to some extent.
+ */
+const semanticCheckboxBinding = new Shiny.InputBinding();
+$.extend(semanticCheckboxBinding, {
+  initialize: (el) => $(el).checkbox({ fireOnInit: true }),
+  find: (scope) => $(scope).find(".ui.checkbox"),
+  getId: (el) => el.id,
+  getValue: (el) => $(el).checkbox("is checked"),
+  setValue: (el, val) => $(el).checkbox(val ? "check" : "uncheck"),
+  subscribe: (el, callback) => $(el).checkbox({ onChange: () => callback() }),
+  unsubscribe: (el) => $(el).off(),
+  receiveMessage: function (el, data) {
+    const { value, label } = data;
+    value !== undefined && this.setValue(el, value);
+    label !== undefined && $("label[for='" + el.id + "'").html(data.label);
+  },
+});
+
+Shiny.inputBindings.register(semanticCheckboxBinding, "shiny.semanticCheckbox");
+
+const semanticCheckboxGroupBinding = new Shiny.InputBinding();
+
+$.extend(semanticCheckboxGroupBinding, {
+  initialize: (el) => $(el).checkbox({ fireOnInit: true }),
+  find: (scope) => $(scope).find(".ss-checkbox-group"),
+  getId: (el) => el.id,
+  getValue: (el) => {
+    const checkboxes = $(el).find(".ui.checkbox");
+    const checkboxValues = $.map(checkboxes, (element) =>
+      $(element).checkbox("is checked"),
+    );
+    return checkboxValues;
+  },
+  setValue: (el, values) => {
+    const checkboxes = $(el).find(".ui.checkbox");
+    $.each(checkboxes, (idx, item) =>
+      $(item).checkbox(values[idx] ? "check" : "uncheck"),
+    );
+  },
+  setLabels: (el, labels) => {
+    const checkboxes = $(el).find(".ui.checkbox");
+    $.each(checkboxes, (idx, item) => {
+      $(item)
+        .find("label[for='" + item.querySelector("input").id + "'")
+        .html(labels[idx]);
+    });
+  },
+  setGroupLabel: (el, label) => $(el).find("label").first().html(label),
+  subscribe: (el, callback) => $(el).checkbox({ onChange: () => callback() }),
+  unsubscribe: (el) => $(el).off(),
+  receiveMessage: function (el, data) {
+    const { values, labels, group_label } = data;
+    values !== undefined && this.setValue(el, values);
+    labels !== undefined && this.setLabels(el, labels);
+    group_label !== undefined && this.setGroupLabel(el, group_label);
+  },
+});
+
+Shiny.inputBindings.register(
+  semanticCheckboxGroupBinding,
+  "shiny.semanticCheckboxGroup",
+);
