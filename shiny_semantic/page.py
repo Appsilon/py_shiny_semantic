@@ -1,5 +1,4 @@
-from htmltools import HTMLDependency
-from shiny.ui import TagList, tags
+from htmltools import HTMLDependency, TagList, tags
 
 
 def page_semantic(*args, title=None, lang="en"):

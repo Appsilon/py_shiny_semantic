@@ -1,11 +1,10 @@
 from typing import Optional, Union
 
-from shiny._namespaces import resolve_id
-from shiny._utils import drop_none
+from htmltools import TagList, tags
+from shiny.module import resolve_id
 from shiny.session import Session, require_active_session
-from shiny.ui import TagList, tags
 
-from shiny_semantic._utils import squash_whitespace
+from shiny_semantic._utils import drop_none, squash_whitespace
 
 
 def checkbox(
