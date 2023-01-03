@@ -1,3 +1,5 @@
+// compared to shiny.semantic: new implementation
+
 const showSemanticModal = (payload) => {
   const modalId = $(payload.ui).attr("id");
   const modalProps = payload.props ?? {};

@@ -1,3 +1,4 @@
+// compared to shiny.semantic: same code
 var semanticButtonBinding = new Shiny.InputBinding();
 $.extend(semanticButtonBinding, {
   find: function (scope) {

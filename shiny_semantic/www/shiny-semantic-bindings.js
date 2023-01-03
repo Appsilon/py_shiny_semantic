@@ -1,9 +1,13 @@
 /**
  * All shiny <-> semantic bindings in one file
- * to be loaded when the app first loads
+ * to be loaded when the app first loads.
  *
- * The code below was originally developed by Appsilon team for `shiny.semantic` R package
+ * The bindings for Shiny Semantic have been originally developed
+ * by the Appsilon team for the R/Shiny package:
  * https://github.com/Appsilon/shiny.semantic
+ *
+ * Each file with a binding here contains a top-level
+ * comment with a summary on how it compares to the original code.
  */
 
 import semanticButtonBinding from "./bindings/semanticButton.js";

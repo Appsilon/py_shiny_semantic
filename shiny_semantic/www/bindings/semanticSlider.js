@@ -1,3 +1,5 @@
+// compared to shiny.semantic: same code except for `initialize` method
+
 var semanticSliderBinding = new Shiny.InputBinding();
 
 $.extend(semanticSliderBinding, {

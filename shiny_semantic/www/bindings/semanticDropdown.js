@@ -1,3 +1,5 @@
+// compared to shiny.semantic: same code except for `initialize` method
+
 var semanticDropdownBinding = new Shiny.InputBinding();
 
 $.extend(semanticDropdownBinding, {

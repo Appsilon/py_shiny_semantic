@@ -1,3 +1,5 @@
+// compared to shiny.semantic: new implementation
+
 const semanticCheckboxBinding = new Shiny.InputBinding();
 
 $.extend(semanticCheckboxBinding, {
