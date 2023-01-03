@@ -1,31 +1,40 @@
 {
+  // General editor config
   "editor.tabSize": 4,
+
+  // Ensure format on save
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "python.formatting.blackArgs": ["--line-length=100"],
-  "python.linting.flake8Args": ["--line-length=100"],
-  "isort.args": ["--profile", "black"],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
+  // Python linting config
+  "python.formatting.blackArgs": ["--line-length=100"],
+  "python.linting.flake8Args": ["--max-line-length=100"],
+
+  // JS linting config
   "prettier.requireConfig": false,
   "prettier.singleQuote": false,
   "prettier.trailingComma": "all",
-  "prettier.useTabs": false,
-  "prettier.tabWidth": 2,
   "prettier.printWidth": 100,
+
+  // isort config
+  "isort.args": ["--profile", "black"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+
+  // Python unit test config
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestEnabled": true,
   "python.testing.unittestArgs": [
     "--verbose",
     "--start-directory",
     "./shiny_semantic/tests",
     "--pattern",
     "test_*.py"
-  ],
-  "python.testing.pytestEnabled": false,
-  "python.testing.unittestEnabled": true
+  ]
 }
