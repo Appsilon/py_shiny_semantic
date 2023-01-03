@@ -27,25 +27,23 @@ def ui():
             output_text_verbatim("toggle_out"),
             checkbox("slider", "Slider", type="slider"),
             output_text_verbatim("slider_out"),
-            checkbox("radio", "Radio", type="radio"),
-            output_text_verbatim("radio_out"),
         ),
         feature_subsection(
             "Checkbox group",
             checkbox_group(
                 id="group",
-                labels=["One", "Two", "Three"],
-                values=[True, False, False],
-                group_label="Slider group",
+                label="Slider group with custom values",
+                choices={"a": "One", "b": "Two", "c": "Three"},
+                selected="a",
                 type="slider",
             ),
             output_text_verbatim("group_out"),
             checkbox_group(
                 id="group_radio",
-                labels=["One", "Two", "Three"],
-                values=[False, False, False],
-                group_label="Radio group",
+                label="Inline radio group",
+                choices=["One", "Two", "Three"],
                 type="radio",
+                position="inline",
             ),
             output_text_verbatim("group_radio_out"),
         ),
@@ -61,9 +59,9 @@ def ui():
             output_text_verbatim("update_single_out"),
             checkbox_group(
                 id="group_to_update",
-                labels=["hello", "world"],
-                values=[True, False],
-                group_label="Group to be Updated",
+                label="Group to be Updated",
+                choices=["hello", "world"],
+                selected=["hello"],
             ),
             header("Click each button many times!", class_="small"),
             button("update_group_labels", "Random labels"),
@@ -89,11 +87,6 @@ def server(input, output, session):
     @render.text
     def _():
         return input.slider()
-
-    @output(id="radio_out")
-    @render.text
-    def _():
-        return input.radio()
 
     @output(id="group_out")
     @render.text

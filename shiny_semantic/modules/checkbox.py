@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 
 from shiny._namespaces import resolve_id
 from shiny._utils import drop_none
@@ -14,6 +14,7 @@ def checkbox(
     value: bool = False,
     *,
     type: Optional[str] = None,
+    name: Optional[str] = None,
     class_: Optional[str] = None,
     **kwargs,
 ):
@@ -24,17 +25,18 @@ def checkbox(
     if type is not None:
         class_ = f"{class_} {type}"
 
-    type_ = "checkbox"
+    input_tag_type = "checkbox"
     if type == "radio":
-        type_ = "radio"
+        input_tag_type = "radio"
 
     # NOTE: if the value=False, let checked_ be None, i.e. not appear in HTML
-    checked_ = value and ""
+    checked = "" if value else None
 
     id = resolve_id(id)
+    name = name or id
 
     return tags.div(
-        tags.input(id=id, type_=type_, name=id, checked=checked_),
+        tags.input(id=id, type_=input_tag_type, name=name, checked=checked),
         tags.label(label, for_=id),
         id=id,
         class_=squash_whitespace(f"ui {class_} checkbox"),
@@ -44,44 +46,48 @@ def checkbox(
 
 def checkbox_group(
     id: str,
-    labels: list[str],
-    values: list[bool],
+    label: str,
+    choices: Union[list[str], dict[str, str]],
     *,
+    selected: Optional[Union[list[str], tuple[str], str]] = None,
     type: Optional[str] = None,
     position: Optional[str] = "grouped",
-    group_label: Optional[str] = None,
     class_: Optional[str] = None,
 ):
-    if len(labels) != len(values):
-        raise Exception("Number of supplied labels and values must be equal")
-    if type == "radio" and sum(values) > 1:
+    if isinstance(choices, list):
+        choices = {choice: choice for choice in choices}
+
+    if selected is None:
+        selected = []
+    if isinstance(selected, str):
+        selected = [selected]
+
+    if type == "radio" and len(selected) > 1:
         raise Exception("Radio buttons may have a maximum of 1 active value")
 
     checkbox_tags = TagList()
-    for label, value in zip(labels, values):
+    for v, l in choices.items():
         checkbox_tag = tags.div(
             checkbox(
-                # NOTE: id of a particular checkbox inside a group doesn't play any role
-                # in terms of Shiny reactivity.
-                # However, since a chackbox input's "name" field is inferred from the id,
-                # it is essential that they are the same throughout the group.
-                id=f"{id}__group",
-                label=label,
-                value=value,
+                # NOTE: for checkbox_group to work correctly, all individual checkboxes
+                # inside it must share a common name attribute.
+                id=f"{id}__{v}",
+                label=l,
+                value=v in selected,
                 type=type,
+                name=id,
+                data_shiny_value=v,
             ),
             class_="field",
         )
         checkbox_tags.append(checkbox_tag)
-
-    group_label_tag = group_label and tags.label(group_label)
 
     id = resolve_id(id)
     class_ = squash_whitespace(f"{position} {class_ or ''} fields ss-checkbox-group")
 
     return tags.div(
         tags.div(
-            group_label_tag,
+            tags.label(label),
             checkbox_tags,
             id=id,
             class_=class_,

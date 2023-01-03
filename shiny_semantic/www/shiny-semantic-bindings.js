@@ -320,8 +320,8 @@ $.extend(semanticCheckboxBinding, {
   unsubscribe: (el) => $(el).off(),
   receiveMessage: function (el, data) {
     const { value, label } = data;
-    value !== undefined && this.setValue(el, value);
-    label !== undefined && $("label[for='" + el.id + "'").html(data.label);
+    if (value !== undefined) this.setValue(el, value);
+    if (label !== undefined) $(`label[for='${el.id}']`).html(label);
   },
 });
 
@@ -334,11 +334,17 @@ $.extend(semanticCheckboxGroupBinding, {
   find: (scope) => $(scope).find(".ss-checkbox-group"),
   getId: (el) => el.id,
   getValue: (el) => {
-    const checkboxes = $(el).find(".ui.checkbox");
-    const checkboxValues = $.map(checkboxes, (element) =>
-      $(element).checkbox("is checked"),
-    );
-    return checkboxValues;
+    const selected = $(el)
+      .find(".ui.checkbox")
+      .filter((_idx, e) => $(e).checkbox("is checked"))
+      .map((_idx, e) => $(e).data("shinyValue"))
+      .toArray();
+
+    // Handle radio buttons return value differently
+    const isRadioGroup = $(el).find(".radio").length > 0;
+    if (isRadioGroup) return selected[0];
+
+    return selected;
   },
   setValue: (el, values) => {
     const checkboxes = $(el).find(".ui.checkbox");
@@ -359,9 +365,9 @@ $.extend(semanticCheckboxGroupBinding, {
   unsubscribe: (el) => $(el).off(),
   receiveMessage: function (el, data) {
     const { values, labels, group_label } = data;
-    values !== undefined && this.setValue(el, values);
-    labels !== undefined && this.setLabels(el, labels);
-    group_label !== undefined && this.setGroupLabel(el, group_label);
+    if (values !== undefined) this.setValue(el, values);
+    if (labels !== undefined) this.setLabels(el, labels);
+    if (group_label !== undefined) this.setGroupLabel(el, group_label);
   },
 });
 
