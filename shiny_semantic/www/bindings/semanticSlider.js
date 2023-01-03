@@ -79,7 +79,6 @@ $.extend(semanticSliderBinding, {
     });
   },
 
-  // TODO: Remove the event listeners.
   unsubscribe: function (el) {
     $(el).off(".semanticSliderBinding");
   },

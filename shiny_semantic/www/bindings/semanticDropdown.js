@@ -54,7 +54,6 @@ $.extend(semanticDropdownBinding, {
     });
   },
 
-  // TODO: Remove the event listeners.
   unsubscribe: function (el) {
     $(el).off();
   },
