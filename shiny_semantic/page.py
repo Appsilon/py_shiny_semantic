@@ -32,5 +32,5 @@ def _shiny_semantic_bindings():
         name="shiny-semantic-bindings",
         version="0.0.1",
         source={"package": "shiny_semantic", "subdir": "www"},
-        script=[{"src": "shiny-semantic-bindings.js"}],
+        script=[{"src": "shiny-semantic-bindings.js", "type": "module"}],
     )
