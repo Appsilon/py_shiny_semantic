@@ -320,8 +320,8 @@ $.extend(semanticCheckboxBinding, {
   unsubscribe: (el) => $(el).off(),
   receiveMessage: function (el, data) {
     const { value, label } = data;
-    value !== undefined && this.setValue(el, value);
-    label !== undefined && $("label[for='" + el.id + "'").html(data.label);
+    if (value !== undefined) this.setValue(el, value);
+    if (label !== undefined) $(`label[for='${el.id}']`).html(label);
   },
 });
 
@@ -365,9 +365,9 @@ $.extend(semanticCheckboxGroupBinding, {
   unsubscribe: (el) => $(el).off(),
   receiveMessage: function (el, data) {
     const { values, labels, group_label } = data;
-    values !== undefined && this.setValue(el, values);
-    labels !== undefined && this.setLabels(el, labels);
-    group_label !== undefined && this.setGroupLabel(el, group_label);
+    if (values !== undefined) this.setValue(el, values);
+    if (labels !== undefined) this.setLabels(el, labels);
+    if (group_label !== undefined) this.setGroupLabel(el, group_label);
   },
 });
 
