@@ -10,6 +10,12 @@ The result of this project consists of two units: `shiny_semantic` Python packag
 
 The application is deployed on RSConnect and can be found at https://connect.appsilon.com/py_shiny_semantic/.
 
+## About Fomantic UI
+
+[Fomantic UI](https://fomantic-ui.com/) is a well-maintained community fork of a more widely known and mature [Semantic UI](https://semantic-ui.com/). `shiny_semantic` uses JS, CSS and icons from Fomantic UI while referring to the name of the original library.
+
+The structure of `shiny_semantic` follows the one of Fomantic UI -- this way users may easily refer to corresponding sections in the original documentation to learn about possible classes, styles and behaviors of the components.
+
 ## Repository structure
 
 - _.github_
