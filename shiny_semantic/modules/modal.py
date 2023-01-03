@@ -1,10 +1,9 @@
 import re
 from typing import Dict, Optional
 
-from htmltools import Tag, TagAttrArg
+from htmltools import Tag, TagAttrArg, TagChildArg, tags
 from shiny.module import resolve_id
 from shiny.session import Session, require_active_session
-from shiny.ui import TagChildArg, tags
 
 from shiny_semantic._utils import squash_whitespace
 from shiny_semantic.elements import button

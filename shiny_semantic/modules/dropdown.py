@@ -1,7 +1,7 @@
 import json
 from typing import Optional, Union
 
-from htmltools import TagChildArg, TagList, tags
+from htmltools import tags
 from shiny.module import resolve_id
 from shiny.session import Session, require_active_session
 
