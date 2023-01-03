@@ -10,9 +10,8 @@ import semanticButtonBinding from "./bindings/semanticButton.js";
 import semanticCheckboxBinding from "./bindings/semanticCheckbox.js";
 import semanticCheckboxGroupBinding from "./bindings/semanticCheckboxGroup.js";
 import semanticDropdownBinding from "./bindings/semanticDropdown.js";
-import semanticSliderBinding from "./bindings/semanticSlider.js";
-
 import showSemanticModal from "./bindings/semanticModal.js";
+import semanticSliderBinding from "./bindings/semanticSlider.js";
 
 Shiny.inputBindings.register(semanticButtonBinding, "shiny.semanticButton");
 Shiny.inputBindings.register(semanticSliderBinding, "shiny.semanticSlider");
