@@ -1,11 +1,10 @@
 from typing import Optional
 
 from htmltools import TagAttrArg, TagChildArg, tags
-from shiny._utils import drop_none
 from shiny.module import resolve_id
 from shiny.session import Session, require_active_session
 
-from shiny_semantic._utils import squash_whitespace
+from shiny_semantic._utils import drop_none, squash_whitespace
 
 
 def button(
