@@ -1,7 +1,7 @@
 from typing import Optional, Union
 
-from shiny._namespaces import resolve_id
 from shiny._utils import drop_none
+from shiny.module import resolve_id
 from shiny.session import Session, require_active_session
 from shiny.ui import TagList, tags
 

@@ -2,7 +2,7 @@ import re
 from typing import Dict, Optional
 
 from htmltools import Tag, TagAttrArg
-from shiny._namespaces import resolve_id
+from shiny.module import resolve_id
 from shiny.session import Session, require_active_session
 from shiny.ui import TagChildArg, tags
 

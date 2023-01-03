@@ -1,7 +1,7 @@
 from typing import Optional, Union
 
 from htmltools import TagAttrArg, TagChildArg
-from shiny._namespaces import resolve_id
+from shiny.module import resolve_id
 from shiny.ui import tags
 
 from shiny_semantic._utils import squash_whitespace
