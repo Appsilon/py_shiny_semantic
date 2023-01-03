@@ -18,6 +18,7 @@
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
   "prettier.tabWidth": 2,
+  "prettier.printWidth": 100,
   "python.testing.unittestArgs": [
     "--verbose",
     "--start-directory",

@@ -19,9 +19,7 @@ $.extend(semanticCheckboxGroupBinding, {
   },
   setValue: (el, values) => {
     const checkboxes = $(el).find(".ui.checkbox");
-    $.each(checkboxes, (idx, item) =>
-      $(item).checkbox(values[idx] ? "check" : "uncheck"),
-    );
+    $.each(checkboxes, (idx, item) => $(item).checkbox(values[idx] ? "check" : "uncheck"));
   },
   setLabels: (el, labels) => {
     const checkboxes = $(el).find(".ui.checkbox");

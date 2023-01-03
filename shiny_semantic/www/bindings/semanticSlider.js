@@ -30,10 +30,7 @@ $.extend(semanticSliderBinding, {
     let value = $(el).slider("get value");
     // Takes either one or two arguments depending on if it's a range or normal slider
     if ($(el).hasClass("range")) {
-      value = [
-        $(el).slider("get thumbValue", "first"),
-        $(el).slider("get thumbValue", "second"),
-      ];
+      value = [$(el).slider("get thumbValue", "first"), $(el).slider("get thumbValue", "second")];
     }
 
     if ($(el).data("ticks")) {
