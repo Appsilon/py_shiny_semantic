@@ -334,11 +334,17 @@ $.extend(semanticCheckboxGroupBinding, {
   find: (scope) => $(scope).find(".ss-checkbox-group"),
   getId: (el) => el.id,
   getValue: (el) => {
-    const checkboxes = $(el).find(".ui.checkbox");
-    const checkboxValues = $.map(checkboxes, (element) =>
-      $(element).checkbox("is checked"),
-    );
-    return checkboxValues;
+    const selected = $(el)
+      .find(".ui.checkbox")
+      .filter((_idx, e) => $(e).checkbox("is checked"))
+      .map((_idx, e) => $(e).find("label").text())
+      .toArray();
+
+    // Handle radio buttons return value differently
+    const isRadioGroup = $(el).find(".radio").length > 0;
+    if (isRadioGroup) return selected[0];
+
+    return selected;
   },
   setValue: (el, values) => {
     const checkboxes = $(el).find(".ui.checkbox");

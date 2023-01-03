@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 
 from shiny._namespaces import resolve_id
 from shiny._utils import drop_none
@@ -44,21 +44,24 @@ def checkbox(
 
 def checkbox_group(
     id: str,
-    labels: list[str],
-    values: list[bool],
+    label: str,
+    choices: list[str],
     *,
+    selected: Optional[Union[list[str], tuple[str], str]] = None,
     type: Optional[str] = None,
     position: Optional[str] = "grouped",
-    group_label: Optional[str] = None,
     class_: Optional[str] = None,
 ):
-    if len(labels) != len(values):
-        raise Exception("Number of supplied labels and values must be equal")
-    if type == "radio" and sum(values) > 1:
+    if selected is None:
+        selected = []
+    if isinstance(selected, str):
+        selected = [selected]
+
+    if type == "radio" and len(selected) > 1:
         raise Exception("Radio buttons may have a maximum of 1 active value")
 
     checkbox_tags = TagList()
-    for label, value in zip(labels, values):
+    for choice in choices:
         checkbox_tag = tags.div(
             checkbox(
                 # NOTE: id of a particular checkbox inside a group doesn't play any role
@@ -66,22 +69,20 @@ def checkbox_group(
                 # However, since a chackbox input's "name" field is inferred from the id,
                 # it is essential that they are the same throughout the group.
                 id=f"{id}__group",
-                label=label,
-                value=value,
+                label=choice,
+                value=choice in selected,
                 type=type,
             ),
             class_="field",
         )
         checkbox_tags.append(checkbox_tag)
 
-    group_label_tag = group_label and tags.label(group_label)
-
     id = resolve_id(id)
     class_ = squash_whitespace(f"{position} {class_ or ''} fields ss-checkbox-group")
 
     return tags.div(
         tags.div(
-            group_label_tag,
+            tags.label(label),
             checkbox_tags,
             id=id,
             class_=class_,
