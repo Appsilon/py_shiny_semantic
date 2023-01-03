@@ -27,8 +27,6 @@ def ui():
             output_text_verbatim("toggle_out"),
             checkbox("slider", "Slider", type="slider"),
             output_text_verbatim("slider_out"),
-            checkbox("radio", "Radio", type="radio"),
-            output_text_verbatim("radio_out"),
         ),
         feature_subsection(
             "Checkbox group",
@@ -89,11 +87,6 @@ def server(input, output, session):
     @render.text
     def _():
         return input.slider()
-
-    @output(id="radio_out")
-    @render.text
-    def _():
-        return input.radio()
 
     @output(id="group_out")
     @render.text
