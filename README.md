@@ -1,10 +1,12 @@
-# Fomantic UI components in Shiny-for-Python
+# Semantic UI in Shiny-for-Python
 
 [![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#alpha)
 
+_Create rich web applications in PyShiny using styles and components from Semantic UI._
+
 ## About the project
 
-This is an early implementation of [Fomantic UI](https://fomantic-ui.com/) in [Shiny-for-Python](https://shiny.rstudio.com/py/).
+This is an early [Shiny-for-Python](https://shiny.rstudio.com/py/) implementation of [the official community fork of Semantic UI](https://fomantic-ui.com/).
 
 The repository contains a python package `shiny_semantic` and a PyShiny application (found in `app` folder) that serves as a simple demo of the implemented components.
 
@@ -12,7 +14,7 @@ The application is deployed on RSConnect and can be found at https://connect.app
 
 ## About Fomantic UI
 
-[Fomantic UI](https://fomantic-ui.com/) is a well-maintained community fork of a more widely known and mature [Semantic UI](https://semantic-ui.com/). `shiny_semantic` uses JS, CSS and icons from Fomantic UI while referring to the name of the original library.
+[Fomantic UI](https://fomantic-ui.com/) is a well-maintained community fork of a more widely known and mature [Semantic UI](https://semantic-ui.com/). This project uses JS, CSS and icons from Fomantic UI while referring to the name of the original library.
 
 The structure of `shiny_semantic` follows the one of Fomantic UI -- this way users may easily refer to corresponding sections in the original documentation to learn about possible classes, styles and behaviors of the components.
 
@@ -86,7 +88,7 @@ When developing a feature on a feature branch, you can make a manual deployment 
 rsconnect deploy shiny --entrypoint app .
 ```
 
-## How to update the Fomantic
+## How to update the Fomantic components
 
 The easiest way to replace the Fomantic assets with the new ones, is as follows:
 
