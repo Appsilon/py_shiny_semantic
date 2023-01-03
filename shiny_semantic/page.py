@@ -19,7 +19,7 @@ def page_semantic(*args, title=None, lang="en"):
 
 def _semantic_dependency():
     return HTMLDependency(
-        name="fomantic-ui",
+        name="semantic-ui",
         version="2.9.0",
         source={"package": "shiny_semantic", "subdir": "www/semantic"},
         script=[{"src": "fomantic.min.js"}],

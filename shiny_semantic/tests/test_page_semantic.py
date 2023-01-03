@@ -6,7 +6,7 @@ from shiny_semantic import page_semantic
 
 
 class TestPageSemantic(unittest.TestCase):
-    def test_fomantic_deps_are_present(self):
+    def test_semantic_deps_are_present(self):
         app = App(page_semantic(), None)
         html = app.ui.get("html")
         self.assertTrue("fomantic.min.css" in html)
