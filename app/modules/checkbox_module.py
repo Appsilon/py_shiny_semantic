@@ -40,9 +40,10 @@ def ui():
             output_text_verbatim("group_out"),
             checkbox_group(
                 id="group_radio",
-                label="Radio group",
+                label="Inline radio group",
                 choices=["One", "Two", "Three"],
                 type="radio",
+                position="inline",
             ),
             output_text_verbatim("group_radio_out"),
         ),
