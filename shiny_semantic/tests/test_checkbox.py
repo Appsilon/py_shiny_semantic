@@ -48,12 +48,10 @@ class TestCheckbox(unittest.TestCase):
 
     def test_checkbox_group(self):
         expected_html_1 = '<div id="group" class="grouped fields ss-checkbox-group">'
-        expected_html_2 = '<div id="group__group" class="ui checked checkbox">'
-        expected_html_3 = (
-            '<input id="group__group" type="checkbox" name="group__group" checked=""/>'
-        )
+        expected_html_2 = '<div id="group__one" class="ui checked checkbox" data-shiny-value="one">'
+        expected_html_3 = '<input id="group__one" type="checkbox" name="group" checked=""/>'
 
-        element = checkbox_group(id="group", labels=["one", "two"], values=[True, True])
+        element = checkbox_group(id="group", label="group", choices=["one", "two"], selected="one")
         html = element.get_html_string()
 
         self.assertTrue(expected_html_1 in html)
@@ -65,17 +63,9 @@ class TestCheckbox(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             checkbox_group(
                 id="group",
-                labels=["one", "two"],
-                values=[True],
-            )
-            self.assertTrue(
-                "Number of supplied labels and values must be equal" in str(context.exception)
-            )
-        with self.assertRaises(Exception) as context:
-            checkbox_group(
-                id="group",
-                labels=["one", "two"],
-                values=[True, True],
+                label="group",
+                choices=["one", "two"],
+                selected=["one", "two"],
                 type="radio",
             )
             self.assertTrue(
