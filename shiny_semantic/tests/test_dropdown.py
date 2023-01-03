@@ -5,7 +5,7 @@ from shiny_semantic.modules import dropdown, input_select
 
 class TestDropdown(unittest.TestCase):
     def test_dropdown(self):
-        expected_html_1 = '<div id="dropdown" class="ui selection dropdown semantic-select-input" data-settings="null">'
+        expected_html_1 = '<div id="dropdown" class="ui selection dropdown semantic-select-input" data-settings="null">'  # noqa: E501
         expected_html_2 = '<input type="hidden" name="dropdown"/>'
         expected_html_3 = '<div class="default text"></div>'
         expected_html_4 = '<div class="item" data-value="0">0</div>'

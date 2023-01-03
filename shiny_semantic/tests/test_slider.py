@@ -45,7 +45,7 @@ class TestSlider(unittest.TestCase):
         expected_html = (
             '<div id="slider_custom" class="ui big red labeled slider ss-slider" '
             'data-min="1" data-max="5" data-start="3" data-step="1" '
-            'data-labels="[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;]">'
+            'data-labels="[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;]">'  # noqa: E501
             "</div>"
         )
 

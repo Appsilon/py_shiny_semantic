@@ -48,6 +48,12 @@ source venv/bin/activate # activates virtual environment
 pip install -r requirements.txt # installs dependencies
 ```
 
+This project uses [pre-commit](https://pre-commit.com/) to ensure the quality of code style. Once the dependencies are restored, run the following command once:
+
+```shell
+pre-commit install
+```
+
 To run the app in the hot-reload mode (the app automatically reloads every time it detects changes in the python source code), run the following command:
 
 ```
