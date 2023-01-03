@@ -4,9 +4,9 @@
 
 ## About the project
 
-The project was a three weeks long attempt/research on how to implement [Fomantic UI](https://fomantic-ui.com/) in [Shiny-for-Python](https://shiny.rstudio.com/py/).
+This is an early implementation of [Fomantic UI](https://fomantic-ui.com/) in [Shiny-for-Python](https://shiny.rstudio.com/py/).
 
-The result of this project consists of two units: `shiny_semantic` Python package and PyShiny application, that serves as a simple demo of the implemented components.
+The repository contains a python package `shiny_semantic` and a PyShiny application (found in `app` folder) that serves as a simple demo of the implemented components.
 
 The application is deployed on RSConnect and can be found at https://connect.appsilon.com/py_shiny_semantic/.
 
