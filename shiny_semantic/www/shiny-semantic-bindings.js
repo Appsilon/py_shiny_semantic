@@ -337,7 +337,7 @@ $.extend(semanticCheckboxGroupBinding, {
     const selected = $(el)
       .find(".ui.checkbox")
       .filter((_idx, e) => $(e).checkbox("is checked"))
-      .map((_idx, e) => $(e).find("label").text())
+      .map((_idx, e) => $(e).data("shinyValue"))
       .toArray();
 
     // Handle radio buttons return value differently

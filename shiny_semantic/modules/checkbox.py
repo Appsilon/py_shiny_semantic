@@ -47,13 +47,16 @@ def checkbox(
 def checkbox_group(
     id: str,
     label: str,
-    choices: list[str],
+    choices: Union[list[str], dict[str, str]],
     *,
     selected: Optional[Union[list[str], tuple[str], str]] = None,
     type: Optional[str] = None,
     position: Optional[str] = "grouped",
     class_: Optional[str] = None,
 ):
+    if isinstance(choices, list):
+        choices = {choice: choice for choice in choices}
+
     if selected is None:
         selected = []
     if isinstance(selected, str):
@@ -63,16 +66,17 @@ def checkbox_group(
         raise Exception("Radio buttons may have a maximum of 1 active value")
 
     checkbox_tags = TagList()
-    for choice in choices:
+    for v, l in choices.items():
         checkbox_tag = tags.div(
             checkbox(
                 # NOTE: for checkbox_group to work correctly, all individual checkboxes
                 # inside it must share a common name attribute.
-                id=f"{id}__{choice}",
-                label=choice,
-                value=choice in selected,
+                id=f"{id}__{v}",
+                label=l,
+                value=v in selected,
                 type=type,
                 name=id,
+                data_shiny_value=v,
             ),
             class_="field",
         )

@@ -32,9 +32,9 @@ def ui():
             "Checkbox group",
             checkbox_group(
                 id="group",
-                label="Slider group",
-                choices=["One", "Two", "Three"],
-                selected="One",
+                label="Slider group with custom values",
+                choices={"a": "One", "b": "Two", "c": "Three"},
+                selected="a",
                 type="slider",
             ),
             output_text_verbatim("group_out"),
