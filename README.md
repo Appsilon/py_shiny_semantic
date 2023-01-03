@@ -23,9 +23,9 @@ The structure of `shiny_semantic` follows the one of Fomantic UI -- this way use
 - _.vscode_
   - Visual Studio Code specific settings and recommended extensions. Useful to ensure standardized code style in a dev team.
 - _app_
-  - Shiny application that is split into many shiny-modules, where each module represents one feature/component. This folder serves as an entrypoint for the Shiny app to run.
+  - Shiny application that is split into many shiny-modules, where each module represents one feature/component. This folder serves as an entry point for the Shiny app to run.
 - _shiny_semantic_
-  - Python package that implements the Fomantic components. The package;s structure is similar to the underlying Fomantic library: all components are split into elements, collections, views and modules.
+  - Python package that implements the Fomantic components. The package's structure is similar to the underlying Fomantic library: all components are split into elements, collections, views and modules.
   - Folders that are not from Fomantic are _tests_ for unit tests, _types_ for custom Python typings and _www_ for Shiny bindings (JS code) as well as static assets (Fomantic fonts, CSS and JS code).
 - _root-level files_
   - _manifest.json_ - created with `rsconnect` to enable git-backed deployment
@@ -46,7 +46,7 @@ source venv/bin/activate # activates virtual environment
 pip install -r requirements.txt # installs dependencies
 ```
 
-To run the app in the hot-reload mode (the app automatically reloads evey time it detects changes in the python source code), run the following command:
+To run the app in the hot-reload mode (the app automatically reloads every time it detects changes in the python source code), run the following command:
 
 ```
 shiny run --reload app
@@ -80,7 +80,7 @@ rsconnect write-manifest shiny \
     . # DIRECTORY
 ```
 
-When developing a feature on a feature branch, you can make a manual deployment (it is recommended to delete suche deployments after the feature is merged into main):
+When developing a feature on a feature branch, you can make a manual deployment (it is recommended to delete such deployments after the feature is merged into main):
 
 ```
 rsconnect deploy shiny --entrypoint app .
@@ -90,7 +90,7 @@ rsconnect deploy shiny --entrypoint app .
 
 The easiest way to replace the Fomantic assets with the new ones, is as follows:
 
-1. Navigate to https://www.jsdelivr.com/package/npm/fomantic-ui. This resource is recommended by the Fomantic team - it contains the lates version of the library files
+1. Navigate to https://www.jsdelivr.com/package/npm/fomantic-ui. This resource is recommended by the Fomantic team - it contains the latest version of the library files
 2. Download the entire folder as a _.tgz_ archive
 3. Unpack the archive
 4. Find _dist_ folder, grab the minimized versions of CSS and JS files and move them into _shiny_semantic/www/semantic/_
