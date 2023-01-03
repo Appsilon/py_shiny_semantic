@@ -14,6 +14,7 @@ def checkbox(
     value: bool = False,
     *,
     type: Optional[str] = None,
+    name: Optional[str] = None,
     class_: Optional[str] = None,
     **kwargs,
 ):
@@ -32,9 +33,10 @@ def checkbox(
     checked = "" if value else None
 
     id = resolve_id(id)
+    name = name or id
 
     return tags.div(
-        tags.input(id=id, type_=input_tag_type, name=id, checked=checked),
+        tags.input(id=id, type_=input_tag_type, name=name, checked=checked),
         tags.label(label, for_=id),
         id=id,
         class_=squash_whitespace(f"ui {class_} checkbox"),
@@ -64,14 +66,13 @@ def checkbox_group(
     for choice in choices:
         checkbox_tag = tags.div(
             checkbox(
-                # NOTE: id of a particular checkbox inside a group doesn't play any role
-                # in terms of Shiny reactivity.
-                # However, since a chackbox input's "name" field is inferred from the id,
-                # it is essential that they are the same throughout the group.
-                id=f"{id}__group",
+                # NOTE: for checkbox_group to work correctly, all individual checkboxes
+                # inside it must share a common name attribute.
+                id=f"{id}__{choice}",
                 label=choice,
                 value=choice in selected,
                 type=type,
+                name=id,
             ),
             class_="field",
         )
