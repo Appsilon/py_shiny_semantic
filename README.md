@@ -1,5 +1,7 @@
 # Fomantic UI components in Shiny-for-Python
 
+[![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#alpha)
+
 ## About the project
 
 The project was a three weeks long attempt/research on how to implement [Fomantic UI](https://fomantic-ui.com/) in [Shiny-for-Python](https://shiny.rstudio.com/py/).
