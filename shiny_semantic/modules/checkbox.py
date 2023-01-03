@@ -29,12 +29,12 @@ def checkbox(
         input_tag_type = "radio"
 
     # NOTE: if the value=False, let checked_ be None, i.e. not appear in HTML
-    checked_ = value and ""
+    checked = "" if value else None
 
     id = resolve_id(id)
 
     return tags.div(
-        tags.input(id=id, type_=input_tag_type, name=id, checked=checked_),
+        tags.input(id=id, type_=input_tag_type, name=id, checked=checked),
         tags.label(label, for_=id),
         id=id,
         class_=squash_whitespace(f"ui {class_} checkbox"),
