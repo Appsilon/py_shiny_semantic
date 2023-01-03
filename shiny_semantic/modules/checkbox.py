@@ -24,9 +24,9 @@ def checkbox(
     if type is not None:
         class_ = f"{class_} {type}"
 
-    type_ = "checkbox"
+    input_tag_type = "checkbox"
     if type == "radio":
-        type_ = "radio"
+        input_tag_type = "radio"
 
     # NOTE: if the value=False, let checked_ be None, i.e. not appear in HTML
     checked_ = value and ""
@@ -34,7 +34,7 @@ def checkbox(
     id = resolve_id(id)
 
     return tags.div(
-        tags.input(id=id, type_=type_, name=id, checked=checked_),
+        tags.input(id=id, type_=input_tag_type, name=id, checked=checked_),
         tags.label(label, for_=id),
         id=id,
         class_=squash_whitespace(f"ui {class_} checkbox"),
