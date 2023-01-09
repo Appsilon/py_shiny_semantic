@@ -43,8 +43,8 @@ Please note, that some systems (e.g. macOS) have Python installed by default, an
 To start development, run the following command:
 
 ```shell
-python -m venv venv # creates virtual environment
-source venv/bin/activate # activates virtual environment
+python -m venv .venv # creates virtual environment
+source .venv/bin/activate # activates virtual environment
 pip install -r requirements.txt # installs dependencies
 ```
 
