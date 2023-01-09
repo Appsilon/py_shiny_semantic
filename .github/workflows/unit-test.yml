@@ -24,4 +24,4 @@ jobs:
       - name: Lint demo app
         run: black --check --line-length=100 app
       - name: Test with unittest
-        run: python -m unittest discover shiny_semantic/tests
+        run: python -m unittest discover tests
