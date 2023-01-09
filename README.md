@@ -8,7 +8,7 @@ _Create rich web applications in PyShiny using styles and components from Semant
 
 This is an early [Shiny-for-Python](https://shiny.rstudio.com/py/) implementation of [the official community fork of Semantic UI](https://fomantic-ui.com/).
 
-The repository contains a python package `shiny_semantic` and a PyShiny application (found in `app` folder) that serves as a simple demo of the implemented components.
+The repository contains a python package `shiny_semantic` and a PyShiny application (found in `example` folder) that serves as a simple demo of the implemented components.
 
 The application is deployed on RSConnect and can be found at https://connect.appsilon.com/py_shiny_semantic/.
 
@@ -24,7 +24,7 @@ The structure of `shiny_semantic` follows the one of Fomantic UI -- this way use
   - Github workflows to run CI using Github Actions.
 - _.vscode_
   - Visual Studio Code specific settings and recommended extensions. Useful to ensure standardized code style in a dev team.
-- _app_
+- _example_
   - Shiny application that is split into many shiny-modules, where each module represents one feature/component. This folder serves as an entry point for the Shiny app to run.
 - _shiny_semantic_
   - Python package that implements the Fomantic components. The package's structure is similar to the underlying Fomantic library: all components are split into elements, collections, views and modules.
@@ -57,7 +57,7 @@ pre-commit install
 To run the app in the hot-reload mode (the app automatically reloads every time it detects changes in the python source code), run the following command:
 
 ```
-shiny run --reload app
+shiny run --reload example
 ```
 
 ## Deployment
@@ -82,7 +82,7 @@ This repository has a configured CD via git-backed deployment on RSConnect thank
 ```
 rsconnect write-manifest shiny \
     --overwrite \
-    --entrypoint app \
+    --entrypoint example \
     --exclude "**/*.pyc" \
     --exclude .DS_Store \
     . # DIRECTORY
@@ -91,7 +91,7 @@ rsconnect write-manifest shiny \
 When developing a feature on a feature branch, you can make a manual deployment (it is recommended to delete such deployments after the feature is merged into main):
 
 ```
-rsconnect deploy shiny --entrypoint app .
+rsconnect deploy shiny --entrypoint example .
 ```
 
 ## How to update the Fomantic components
