@@ -102,6 +102,7 @@ python -m build
 twine check dist/*
 
 # Currently, the package is publihsed by pavel.demin@appsilon.com
+# TODO: replace testpypi with the real pypi when the package is published
 twine upload -r testpypi dist/*
 ```
 
