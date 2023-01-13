@@ -94,6 +94,17 @@ When developing a feature on a feature branch, you can make a manual deployment 
 rsconnect deploy shiny --entrypoint example .
 ```
 
+## How to build and publish the package
+
+```shell
+pip install build twine
+python -m build
+twine check dist/*
+
+# Currently, the package is publihsed by pavel.demin@appsilon.com
+twine upload -r testpypi dist/*
+```
+
 ## How to update the Fomantic components
 
 The easiest way to replace the Fomantic assets with the new ones, is as follows:
