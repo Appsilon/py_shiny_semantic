@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shiny_semantic"
+version = "0.0.1"
+description = "Semantic UI components in Shiny for Python"
+readme = "README.md"
+authors = [
+    { name = "Pavel Demin", email = "pavel.demin@appsilon.com" },
+    { name = "Kamil Żyła", email = "kamil@appsilon.com" },
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "Framework :: FastAPI",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["shiny", "semantic", "web"]
+dependencies = ["shiny >= 0.2.9"]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["black", "isort", "flake8", "pre-commit"]
+
+[project.urls]
+GitHub = "https://github.com/Appsilon/py_shiny_semantic"
