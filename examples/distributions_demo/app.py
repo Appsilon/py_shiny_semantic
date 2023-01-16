@@ -2,7 +2,7 @@
 # Simulate data for a t-test
 # https://shiny.rstudio.com/py/gallery/
 
-from htmltools import div
+from htmltools import div, tags
 from numpy import random
 from shiny import App, reactive, render, ui
 
@@ -29,7 +29,7 @@ def card(title, *content):
                 "gap: 0.6em;"
                 "flex-direction:column;"
                 "justify-content:space-around;"
-            )
+            ),
         ),
     )
 
@@ -45,6 +45,7 @@ app_ui = page_semantic(
                     subheader("with shiny-for-python and shiny-semantic"),
                     class_="big",
                 ),
+                class_="raised",
             ),
         ),
         card(
@@ -55,6 +56,7 @@ app_ui = page_semantic(
                 min=1,
                 type="number",
                 semantic_label="n",
+                semantic_label_class="blue",
                 class_="left labeled",
             ),
             semantic_input(
@@ -63,6 +65,7 @@ app_ui = page_semantic(
                 step=0.1,
                 type="number",
                 semantic_label="µ",
+                semantic_label_class="blue",
                 class_="left labeled",
             ),
             semantic_input(
@@ -72,6 +75,7 @@ app_ui = page_semantic(
                 step=0.1,
                 type="number",
                 semantic_label="σ",
+                semantic_label_class="blue",
                 class_="left labeled",
             ),
         ),
@@ -83,6 +87,7 @@ app_ui = page_semantic(
                 min=1,
                 type="number",
                 semantic_label="n",
+                semantic_label_class="orange",
                 class_="left labeled",
             ),
             semantic_input(
@@ -91,6 +96,7 @@ app_ui = page_semantic(
                 step=0.1,
                 type="number",
                 semantic_label="µ",
+                semantic_label_class="orange",
                 class_="left labeled",
             ),
             semantic_input(
@@ -100,6 +106,7 @@ app_ui = page_semantic(
                 step=0.1,
                 type="number",
                 semantic_label="σ",
+                semantic_label_class="orange",
                 class_="left labeled",
             ),
         ),
@@ -121,6 +128,7 @@ app_ui = page_semantic(
                     end_value=3,
                     min_value=-5,
                     max_value=5,
+                    class_="yellow",
                 ),
             ),
         ),
@@ -131,27 +139,27 @@ app_ui = page_semantic(
         div(
             {"class": "five wide column"},
             segment(
+                ui.output_ui("p_value"),
                 statistic(
                     ui.output_text("t_value"),
                     "t-value",
                     value_first=False,
+                    class_="small",
                 ),
                 statistic(
                     ui.output_text("dof"),
                     "Degrees of Freedom",
                     value_first=False,
+                    class_="tiny",
                 ),
-                statistic(
-                    ui.output_text("p_value"),
-                    "p-value",
-                    value_first=False,
-                ),
+                class_="piled",
                 style_=(
                     "display: flex;" "flex-direction: column;" "justify-content: space-evenly;"
                 ),
             ),
         ),
-    )
+    ),
+    tags.style("body{background-color: ghostwhite;}"),
 )
 
 
@@ -187,8 +195,16 @@ def server(input, output, session):
         return round(test_result()["dof"], 1)
 
     @output(id="p_value")
-    @render.text
+    @render.ui
     def _():
+        value = round(test_result()["p"], 3)
+        class_ = f'large {"red" if value > 0.3 else "green"}'
+        return statistic(
+            value,
+            "p-value",
+            value_first=False,
+            class_=class_,
+        )
         return round(test_result()["p"], 3)
 
 
