@@ -3,6 +3,10 @@
 # a time, so it's possible to switch to a different
 # application later.
 
+# It is also not possible to create separate manifest.json
+# inside each application to deploy them separately, since
+# they will fail to install shiny_semantic until it is published.
+
 from shiny import App
 
 from .components_demo.main import app_server, app_ui
