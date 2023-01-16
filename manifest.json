@@ -3,88 +3,100 @@
   "locale": "en_US.UTF-8",
   "metadata": {
     "appmode": "python-shiny",
-    "entrypoint": "app"
+    "entrypoint": "example"
   },
   "python": {
-    "version": "3.10.8",
+    "version": "3.10.9",
     "package_manager": {
       "name": "pip",
-      "version": "22.2.2",
+      "version": "22.3.1",
       "package_file": "requirements.txt"
     }
   },
   "files": {
     "requirements.txt": {
-      "checksum": "158ce38a0e1b5c836f70848b8ae86926"
+      "checksum": "9fa8f7a014c9aa227c63e228afacc23b"
     },
     ".github/workflows/unit-test.yml": {
-      "checksum": "ab20fcdc83bbfc8cfb4dff990bf55aea"
+      "checksum": "bf45b6618fcd1db653dbfda64677914f"
     },
     ".gitignore": {
       "checksum": "a611d760efaceaadf76feaa1b2009f72"
+    },
+    ".pre-commit-config.yaml": {
+      "checksum": "54253533a8b22786f73f8c4a31a46216"
     },
     ".vscode/extensions.json": {
       "checksum": "3a542a0e563631d736f764113b4284cc"
     },
     ".vscode/settings.json": {
-      "checksum": "584bd20455b20b5ffdf8d2dc32db718d"
+      "checksum": "ebb09f6f9bc4ab412466ed7927eeefe4"
+    },
+    "LICENSE": {
+      "checksum": "599e523d7dbcc10c1b62ad3027e73d3f"
+    },
+    "MANIFEST.in": {
+      "checksum": "9a6b9e47a907a4b581a7d3167857e0dd"
     },
     "README.md": {
-      "checksum": "939ff6c34c228258633d6bb557355c23"
+      "checksum": "b283b65ba49dbaf0fbc4a884cc0c0576"
     },
-    "app/__init__.py": {
+    "example/__init__.py": {
       "checksum": "a0ff8d91e770939faa052a8087c7776a"
     },
-    "app/_app_layout.py": {
-      "checksum": "78e189ea845aa1b89dbb0e8387ca0630"
+    "example/_app_layout.py": {
+      "checksum": "5b424ff975d7cc9d8c22295e460a354b"
     },
-    "app/main.py": {
-      "checksum": "df74a42af7cd1168ff72cf54a5690de9"
+    "example/main.py": {
+      "checksum": "97da899b7d683f29b8742ac58696011a"
     },
-    "app/modules/__init__.py": {
-      "checksum": "09bc9733ae3219c90a2016ae14196a36"
+    "example/modules/__init__.py": {
+      "checksum": "16633cacb2b8da2c778d495227506045"
     },
-    "app/modules/_feature_layout.py": {
+    "example/modules/_feature_layout.py": {
       "checksum": "a0aff897a1b373f93d580a0b23bb031c"
     },
-    "app/modules/button_module.py": {
+    "example/modules/button_module.py": {
       "checksum": "144e6720d5a6c7072a9648150b4b910a"
     },
-    "app/modules/dropdown_module.py": {
+    "example/modules/checkbox_module.py": {
+      "checksum": "5dffb99a3b83272c92fd91f2f4ca21b6"
+    },
+    "example/modules/dropdown_module.py": {
       "checksum": "549ddb87d696d9f7b0cfa3834cb992da"
     },
-    "app/modules/emoji_module.py": {
+    "example/modules/emoji_module.py": {
       "checksum": "5d36cf40f6939074ba1fc757c8ebd11d"
     },
-    "app/modules/flag_module.py": {
+    "example/modules/flag_module.py": {
       "checksum": "97c3336d212751c0aeb6aedfa1db3cd0"
     },
-    "app/modules/header_module.py": {
+    "example/modules/header_module.py": {
       "checksum": "0ab823fb8126b9d04d16b7773b8efe33"
     },
-    "app/modules/icon_module.py": {
+    "example/modules/icon_module.py": {
       "checksum": "9b77dbda2bcf22dadf7e18540e3e8452"
     },
-    "app/modules/input_module.py": {
+    "example/modules/input_module.py": {
       "checksum": "ffa219af34e57a06fe549730c18ef11f"
     },
-    "app/modules/modal_module.py": {
+    "example/modules/modal_module.py": {
       "checksum": "5de888f920845ef2eeba3a87a2fd2a6d"
     },
-    "app/modules/slider_module.py": {
+    "example/modules/slider_module.py": {
       "checksum": "8d721f7c71f3000be537a628e5e5fe9e"
     },
-    "app/rsconnect-python/app.json": {
-      "checksum": "29c4eef1ded9c7218fc43411934eac81"
+    "pyproject.toml": {
+      "checksum": "b7b9258e228724c3624f584ad88dabaa"
     },
     "shiny_semantic/.DS_Store": {
       "checksum": "ab7eef11c467acd05a2f07d6b5ef3493"
     },
     "shiny_semantic/__init__.py": {
-      "checksum": "12c9dae0bacedaa40a9009accb3e03c9"
+      "checksum": "c4e44cf4a6df0f1b775f3dd05f081c6c"
     },
     "shiny_semantic/_utils.py": {
-      "checksum": "70199d3ff726fc459c4da16046bc59ba"
+      "checksum": "9718fbbbe4a1cd191e769e089e394776"
     },
     "shiny_semantic/collections/__init__.py": {
       "checksum": "d1377e22c4c857ed188046d451ea13cd"
@@ -93,7 +105,7 @@
       "checksum": "80daaa4cb3dac31bdb4f8ac2e01c8b25"
     },
     "shiny_semantic/elements/button.py": {
-      "checksum": "0bfb24f67e9e92f9c8e05f5e9e04b8c9"
+      "checksum": "a07825247835170d37c9c35033cb22bd"
     },
     "shiny_semantic/elements/container.py": {
       "checksum": "7c09249a85fdbd34dfdb3e4238add0cd"
@@ -114,64 +126,28 @@
       "checksum": "2137ebbb7b2b369a14a4865c6375551b"
     },
     "shiny_semantic/elements/input.py": {
-      "checksum": "2067b6a9ca3df4528f7fb786014a5257"
+      "checksum": "8dbdfc94173768e2aca3b1b9311726d3"
     },
     "shiny_semantic/elements/segment.py": {
       "checksum": "fc606e5f62a9c537568ac4a210d1bd67"
     },
     "shiny_semantic/modules/__init__.py": {
-      "checksum": "bc0e9b4bbc3e419a515af07f0e06c27b"
+      "checksum": "e0f9f65e94a2a056987a93fcc8445287"
+    },
+    "shiny_semantic/modules/checkbox.py": {
+      "checksum": "b2c804231057c4e0c604f1cbda2621aa"
     },
     "shiny_semantic/modules/dropdown.py": {
-      "checksum": "2d0f2a166be6440e3647124527eba2c8"
+      "checksum": "3f86ddd448879d9d01574e388c311a04"
     },
     "shiny_semantic/modules/modal.py": {
-      "checksum": "e7ca1707844f6918c4eb35b0e433934f"
+      "checksum": "c6304244d10308945f90723c85827757"
     },
     "shiny_semantic/modules/slider.py": {
-      "checksum": "cddbc5dfec90a250edce818fbcb5f3d7"
+      "checksum": "46ba817da76c7eb9f068ae17bb50167a"
     },
     "shiny_semantic/page.py": {
-      "checksum": "e8640353417f488e70378656bb673401"
-    },
-    "shiny_semantic/tests/test_button.py": {
-      "checksum": "10fff7d0568c59d255b8bc55739da0be"
-    },
-    "shiny_semantic/tests/test_container.py": {
-      "checksum": "ff90193d0ced700ad96479498532b6c9"
-    },
-    "shiny_semantic/tests/test_divider.py": {
-      "checksum": "db3bed3868a624a0e189db6d6a23097e"
-    },
-    "shiny_semantic/tests/test_dropdown.py": {
-      "checksum": "6dea6fc1a5b74504c592ca54e936c817"
-    },
-    "shiny_semantic/tests/test_emoji.py": {
-      "checksum": "702543a50462c91bfed0f0d12200f309"
-    },
-    "shiny_semantic/tests/test_flag.py": {
-      "checksum": "b820d01cfa8d64dae4e513b20ff727c7"
-    },
-    "shiny_semantic/tests/test_header.py": {
-      "checksum": "914e70046d6aaa1e292f0846caafed8b"
-    },
-    "shiny_semantic/tests/test_icon.py": {
-      "checksum": "c5ae6c2bf56f0a3f88cdc4d81e90b36e"
-    },
-    "shiny_semantic/tests/test_input.py": {
-      "checksum": "690c78d38c1674070f5d3ebdea58afce"
-    },
-    "shiny_semantic/tests/test_modal.py": {
-      "checksum": "9ed99e44d8119537a12c99626ecb4b9f"
-    },
-    "shiny_semantic/tests/test_page_semantic.py": {
-      "checksum": "69f352cfd1d7f2f62b2366d8a7ea638a"
-    },
-    "shiny_semantic/tests/test_segment.py": {
-      "checksum": "5fd079eb2d7592007bdb2e9956ebce0c"
-    },
-    "shiny_semantic/tests/test_slider.py": {
-      "checksum": "5663b23ae341ba652db2de4a332db444"
+      "checksum": "f7cbfc3ebd6efe1a8f945ac8416173f6"
     },
     "shiny_semantic/types/__init__.py": {
       "checksum": "f946017eab011e7874d6a82275bf0377"
@@ -181,6 +157,24 @@
     },
     "shiny_semantic/www/.DS_Store": {
       "checksum": "194577a7e20bdcc7afbb718f502c134c"
+    },
+    "shiny_semantic/www/bindings/semanticButton.js": {
+      "checksum": "2d51628f7a0bf8382d84ac50583ab20c"
+    },
+    "shiny_semantic/www/bindings/semanticCheckbox.js": {
+      "checksum": "76d8bdfe772191cd8aaf64dfd5b6b26a"
+    },
+    "shiny_semantic/www/bindings/semanticCheckboxGroup.js": {
+      "checksum": "890e0fe9d6f9d3143b9c7d89d78bba53"
+    },
+    "shiny_semantic/www/bindings/semanticDropdown.js": {
+      "checksum": "7ad122444070d04ff3261b2191f3ebfa"
+    },
+    "shiny_semantic/www/bindings/semanticModal.js": {
+      "checksum": "107c8dd8332b0c0a9d9f4467f340e2e7"
+    },
+    "shiny_semantic/www/bindings/semanticSlider.js": {
+      "checksum": "13f80de8ce67adcab12cacb7d67c7189"
     },
     "shiny_semantic/www/semantic/fomantic.min.css": {
       "checksum": "fd8dc4162de9da54f90dae1b354627d3"
@@ -255,7 +249,7 @@
       "checksum": "b91d376b8d7646d671cd820950d5f7f1"
     },
     "shiny_semantic/www/shiny-semantic-bindings.js": {
-      "checksum": "f3e919bee4c97bea533c4ce8656c293c"
+      "checksum": "c93d4a96ee04165b7b1c147269f4091f"
     }
   }
 }
