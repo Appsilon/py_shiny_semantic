@@ -112,7 +112,7 @@ This should provide the developer with a preview of changed lines across multipl
 bumpver update --patch # or --minor or --major, depending on the PR goal
 ```
 
-This command will change the abovementioned string versions, create a commit with "bump version" message, and will push to the remote. It is possible to enable automatic git tag creation ("Releases" section on GitHub page), but as of now this feature is set to be disabled.
+This command will change the abovementioned string versions, create a commit with "bump version" message, create a git tag and will push changes to the remote. Developers will find a new version under "Releases" section on the Github page.
 
 ## How to build and publish the package
 
