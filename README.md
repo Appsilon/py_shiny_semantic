@@ -94,6 +94,23 @@ When developing a feature on a feature branch, you can make a manual deployment 
 rsconnect deploy shiny --entrypoint example .
 ```
 
+## How to update the package
+
+This project leverages [bumpver]() to handle package versioning. To make sure that `bumpver` works, run the following commands:
+
+```shell
+pip install bumpver
+bumpver update --patch --dry --no-fetch
+```
+
+This should provide the developer with a preview of changed lines across multiple files - where package version is mentioned. When local updates are fininshed, the developer might run:
+
+```shell
+bumpver update --patch # or --minor or --major, depending on the PR goal
+```
+
+This command will change the abovementioned string versions, create a commit with "bump version" message, and will push to the remote. It is possible to enable automatic git tag creation ("Releases" section on GitHub page), but as of now this feature is set to be disabled.
+
 ## How to build and publish the package
 
 ```shell
