@@ -26,6 +26,7 @@ def card(title, *content):
                 "height:100%;"
                 "margin:0;"
                 "display:flex;"
+                "gap: 0.6em;"
                 "flex-direction:column;"
                 "justify-content:space-around;"
             )
@@ -48,25 +49,79 @@ app_ui = page_semantic(
         ),
         card(
             "Distribution One",
-            semantic_input("n1", label="n", value=1000, min=1, type="number"),
-            semantic_input("mean1", label="µ", value=0, step=0.1, type="number"),
-            semantic_input("sd1", label="σ", value=0.5, min=0.1, step=0.1, type="number"),
+            semantic_input(
+                "n1",
+                value=1000,
+                min=1,
+                type="number",
+                semantic_label="n",
+                class_="left labeled",
+            ),
+            semantic_input(
+                "mean1",
+                value=0,
+                step=0.1,
+                type="number",
+                semantic_label="µ",
+                class_="left labeled",
+            ),
+            semantic_input(
+                "sd1",
+                value=0.5,
+                min=0.1,
+                step=0.1,
+                type="number",
+                semantic_label="σ",
+                class_="left labeled",
+            ),
         ),
         card(
             "Distribution Two",
-            semantic_input("n2", label="n", value=1000, min=1, type="number"),
-            semantic_input("mean2", label="µ", value=0, step=0.1, type="number"),
-            semantic_input("sd2", label="σ", value=0.5, min=0.1, step=0.1, type="number"),
+            semantic_input(
+                "n2",
+                value=1000,
+                min=1,
+                type="number",
+                semantic_label="n",
+                class_="left labeled",
+            ),
+            semantic_input(
+                "mean2",
+                value=0,
+                step=0.1,
+                type="number",
+                semantic_label="µ",
+                class_="left labeled",
+            ),
+            semantic_input(
+                "sd2",
+                value=0.5,
+                min=0.1,
+                step=0.1,
+                type="number",
+                semantic_label="σ",
+                class_="left labeled",
+            ),
         ),
         card(
             "Chart Configuration",
-            semantic_input("binwidth", label="Bin width", value=0.1, step=0.1, type="number"),
-            slider(
-                "range",
-                start_value=-3,
-                end_value=3,
-                min_value=-5,
-                max_value=5,
+            semantic_input(
+                "binwidth",
+                value=0.1,
+                step=0.1,
+                type="number",
+                semantic_label="Bin Width",
+                class_="left labeled",
+            ),
+            div(
+                header("Range", class_="tiny", style="text-align: initial;"),
+                slider(
+                    "range",
+                    start_value=-3,
+                    end_value=3,
+                    min_value=-5,
+                    max_value=5,
+                ),
             ),
         ),
         div(
