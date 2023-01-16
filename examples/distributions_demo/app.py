@@ -11,7 +11,7 @@ from stats import freqpoly, t_test
 
 from shiny_semantic import page_semantic
 from shiny_semantic.elements import header, segment, semantic_input, subheader
-from shiny_semantic.modules import slider
+from shiny_semantic.modules import input_select, slider
 from shiny_semantic.views import statistic
 
 
@@ -29,6 +29,7 @@ def card(title, *content):
                 "gap: 0.6em;"
                 "flex-direction:column;"
                 "justify-content:space-around;"
+                "text-align:initial;"
             ),
         ),
     )
@@ -112,13 +113,11 @@ app_ui = page_semantic(
         ),
         card(
             "Chart Configuration",
-            semantic_input(
+            input_select(
                 "binwidth",
-                value=0.1,
-                step=0.1,
-                type="number",
-                semantic_label="Bin Width",
-                class_="left labeled",
+                "Bin Width",
+                choices=["0.05", "0.1", "0.2", "0.5"],
+                selected="0.1",
             ),
             div(
                 header("Range", class_="tiny", style="text-align: initial;"),
@@ -180,7 +179,7 @@ def server(input, output, session):
         return freqpoly(
             generated_data()["d1"],
             generated_data()["d2"],
-            input.binwidth(),
+            float(input.binwidth()),
             input.range(),
         )
 
