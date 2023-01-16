@@ -3,4 +3,4 @@ __all__ = ("page_semantic",)
 
 from .page import page_semantic
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
