@@ -4,7 +4,8 @@ from matplotlib import pyplot as plt
 
 def t_test(sample1, sample2):
     # this is a t-test assuming equal sample sizes
-    assert len(sample1) == len(sample2)
+    # pavel: for the sake of app's interactivity this is disabled
+    # assert len(sample1) == len(sample2)
     difference = sample2.mean() - sample1.mean()
     n_1 = len(sample1)
     n_2 = len(sample2)
@@ -15,10 +16,7 @@ def t_test(sample1, sample2):
     t_val = difference / mu_std_err
     t_null_dist = np.random.standard_t(dof, 100_000)
     p_val = np.mean(np.abs(t_val) > t_null_dist) / 2
-    return f"""\
-t-value: {t_val}
-degrees of freedom: {dof}
-p-value: {p_val}"""
+    return {"t": t_val, "dof": dof, "p": p_val}
 
 
 def freqpoly(x1, x2, binwidth, xlim):

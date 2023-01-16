@@ -4,7 +4,7 @@
 
 from htmltools import div
 from numpy import random
-from shiny import App, render, ui
+from shiny import App, reactive, render, ui
 
 # Functions we import from stats.py
 from stats import freqpoly, t_test
@@ -131,9 +131,21 @@ app_ui = page_semantic(
         div(
             {"class": "five wide column"},
             segment(
-                statistic(0.29, "t-value", value_first=False),
-                statistic(197.17, "Degrees of Freedom", value_first=False),
-                statistic(0.30, "p-value", value_first=False),
+                statistic(
+                    ui.output_text("t_value"),
+                    "t-value",
+                    value_first=False,
+                ),
+                statistic(
+                    ui.output_text("dof"),
+                    "Degrees of Freedom",
+                    value_first=False,
+                ),
+                statistic(
+                    ui.output_text("p_value"),
+                    "p-value",
+                    value_first=False,
+                ),
                 style_=(
                     "display: flex;" "flex-direction: column;" "justify-content: space-evenly;"
                 ),
@@ -144,19 +156,40 @@ app_ui = page_semantic(
 
 
 def server(input, output, session):
-    @output
-    @render.plot
-    def hist():
-        x1 = random.normal(input.mean1(), input.sd1(), input.n1())
-        x2 = random.normal(input.mean2(), input.sd2(), input.n2())
-        return freqpoly(x1, x2, input.binwidth(), input.range())
+    @reactive.Calc
+    def generated_data():
+        distribution_one = random.normal(input.mean1(), input.sd1(), input.n1())
+        distrbution_two = random.normal(input.mean2(), input.sd2(), input.n2())
+        return {"d1": distribution_one, "d2": distrbution_two}
 
-    @output
+    @reactive.Calc
+    def test_result():
+        return t_test(generated_data()["d1"], generated_data()["d2"])
+
+    @output(id="hist")
+    @render.plot
+    def _():
+        return freqpoly(
+            generated_data()["d1"],
+            generated_data()["d2"],
+            input.binwidth(),
+            input.range(),
+        )
+
+    @output(id="t_value")
     @render.text
-    def ttest():
-        x1 = random.normal(0, 1, 100)
-        x2 = random.normal(0, 1, 100)
-        return t_test(x1, x2)
+    def _():
+        return round(test_result()["t"], 3)
+
+    @output(id="dof")
+    @render.text
+    def _():
+        return round(test_result()["dof"], 1)
+
+    @output(id="p_value")
+    @render.text
+    def _():
+        return round(test_result()["p"], 3)
 
 
 app = App(app_ui, server)
