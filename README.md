@@ -82,7 +82,7 @@ This repository has a configured CD via git-backed deployment on RSConnect thank
 ```
 rsconnect write-manifest shiny \
     --overwrite \
-    --entrypoint example \
+    --entrypoint examples \
     --exclude "**/*.pyc" \
     --exclude .DS_Store \
     --exclude dist \
@@ -94,7 +94,7 @@ rsconnect write-manifest shiny \
 When developing a feature on a feature branch, you can make a manual deployment (it is recommended to delete such deployments after the feature is merged into main):
 
 ```
-rsconnect deploy shiny --entrypoint example .
+rsconnect deploy shiny --entrypoint examples .
 ```
 
 ## How to update the package
