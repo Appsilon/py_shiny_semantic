@@ -3,7 +3,7 @@
   "locale": "en_US.UTF-8",
   "metadata": {
     "appmode": "python-shiny",
-    "entrypoint": "example"
+    "entrypoint": "examples"
   },
   "python": {
     "version": "3.10.9",
@@ -39,54 +39,54 @@
       "checksum": "9a6b9e47a907a4b581a7d3167857e0dd"
     },
     "README.md": {
-      "checksum": "74b11824163489e6e16a4e9b0bcd1649"
+      "checksum": "1daf0e29287d0c3feab76335a992dfe3"
     },
-    "example/__init__.py": {
-      "checksum": "a0ff8d91e770939faa052a8087c7776a"
+    "examples/__init__.py": {
+      "checksum": "592442cbca0b7fc970578a81853630f6"
     },
-    "example/_app_layout.py": {
+    "examples/components_demo/_app_layout.py": {
       "checksum": "9f3d8d4d349ce03e650e2053218ce3a4"
     },
-    "example/main.py": {
+    "examples/components_demo/main.py": {
       "checksum": "312f40beb93ed0b8179dbc9e5a601d07"
     },
-    "example/modules/__init__.py": {
+    "examples/components_demo/modules/__init__.py": {
       "checksum": "af959801ae3f0fb76b392edb8ff3b155"
     },
-    "example/modules/_feature_layout.py": {
+    "examples/components_demo/modules/_feature_layout.py": {
       "checksum": "a0aff897a1b373f93d580a0b23bb031c"
     },
-    "example/modules/button_module.py": {
+    "examples/components_demo/modules/button_module.py": {
       "checksum": "144e6720d5a6c7072a9648150b4b910a"
     },
-    "example/modules/checkbox_module.py": {
+    "examples/components_demo/modules/checkbox_module.py": {
       "checksum": "5dffb99a3b83272c92fd91f2f4ca21b6"
     },
-    "example/modules/dropdown_module.py": {
+    "examples/components_demo/modules/dropdown_module.py": {
       "checksum": "549ddb87d696d9f7b0cfa3834cb992da"
     },
-    "example/modules/emoji_module.py": {
+    "examples/components_demo/modules/emoji_module.py": {
       "checksum": "5d36cf40f6939074ba1fc757c8ebd11d"
     },
-    "example/modules/flag_module.py": {
+    "examples/components_demo/modules/flag_module.py": {
       "checksum": "97c3336d212751c0aeb6aedfa1db3cd0"
     },
-    "example/modules/header_module.py": {
+    "examples/components_demo/modules/header_module.py": {
       "checksum": "0ab823fb8126b9d04d16b7773b8efe33"
     },
-    "example/modules/icon_module.py": {
+    "examples/components_demo/modules/icon_module.py": {
       "checksum": "9b77dbda2bcf22dadf7e18540e3e8452"
     },
-    "example/modules/input_module.py": {
+    "examples/components_demo/modules/input_module.py": {
       "checksum": "ffa219af34e57a06fe549730c18ef11f"
     },
-    "example/modules/modal_module.py": {
+    "examples/components_demo/modules/modal_module.py": {
       "checksum": "5de888f920845ef2eeba3a87a2fd2a6d"
     },
-    "example/modules/slider_module.py": {
+    "examples/components_demo/modules/slider_module.py": {
       "checksum": "8d721f7c71f3000be537a628e5e5fe9e"
     },
-    "example/modules/statistic_module.py": {
+    "examples/components_demo/modules/statistic_module.py": {
       "checksum": "f3fdc7bd140abb4af9e139661842e3b2"
     },
     "pyproject.toml": {
