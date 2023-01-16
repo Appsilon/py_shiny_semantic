@@ -54,10 +54,16 @@ This project uses [pre-commit](https://pre-commit.com/) to ensure the quality of
 pre-commit install
 ```
 
-To run the app in the hot-reload mode (the app automatically reloads every time it detects changes in the python source code), run the following command:
+To run the components-showcase app in the hot-reload mode (the app automatically reloads every time it detects changes in the python source code), run the following command:
 
 ```
-shiny run --reload example
+shiny run --reload examples
+```
+
+To run other apps in the _examples_ folder, specify path to the app. For example, to run "distributions demo", run the following:
+
+```
+shiny run --reload examples/distributions_demo/app.py
 ```
 
 ## Deployment
