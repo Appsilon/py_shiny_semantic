@@ -21,7 +21,7 @@ jobs:
           pip install -r requirements.txt
       - name: Lint shiny_semantic package
         run: black --check --line-length=100 shiny_semantic
-      - name: Lint example app
-        run: black --check --line-length=100 example
+      - name: Lint examples app
+        run: black --check --line-length=100 examples
       - name: Test with unittest
         run: python -m unittest discover tests
