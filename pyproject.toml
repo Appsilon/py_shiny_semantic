@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shiny_semantic"
-version = "0.0.4"
+version = "0.1.0"
 description = "Semantic UI components in Shiny for Python"
 readme = "README.md"
 authors = [
@@ -27,7 +27,7 @@ dev = ["black", "isort", "flake8", "pre-commit", "bumpver"]
 GitHub = "https://github.com/Appsilon/py_shiny_semantic"
 
 [tool.bumpver]
-current_version = "0.0.4"
+current_version = "0.1.0"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
