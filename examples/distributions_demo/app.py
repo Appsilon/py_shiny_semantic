@@ -37,7 +37,7 @@ def card(title, *content):
 
 app_ui = page_semantic(
     div(
-        {"class": "ui center aligned padded stretched grid"},
+        {"class": "ui center aligned padded stretched stackable grid"},
         div(
             {"class": "fifteen wide column"},
             segment(
