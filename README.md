@@ -60,7 +60,13 @@ To run the components-showcase app in the hot-reload mode (the app automatically
 shiny run --reload examples
 ```
 
-To run other apps in the _examples_ folder, specify path to the app. For example, to run "distributions demo", run the following:
+To run other apps in the _examples_ folder, you will first need to install shiny_semantic locally with
+
+```
+pip install -e .
+```
+
+Now, it's possible to run each app by specifying path to it. For example, to run "distributions demo", run the following:
 
 ```
 shiny run --reload examples/distributions_demo/app.py
