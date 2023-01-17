@@ -21,7 +21,7 @@ dependencies = ["shiny >= 0.2.9"]
 requires-python = ">=3.10"
 
 [project.optional-dependencies]
-dev = ["black", "isort", "flake8", "pre-commit", "bumpver"]
+dev = ["black", "isort", "flake8", "pre-commit", "bumpver", "twine"]
 
 [project.urls]
 GitHub = "https://github.com/Appsilon/py_shiny_semantic"
