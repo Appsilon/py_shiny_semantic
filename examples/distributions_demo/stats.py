@@ -1,11 +1,11 @@
+# THIS CODE HAS BEEN TAKEN DIRECTLY FROM POSIT'S EXAMPLE.
+
 import numpy as np
 from matplotlib import pyplot as plt
 
 
 def t_test(sample1, sample2):
     # this is a t-test assuming equal sample sizes
-    # pavel: for the sake of app's interactivity this is disabled
-    # assert len(sample1) == len(sample2)
     difference = sample2.mean() - sample1.mean()
     n_1 = len(sample1)
     n_2 = len(sample2)

@@ -204,7 +204,6 @@ def server(input, output, session):
             value_first=False,
             class_=class_,
         )
-        return round(test_result()["p"], 3)
 
 
 app = App(app_ui, server)
