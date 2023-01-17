@@ -158,7 +158,14 @@ app_ui = page_semantic(
             ),
         ),
     ),
-    tags.style("body{background-color: ghostwhite;}"),
+    tags.style("body{background-color: ghostwhite;} .segment{transition: all 150ms linear;}"),
+    tags.script(
+        """
+        $(".segment").mouseenter(e => $(e.currentTarget).toggleClass("raised"));
+        $(".segment").mouseleave(e => $(e.currentTarget).toggleClass("raised"));
+        """
+    ),
+    title="T-Test Simulator",
 )
 
 
