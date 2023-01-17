@@ -6,13 +6,13 @@ from htmltools import div, tags
 from numpy import random
 from shiny import App, reactive, render, ui
 
-# Functions we import from stats.py
-from stats import freqpoly, t_test
-
 from shiny_semantic import page_semantic
 from shiny_semantic.elements import header, segment, semantic_input, subheader
 from shiny_semantic.modules import input_select, slider
 from shiny_semantic.views import statistic
+
+# Functions we import from stats.py
+from .stats import freqpoly, t_test
 
 
 def card(title, *content):
@@ -162,7 +162,7 @@ app_ui = page_semantic(
 )
 
 
-def server(input, output, session):
+def app_server(input, output, session):
     @reactive.Calc
     def generated_data():
         distribution_one = random.normal(input.mean1(), input.sd1(), input.n1())
@@ -206,4 +206,4 @@ def server(input, output, session):
         )
 
 
-app = App(app_ui, server)
+app = App(app_ui, app_server)
