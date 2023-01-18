@@ -99,7 +99,7 @@ rsconnect deploy shiny --entrypoint example .
 
 ## How to update the package
 
-This project leverages [bumpver]() to handle package versioning. To make sure that `bumpver` works, run the following commands:
+This project leverages [bumpver](https://github.com/mbarkhau/bumpver) to handle package versioning. To make sure that `bumpver` works, run the following commands:
 
 ```shell
 pip install bumpver
