@@ -12,10 +12,7 @@ authors = [
     { name = "Kamil Żyła", email = "kamil@appsilon.com" },
 ]
 license = { file = "LICENSE" }
-classifiers = [
-    "Framework :: FastAPI",
-    "Programming Language :: Python :: 3",
-]
+classifiers = ["Programming Language :: Python :: 3"]
 keywords = ["shiny", "semantic", "web"]
 dependencies = ["shiny >= 0.2.9"]
 requires-python = ">=3.10"
