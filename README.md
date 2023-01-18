@@ -86,7 +86,7 @@ rsconnect write-manifest shiny \
     --exclude "**/*.pyc" \
     --exclude .DS_Store \
     --exclude dist \
-    --exclude shiny_semantic.egg-info \
+    --exclude "*.egg-info" \
     --exclude tests \
     . # DIRECTORY
 ```
