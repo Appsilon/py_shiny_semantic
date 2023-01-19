@@ -45,7 +45,8 @@ To start development, run the following command:
 ```shell
 python -m venv .venv # creates virtual environment
 source .venv/bin/activate # activates virtual environment
-pip install -r requirements.txt # installs dependencies
+pip install shiny==0.2.9 # TODO: remove when shiny_semantic is published to PyPI
+pip install -e ".[dev]
 ```
 
 This project uses [pre-commit](https://pre-commit.com/) to ensure the quality of code style. Once the dependencies are restored, run the following command once:
