@@ -82,7 +82,7 @@ rm -rf dist
 python -m build
 twine check dist/*
 
-# Currently, the package is publihsed by pavel.demin@appsilon.com
+# Currently, the package is published by pavel.demin@appsilon.com
 twine upload dist/*
 ```
 
