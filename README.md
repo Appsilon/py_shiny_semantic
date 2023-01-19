@@ -45,43 +45,6 @@ To run the app in the hot-reload mode (the app automatically reloads every time 
 shiny run --reload example
 ```
 
-## Deployment
-
-Shiny-for-Python allows easy deployment on RSConnect. First, make sure that the rsconnect CLI client is installed:
-
-```shell
-pip install rsconnect-python
-```
-
-First time configuration for the Appsilon team:
-
-```
-rsconnect add \
-    --name connect.appsilon.com \
-    --server https://connect.appsilon.com/ \
-    --key <Insert your API key>
-```
-
-This repository has a configured CD via git-backed deployment on RSConnect thanks to the _manifest.json_ file that can be found at the root level of this project. To generate this file, use the following command:
-
-```
-rsconnect write-manifest shiny \
-    --overwrite \
-    --entrypoint example \
-    --exclude "**/*.pyc" \
-    --exclude .DS_Store \
-    --exclude dist \
-    --exclude "*.egg-info" \
-    --exclude tests \
-    . # DIRECTORY
-```
-
-When developing a feature on a feature branch, you can make a manual deployment (it is recommended to delete such deployments after the feature is merged into main):
-
-```
-rsconnect deploy shiny --entrypoint example .
-```
-
 ## How to update the package
 
 This project leverages [bumpver](https://github.com/mbarkhau/bumpver) to handle package versioning. To make sure that `bumpver` works, run the following commands:
