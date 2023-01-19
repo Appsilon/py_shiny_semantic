@@ -18,6 +18,16 @@ The application is deployed on RSConnect and can be found at https://connect.app
 
 The structure of `shiny_semantic` follows the one of Fomantic UI -- this way users may easily refer to corresponding sections in the original documentation to learn about possible classes, styles and behaviors of the components.
 
+## How to install
+
+`shiny_semantic` is available from the official [PyPI distribution](https://pypi.org/project/shiny-semantic), and can be installed using pip. Please remember, that it is considered to be best practice to install packages in isolated virtual environments (see the next section).
+
+```
+pip install shiny_semantic
+```
+
+This will install both `shiny` and `shiny_semantic` - it is enough to start creating a Shiny application in Python.
+
 ## Development
 
 In this project we used only those python tools that already come with a standard python distribution and should be immediately available to the developers. For package management we used `pip`, for virtual environment we used `venv`, and for unit tests we used `unittest`.
