@@ -18,22 +18,6 @@ The application is deployed on RSConnect and can be found at https://connect.app
 
 The structure of `shiny_semantic` follows the one of Fomantic UI -- this way users may easily refer to corresponding sections in the original documentation to learn about possible classes, styles and behaviors of the components.
 
-## Repository structure
-
-- _.github_
-  - Github workflows to run CI using Github Actions.
-- _.vscode_
-  - Visual Studio Code specific settings and recommended extensions. Useful to ensure standardized code style in a dev team.
-- _example_
-  - Shiny application that is split into many shiny-modules, where each module represents one feature/component. This folder serves as an entry point for the Shiny app to run.
-- _shiny_semantic_
-  - Python package that implements the Fomantic components. The package's structure is similar to the underlying Fomantic library: all components are split into elements, collections, views and modules.
-  - Folders that are not from Fomantic are _tests_ for unit tests, _types_ for custom Python typings and _www_ for Shiny bindings (JS code) as well as static assets (Fomantic fonts, CSS and JS code).
-- _root-level files_
-  - _manifest.json_ - created with `rsconnect` to enable git-backed deployment
-  - _requirements.txt_ - generated with `pip freeze`, contains all project's dependencies along with their versions
-  - _README.md_ - this documentation file.
-
 ## Development
 
 In this project we used only those python tools that already come with a standard python distribution and should be immediately available to the developers. For package management we used `pip`, for virtual environment we used `venv`, and for unit tests we used `unittest`.
