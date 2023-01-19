@@ -45,7 +45,8 @@ To start development, run the following command:
 ```shell
 python -m venv .venv # creates virtual environment
 source .venv/bin/activate # activates virtual environment
-pip install -r requirements.txt # installs dependencies
+pip install shiny==0.2.9 # TODO: remove when shiny_semantic is published to PyPI
+pip install -e ".[dev]
 ```
 
 This project uses [pre-commit](https://pre-commit.com/) to ensure the quality of code style. Once the dependencies are restored, run the following command once:
@@ -86,7 +87,7 @@ rsconnect write-manifest shiny \
     --exclude "**/*.pyc" \
     --exclude .DS_Store \
     --exclude dist \
-    --exclude shiny_semantic.egg-info \
+    --exclude "*.egg-info" \
     --exclude tests \
     . # DIRECTORY
 ```
@@ -99,7 +100,7 @@ rsconnect deploy shiny --entrypoint example .
 
 ## How to update the package
 
-This project leverages [bumpver]() to handle package versioning. To make sure that `bumpver` works, run the following commands:
+This project leverages [bumpver](https://github.com/mbarkhau/bumpver) to handle package versioning. To make sure that `bumpver` works, run the following commands:
 
 ```shell
 pip install bumpver
