@@ -29,7 +29,6 @@ To start development, run the following command:
 ```shell
 python -m venv .venv # creates virtual environment
 source .venv/bin/activate # activates virtual environment
-pip install shiny==0.2.9 # TODO: remove when shiny_semantic is published to PyPI
 pip install -e ".[dev]
 ```
 
@@ -70,8 +69,7 @@ python -m build
 twine check dist/*
 
 # Currently, the package is publihsed by pavel.demin@appsilon.com
-# TODO: replace testpypi with the real pypi when the package is published
-twine upload -r testpypi dist/*
+twine upload dist/*
 ```
 
 ## How to update the Fomantic components
