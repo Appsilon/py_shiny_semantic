@@ -75,6 +75,10 @@ This command will change the abovementioned string versions, create a commit wit
 
 ```shell
 pip install build twine
+
+# It is best to remove local dist folder, so that `twine` is not confused on which version to use
+rm -rf dist
+
 python -m build
 twine check dist/*
 
