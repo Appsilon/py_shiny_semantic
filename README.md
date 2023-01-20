@@ -4,6 +4,15 @@
 
 _Create rich web applications in PyShiny using styles and components from Semantic UI._
 
+## Demo applications and examples
+
+- Semantic Components Showcase
+  - [Live Demo](https://connect.appsilon.com/py_shiny_semantic/)
+  - [Source Code](https://github.com/Appsilon/py_shiny_semantic_examples/tree/main/semantic-components)
+- T-Test Simulation Clone
+  - [Live Demo](https://connect.appsilon.com/py_shiny_ttest)
+  - [Source Code](https://github.com/Appsilon/py_shiny_semantic_examples/tree/main/semantic-ttest)
+
 ## About the project
 
 This is an early [Shiny-for-Python](https://shiny.rstudio.com/py/) implementation of [the official community fork of Semantic UI](https://fomantic-ui.com/).
