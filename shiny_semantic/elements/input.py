@@ -15,6 +15,7 @@ def semantic_input(
     type: str = "text",
     semantic_class: Optional[str] = None,
     semantic_label: Optional[str] = None,
+    semantic_label_class: Optional[str] = None,
     **kwargs: TagAttrArg,
 ):
     """Keyword arguments (**kwargs) include all html attributes
@@ -34,7 +35,10 @@ def semantic_input(
     # Define the label
     label_tag = None
     if semantic_label is not None:
-        label_tag = tags.div(semantic_label, class_="ui label")
+        label_tag = tags.div(
+            semantic_label,
+            class_=squash_whitespace(f"ui {semantic_label_class or ''} label"),
+        )
         semantic_class += " labeled"
 
     # Finalize & clean the div's class
