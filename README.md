@@ -1,6 +1,6 @@
 # Semantic UI in Shiny-for-Python
 
-[![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#alpha)
+![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)
 
 _Create rich web applications in PyShiny using styles and components from Semantic UI._
 
