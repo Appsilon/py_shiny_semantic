@@ -39,19 +39,19 @@
       "checksum": "9a6b9e47a907a4b581a7d3167857e0dd"
     },
     "README.md": {
-      "checksum": "b283b65ba49dbaf0fbc4a884cc0c0576"
+      "checksum": "74b11824163489e6e16a4e9b0bcd1649"
     },
     "example/__init__.py": {
       "checksum": "a0ff8d91e770939faa052a8087c7776a"
     },
     "example/_app_layout.py": {
-      "checksum": "5b424ff975d7cc9d8c22295e460a354b"
+      "checksum": "9f3d8d4d349ce03e650e2053218ce3a4"
     },
     "example/main.py": {
-      "checksum": "97da899b7d683f29b8742ac58696011a"
+      "checksum": "312f40beb93ed0b8179dbc9e5a601d07"
     },
     "example/modules/__init__.py": {
-      "checksum": "16633cacb2b8da2c778d495227506045"
+      "checksum": "af959801ae3f0fb76b392edb8ff3b155"
     },
     "example/modules/_feature_layout.py": {
       "checksum": "a0aff897a1b373f93d580a0b23bb031c"
@@ -86,14 +86,17 @@
     "example/modules/slider_module.py": {
       "checksum": "8d721f7c71f3000be537a628e5e5fe9e"
     },
+    "example/modules/statistic_module.py": {
+      "checksum": "f3fdc7bd140abb4af9e139661842e3b2"
+    },
     "pyproject.toml": {
-      "checksum": "b7b9258e228724c3624f584ad88dabaa"
+      "checksum": "c770e13e6a397e22741072ab8c0e062e"
     },
     "shiny_semantic/.DS_Store": {
       "checksum": "ab7eef11c467acd05a2f07d6b5ef3493"
     },
     "shiny_semantic/__init__.py": {
-      "checksum": "c4e44cf4a6df0f1b775f3dd05f081c6c"
+      "checksum": "a9b4b7efe8764e10c1696a30f03eb09a"
     },
     "shiny_semantic/_utils.py": {
       "checksum": "9718fbbbe4a1cd191e769e089e394776"
@@ -153,7 +156,10 @@
       "checksum": "f946017eab011e7874d6a82275bf0377"
     },
     "shiny_semantic/views/__init__.py": {
-      "checksum": "fbc3c1399e14adf6423f1854df77833a"
+      "checksum": "c37041a125c6aa89c81aee3ff86f2060"
+    },
+    "shiny_semantic/views/statistic.py": {
+      "checksum": "1d20854be83d135973495da1aa3373aa"
     },
     "shiny_semantic/www/.DS_Store": {
       "checksum": "194577a7e20bdcc7afbb718f502c134c"
