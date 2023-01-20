@@ -18,21 +18,15 @@ The application is deployed on RSConnect and can be found at https://connect.app
 
 The structure of `shiny_semantic` follows the one of Fomantic UI -- this way users may easily refer to corresponding sections in the original documentation to learn about possible classes, styles and behaviors of the components.
 
-## Repository structure
+## How to install
 
-- _.github_
-  - Github workflows to run CI using Github Actions.
-- _.vscode_
-  - Visual Studio Code specific settings and recommended extensions. Useful to ensure standardized code style in a dev team.
-- _example_
-  - Shiny application that is split into many shiny-modules, where each module represents one feature/component. This folder serves as an entry point for the Shiny app to run.
-- _shiny_semantic_
-  - Python package that implements the Fomantic components. The package's structure is similar to the underlying Fomantic library: all components are split into elements, collections, views and modules.
-  - Folders that are not from Fomantic are _tests_ for unit tests, _types_ for custom Python typings and _www_ for Shiny bindings (JS code) as well as static assets (Fomantic fonts, CSS and JS code).
-- _root-level files_
-  - _manifest.json_ - created with `rsconnect` to enable git-backed deployment
-  - _requirements.txt_ - generated with `pip freeze`, contains all project's dependencies along with their versions
-  - _README.md_ - this documentation file.
+`shiny_semantic` is available from the official [PyPI distribution](https://pypi.org/project/shiny-semantic), and can be installed using pip. Please remember, that it is considered to be best practice to install packages in isolated virtual environments (see the next section).
+
+```
+pip install shiny_semantic
+```
+
+This will install both `shiny` and `shiny_semantic` - it is enough to start creating a Shiny application in Python.
 
 ## Development
 
@@ -45,7 +39,6 @@ To start development, run the following command:
 ```shell
 python -m venv .venv # creates virtual environment
 source .venv/bin/activate # activates virtual environment
-pip install shiny==0.2.9 # TODO: remove when shiny_semantic is published to PyPI
 pip install -e ".[dev]
 ```
 
@@ -59,43 +52,6 @@ To run the app in the hot-reload mode (the app automatically reloads every time 
 
 ```
 shiny run --reload example
-```
-
-## Deployment
-
-Shiny-for-Python allows easy deployment on RSConnect. First, make sure that the rsconnect CLI client is installed:
-
-```shell
-pip install rsconnect-python
-```
-
-First time configuration for the Appsilon team:
-
-```
-rsconnect add \
-    --name connect.appsilon.com \
-    --server https://connect.appsilon.com/ \
-    --key <Insert your API key>
-```
-
-This repository has a configured CD via git-backed deployment on RSConnect thanks to the _manifest.json_ file that can be found at the root level of this project. To generate this file, use the following command:
-
-```
-rsconnect write-manifest shiny \
-    --overwrite \
-    --entrypoint example \
-    --exclude "**/*.pyc" \
-    --exclude .DS_Store \
-    --exclude dist \
-    --exclude "*.egg-info" \
-    --exclude tests \
-    . # DIRECTORY
-```
-
-When developing a feature on a feature branch, you can make a manual deployment (it is recommended to delete such deployments after the feature is merged into main):
-
-```
-rsconnect deploy shiny --entrypoint example .
 ```
 
 ## How to update the package
@@ -119,12 +75,15 @@ This command will change the abovementioned string versions, create a commit wit
 
 ```shell
 pip install build twine
+
+# It is best to remove local dist folder, so that `twine` is not confused on which version to use
+rm -rf dist
+
 python -m build
 twine check dist/*
 
-# Currently, the package is publihsed by pavel.demin@appsilon.com
-# TODO: replace testpypi with the real pypi when the package is published
-twine upload -r testpypi dist/*
+# Currently, the package is published by pavel.demin@appsilon.com
+twine upload dist/*
 ```
 
 ## How to update the Fomantic components
