@@ -8,11 +8,6 @@ from shiny_semantic._utils import squash_whitespace
 
 def semantic_input(
     id: str,
-    # FIXME: adding label param to match Shiny API.
-    # Should be revised -- is probably resolved, when
-    # a shiny-like `shiny_semantic.elements.input_text()`
-    # is created.
-    label=None,
     value: Union[str, float] = "",
     *,
     placeholder: Optional[str] = "",
