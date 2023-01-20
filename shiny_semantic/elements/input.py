@@ -17,7 +17,7 @@ def semantic_input(
     semantic_label: Optional[str] = None,
     **kwargs: TagAttrArg,
 ):
-    """Keword arguments (**kwargs) include all html attributes
+    """Keyword arguments (**kwargs) include all html attributes
     relevant to the input tag, including, for example, `min`, `max` and `step`
     in case of input type="number", as well as `class_` that is passed directly
     to the input tag, as opposed to the `semantic_class` that is passed to the
