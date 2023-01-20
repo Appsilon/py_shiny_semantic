@@ -37,6 +37,25 @@ class TestInput(unittest.TestCase):
         self.assertTrue(expected_html_5 in html)
         self.assertTrue(expected_html_6 in html)
 
+    def test_custom_label(self):
+        expected_html = (
+            '<div class="ui labeled input">\n'
+            '  <div class="ui orange label">hello</div>\n'
+            '  <input id="custom_label" type="text" value="world" placeholder=""/>\n'
+            "</div>"
+        )
+
+        element = semantic_input(
+            id="custom_label",
+            value="world",
+            semantic_label="hello",
+            semantic_label_class="orange",
+        )
+
+        html = element.get_html_string()
+
+        self.assertTrue(expected_html in html)
+
 
 if __name__ == "__main__":
     unittest.main()
