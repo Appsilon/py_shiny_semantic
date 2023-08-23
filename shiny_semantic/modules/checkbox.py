@@ -88,7 +88,7 @@ def checkbox_group(
 
     This function generates a group of checkboxes, allowing users to select one or
     more options. It creates a styled UI form for the checkboxes with a common label.
-    
+
     Args:
         id (str): Unique identifier for the checkbox group.
         label (str): The label text displayed above the checkbox group.
@@ -179,10 +179,13 @@ def update_checkbox(
 
     Args:
         id (str): The unique identifier of the checkbox input widget to be updated.
-        label (str, optional): New label text for the checkbox. If not provided, the label remains unchanged.
-        value (bool, optional): New value for the checkbox (True or False). If not provided, the value remains unchanged.
-        session (Session, optional): The Shiny application session to which the checkbox belongs.
-                                    If not provided, an active session is required and will be obtained.
+        label (str, optional): New label text for the checkbox. If not provided,
+        the label remains unchanged.
+        value (bool, optional): New value for the checkbox (True or False).
+        If not provided, the value remains unchanged.
+        session (Session, optional): The Shiny application session to which
+        the checkbox belongs. If not provided,
+        an active session is required and will be obtained.
 
     Returns:
         None
@@ -221,11 +224,15 @@ def update_checkbox_group(
 
     Args:
         id (str): The identifier of the checkbox group input element.
-        labels (List[str], optional): List of text labels for the checkboxes. Default is None.
-        values (List[bool], optional): List of boolean values indicating checkbox states. Default is None.
-        group_label (str, optional): Optional label for the entire group of checkboxes. Default is None.
-        session (Session, optional): The Shiny app session to which the update message will be sent.
-            If not provided, an active session is required. Default is None.
+        labels (List[str], optional): List of text labels for the checkboxes.
+        Default is None.
+        values (List[bool], optional): List of boolean values indicating checkbox states.
+        Default is None.
+        group_label (str, optional): Optional label for the entire group of checkboxes.
+        Default is None.
+        session (Session, optional): The Shiny app session to which the update
+        message will be sent. If not provided, an active session is required.
+        Default is None.
 
     Returns:
         None

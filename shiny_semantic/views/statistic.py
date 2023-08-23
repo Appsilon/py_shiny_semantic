@@ -16,16 +16,23 @@ def statistic(
     """
     Generate a statistic element with a value and label.
 
-    This function creates an HTML statistic element with a provided value and label. The statistic element
-    is structured as a container consisting of a value and label, which can be arranged in different orders.
-    
+    This function creates an HTML statistic element with a provided
+    value and label. The statistic element
+    is structured as a container consisting of a value and label,
+    which can be arranged in different orders.
+
     Args:
-        value (TagChildArg): The HTML content representing the value to be displayed in the statistic.
-        label (str): The label associated with the value, providing context or description.
-        value_first (bool, optional): If True, the value is displayed above the label. If False, the label
-            is displayed above the value. Defaults to True.
-        class_ (str, optional): Additional CSS class(es) to be added to the statistic element.
-        **kwargs (TagAttrArg): Additional HTML attributes to be included in the <div> tag.
+        value (TagChildArg): The HTML content representing the value
+        to be displayed in the statistic.
+        label (str): The label associated with the value,
+        providing context or description.
+        value_first (bool, optional): If True,
+        the value is displayed above the label. If False,
+        the label is displayed above the value. Defaults to True.
+        class_ (str, optional): Additional CSS class(es) to be added
+        to the statistic element.
+        **kwargs (TagAttrArg): Additional HTML attributes to be included
+        in the <div> tag.
 
     Returns:
         str: A string representing the generated HTML statistic element.

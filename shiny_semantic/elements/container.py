@@ -13,14 +13,19 @@ def container(
     """
     Create a container HTML element with optional classes and attributes.
 
-    This function generates an HTML <div> element with the specified content elements as children.
-    It can be used to encapsulate content within a container, often used in web design frameworks.
-    
+    This function generates an HTML <div> element with the specified
+    content elements as children.
+    It can be used to encapsulate content within a container, often used
+    in web design frameworks.
+
     Args:
-        *children (TagChildArg): Variable number of content elements to be included inside the container.
-        class_ (str, optional): Additional classes to be added to the container's class attribute.
+        *children (TagChildArg): Variable number of content elements
+        to be included inside the container.
+        class_ (str, optional): Additional classes to be added
+        to the container's class attribute.
             Default is None.
-        **kwargs (TagAttrArg): Additional attributes to be added to the container element.
+        **kwargs (TagAttrArg): Additional attributes to be added
+        to the container element.
 
     Returns:
         str: A string representing the generated HTML container element.
